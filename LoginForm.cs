@@ -23,5 +23,10 @@ namespace CMS_Revised
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void loginSignupSwitcher1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

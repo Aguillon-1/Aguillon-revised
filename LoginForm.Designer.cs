@@ -38,7 +38,9 @@
             CMSlabel = new Label();
             pictureBox1 = new PictureBox();
             LoginSignupPanel = new Panel();
-            loginInterface1 = new LoginInterface();
+            loginInterface = new LoginInterface();
+            SwitcherPanel = new Panel();
+            loginSignupSwitcher1 = new LoginSignupSwitcher();
             TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MainSplitContainer).BeginInit();
             MainSplitContainer.Panel1.SuspendLayout();
@@ -47,6 +49,7 @@
             BrandingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             LoginSignupPanel.SuspendLayout();
+            SwitcherPanel.SuspendLayout();
             SuspendLayout();
             // 
             // TopPanel
@@ -149,20 +152,39 @@
             // 
             // LoginSignupPanel
             // 
-            LoginSignupPanel.Controls.Add(loginInterface1);
+            LoginSignupPanel.Controls.Add(loginInterface);
+            LoginSignupPanel.Controls.Add(SwitcherPanel);
             LoginSignupPanel.Dock = DockStyle.Fill;
             LoginSignupPanel.Location = new Point(0, 0);
             LoginSignupPanel.Name = "LoginSignupPanel";
             LoginSignupPanel.Size = new Size(675, 616);
             LoginSignupPanel.TabIndex = 0;
             // 
-            // loginInterface1
+            // loginInterface
             // 
-            loginInterface1.Dock = DockStyle.Fill;
-            loginInterface1.Location = new Point(0, 0);
-            loginInterface1.Name = "loginInterface1";
-            loginInterface1.Size = new Size(675, 616);
-            loginInterface1.TabIndex = 0;
+            loginInterface.Dock = DockStyle.Fill;
+            loginInterface.Location = new Point(0, 66);
+            loginInterface.Name = "loginInterface";
+            loginInterface.Size = new Size(675, 550);
+            loginInterface.TabIndex = 0;
+            // 
+            // SwitcherPanel
+            // 
+            SwitcherPanel.Controls.Add(loginSignupSwitcher1);
+            SwitcherPanel.Dock = DockStyle.Top;
+            SwitcherPanel.Location = new Point(0, 0);
+            SwitcherPanel.Name = "SwitcherPanel";
+            SwitcherPanel.Size = new Size(675, 66);
+            SwitcherPanel.TabIndex = 1;
+            // 
+            // loginSignupSwitcher1
+            // 
+            loginSignupSwitcher1.Dock = DockStyle.Fill;
+            loginSignupSwitcher1.Location = new Point(0, 0);
+            loginSignupSwitcher1.Name = "loginSignupSwitcher1";
+            loginSignupSwitcher1.Size = new Size(675, 66);
+            loginSignupSwitcher1.TabIndex = 0;
+            loginSignupSwitcher1.Load += loginSignupSwitcher1_Load;
             // 
             // LoginForm
             // 
@@ -187,6 +209,7 @@
             BrandingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             LoginSignupPanel.ResumeLayout(false);
+            SwitcherPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -201,6 +224,8 @@
         private Label CMSlabel;
         private PictureBox pictureBox1;
         private Panel LoginSignupPanel;
-        private LoginInterface loginInterface1;
+        private LoginInterface loginInterface;
+        private Panel SwitcherPanel;
+        private LoginSignupSwitcher loginSignupSwitcher1;
     }
 }

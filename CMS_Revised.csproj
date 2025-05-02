@@ -6,11 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Classroom Management System.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Classroom Management System.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Classroom Management System.ico" />
+    <Content Include="Resources\Classroom Management System.ico" />
   </ItemGroup>
 
   <ItemGroup>
