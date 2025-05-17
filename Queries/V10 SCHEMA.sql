@@ -2415,6 +2415,10 @@ BEGIN CATCH
 END CATCH
 GO
 
+-- Add last_login column to users table (nullable, defaults to NULL)
+ALTER TABLE users
+ADD last_login DATETIME NULL;
+
 -- =========== FINAL SYSTEM SUMMARY ===========
 
 PRINT '======================================================================';

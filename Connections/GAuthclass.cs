@@ -1,46 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Text;
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Oauth2.v2;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
-using static System.Collections.Specialized.BitVector32;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Microsoft.Data.SqlClient;
 
 namespace CMS_Revised.Connections
 {
+    public class GoogleUserInfo
+    {
+        public required string Email { get; set; }
+        public required string Name { get; set; }
+    }
+
     class GAuthclass
     {
-        public async Task callGAuthAsync()
+        private static readonly string DataStorePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+        private static readonly string UserIdFile = Path.Combine(DataStorePath, "last_user.txt");
+
+        // Try auto-login: returns user info if credentials and DB last_login are valid, else null
+
+        // Helper to get saved credential for a user
+        private static async Task<UserCredential> GetSavedCredentialAsync(string userId)
         {
-            Debug.WriteLine("GAUTH STARTED");
+            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Connections", "GAuth.json");
+            using (var stream = new FileStream(jsonPath, FileMode.Open, FileAccess.Read))
+            {
+                return await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.FromStream(stream).Secrets,
+                    new[] { "https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile" },
+                    userId,
+                    CancellationToken.None,
+                    new FileDataStore(DataStorePath)
+                );
+            }
+        }
+
+        // Standard login flow, always updates last_login and saves userId
+        public async Task<GoogleUserInfo> GetGoogleUserInfoAsync(Action<string> statusCallback)
+        {
+            statusCallback?.Invoke("Starting Google authentication...");
             string[] scopes = new string[] {
-                    "https://www.googleapis.com/auth/userinfo.email",
-                    "https://www.googleapis.com/auth/userinfo.profile",
-                };
+                "https://www.googleapis.com/auth/userinfo.email",
+                "https://www.googleapis.com/auth/userinfo.profile",
+            };
 
             UserCredential credential;
-
-            using (var stream = new FileStream("GAuth.json", FileMode.Open, FileAccess.Read))
+            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Connections", "GAuth.json");
+            using (var stream = new FileStream(jsonPath, FileMode.Open, FileAccess.Read))
             {
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.FromStream(stream).Secrets,
                     scopes,
-                    "user",
+                    "user", // always use "user" for this device
                     CancellationToken.None,
-                    new FileDataStore("Data")
+                    new FileDataStore(DataStorePath)
                 );
             }
 
-            // Now you can use the credential to make API calls
-            // For example, to get user information:
             var oauth2Service = new Oauth2Service(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
@@ -49,16 +69,38 @@ namespace CMS_Revised.Connections
 
             var userInfo = await oauth2Service.Userinfo.Get().ExecuteAsync();
 
-            var userEmail = userInfo.Email;
-            var userName = userInfo.Name;
+            // Save userId for auto-login
+            Directory.CreateDirectory(DataStorePath);
+            File.WriteAllText(UserIdFile, userInfo.Email);
 
-            DatabaseConn.GetConnection();
+            // Update last_login in DB
+            using (var conn = DatabaseConn.GetConnection())
+            {
+                await conn.OpenAsync();
+                using (var cmd = new SqlCommand("UPDATE users SET last_login = @Now WHERE email = @Email", conn))
+                {
+                    cmd.Parameters.AddWithValue("@Now", DateTime.UtcNow);
+                    cmd.Parameters.AddWithValue("@Email", userInfo.Email);
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
 
-            // Display the user information
-            MessageBox.Show($"\nEmail: {userEmail}\nName: {userName}");
+            statusCallback?.Invoke("Google authentication complete. Fetching user info...");
+            return new GoogleUserInfo
+            {
+                Email = userInfo.Email,
+                Name = userInfo.Name
+            };
+        }
 
-            InsertionQueries insertionqueries = new InsertionQueries();
-            insertionqueries.InsertDatafromgoogle(userName, userEmail);
+        // For testing logout: clear Google credentials and userId
+        public static async Task ClearGoogleCredentialsAsync()
+        {
+            if (Directory.Exists(DataStorePath))
+            {
+                Directory.Delete(DataStorePath, true);
+            }
+            await Task.CompletedTask;
         }
     }
 }

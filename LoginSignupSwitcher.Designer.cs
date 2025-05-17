@@ -44,13 +44,14 @@
             // 
             // SwitchtoSignupButton
             // 
+            SwitchtoSignupButton.BackColor = SystemColors.ControlDarkDark;
             SwitchtoSignupButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             SwitchtoSignupButton.Location = new Point(358, 23);
             SwitchtoSignupButton.Name = "SwitchtoSignupButton";
             SwitchtoSignupButton.Size = new Size(146, 43);
             SwitchtoSignupButton.TabIndex = 1;
             SwitchtoSignupButton.Text = "Signup";
-            SwitchtoSignupButton.UseVisualStyleBackColor = true;
+            SwitchtoSignupButton.UseVisualStyleBackColor = false;
             // 
             // LoginSignupSwitcher
             // 

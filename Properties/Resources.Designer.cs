@@ -63,6 +63,16 @@ namespace CMS_Revised.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Classroom_Management_System {
+            get {
+                object obj = ResourceManager.GetObject("Classroom Management System", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Classroom_Management_System__1_ {
             get {
                 object obj = ResourceManager.GetObject("Classroom Management System (1)", resourceCulture);

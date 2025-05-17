@@ -38,7 +38,7 @@
             CMSlabel = new Label();
             pictureBox1 = new PictureBox();
             LoginSignupPanel = new Panel();
-            loginInterface = new LoginInterface();
+            login_Interface1 = new Login_Interface();
             SwitcherPanel = new Panel();
             loginSignupSwitcher1 = new LoginSignupSwitcher();
             TopPanel.SuspendLayout();
@@ -152,7 +152,7 @@
             // 
             // LoginSignupPanel
             // 
-            LoginSignupPanel.Controls.Add(loginInterface);
+            LoginSignupPanel.Controls.Add(login_Interface1);
             LoginSignupPanel.Controls.Add(SwitcherPanel);
             LoginSignupPanel.Dock = DockStyle.Fill;
             LoginSignupPanel.Location = new Point(0, 0);
@@ -160,13 +160,14 @@
             LoginSignupPanel.Size = new Size(675, 639);
             LoginSignupPanel.TabIndex = 0;
             // 
-            // loginInterface
+            // login_Interface1
             // 
-            loginInterface.Dock = DockStyle.Fill;
-            loginInterface.Location = new Point(0, 66);
-            loginInterface.Name = "loginInterface";
-            loginInterface.Size = new Size(675, 573);
-            loginInterface.TabIndex = 0;
+            login_Interface1.BackColor = SystemColors.ButtonHighlight;
+            login_Interface1.Dock = DockStyle.Fill;
+            login_Interface1.Location = new Point(0, 66);
+            login_Interface1.Name = "login_Interface1";
+            login_Interface1.Size = new Size(675, 573);
+            login_Interface1.TabIndex = 2;
             // 
             // SwitcherPanel
             // 
@@ -198,7 +199,6 @@
             MaximumSize = new Size(1200, 700);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            TopMost = true;
             Load += LoginForm_Load;
             TopPanel.ResumeLayout(false);
             MainSplitContainer.Panel1.ResumeLayout(false);
@@ -224,8 +224,8 @@
         private Label CMSlabel;
         private PictureBox pictureBox1;
         private Panel LoginSignupPanel;
-        private LoginInterface loginInterface;
         private Panel SwitcherPanel;
         private LoginSignupSwitcher loginSignupSwitcher1;
+        private Login_Interface login_Interface1;
     }
 }
