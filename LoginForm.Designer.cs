@@ -105,7 +105,7 @@
             // MainSplitContainer.Panel2
             // 
             MainSplitContainer.Panel2.Controls.Add(LoginSignupPanel);
-            MainSplitContainer.Size = new Size(1184, 616);
+            MainSplitContainer.Size = new Size(1184, 639);
             MainSplitContainer.SplitterDistance = 505;
             MainSplitContainer.TabIndex = 1;
             // 
@@ -117,7 +117,7 @@
             BrandingPanel.Dock = DockStyle.Fill;
             BrandingPanel.Location = new Point(0, 0);
             BrandingPanel.Name = "BrandingPanel";
-            BrandingPanel.Size = new Size(505, 616);
+            BrandingPanel.Size = new Size(505, 639);
             BrandingPanel.TabIndex = 0;
             // 
             // CMSdescrptionlabel
@@ -157,7 +157,7 @@
             LoginSignupPanel.Dock = DockStyle.Fill;
             LoginSignupPanel.Location = new Point(0, 0);
             LoginSignupPanel.Name = "LoginSignupPanel";
-            LoginSignupPanel.Size = new Size(675, 616);
+            LoginSignupPanel.Size = new Size(675, 639);
             LoginSignupPanel.TabIndex = 0;
             // 
             // loginInterface
@@ -165,7 +165,7 @@
             loginInterface.Dock = DockStyle.Fill;
             loginInterface.Location = new Point(0, 66);
             loginInterface.Name = "loginInterface";
-            loginInterface.Size = new Size(675, 550);
+            loginInterface.Size = new Size(675, 573);
             loginInterface.TabIndex = 0;
             // 
             // SwitcherPanel
@@ -190,7 +190,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 661);
+            ClientSize = new Size(1184, 684);
             ControlBox = false;
             Controls.Add(MainSplitContainer);
             Controls.Add(TopPanel);
