@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Admin Interface\" />
-    <Folder Include="User Interface\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -74,11 +74,12 @@
             // MenuLogoutButton
             // 
             MenuLogoutButton.Dock = DockStyle.Bottom;
-            MenuLogoutButton.Location = new Point(0, 637);
+            MenuLogoutButton.Location = new Point(0, 639);
             MenuLogoutButton.Name = "MenuLogoutButton";
-            MenuLogoutButton.Size = new Size(225, 57);
-            MenuLogoutButton.TabIndex = 0;
+            MenuLogoutButton.Size = new Size(225, 55);
+            MenuLogoutButton.TabIndex = 7;
             MenuLogoutButton.Text = "Logout";
+            MenuLogoutButton.UseVisualStyleBackColor = true;
             // 
             // MenuNotesButton
             // 
