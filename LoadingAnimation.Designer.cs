@@ -2,15 +2,8 @@
 {
     partial class LoadingAnimation
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,43 +13,37 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            CMSLoading = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)CMSLoading).BeginInit();
-            SuspendLayout();
+            this.CMSLoading = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.CMSLoading)).BeginInit();
+            this.SuspendLayout();
             // 
             // CMSLoading
             // 
-            CMSLoading.Image = Properties.Resources.Classroom_Management_System;
-            CMSLoading.Location = new Point(23, 12);
-            CMSLoading.Name = "CMSLoading";
-            CMSLoading.Size = new Size(134, 126);
-            CMSLoading.SizeMode = PictureBoxSizeMode.StretchImage;
-            CMSLoading.TabIndex = 0;
-            CMSLoading.TabStop = false;
+            this.CMSLoading.Image = global::CMS_Revised.Properties.Resources.Classroom_Management_System;
+            this.CMSLoading.Location = new System.Drawing.Point(23, 12);
+            this.CMSLoading.Name = "CMSLoading";
+            this.CMSLoading.Size = new System.Drawing.Size(134, 126);
+            this.CMSLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CMSLoading.TabIndex = 0;
+            this.CMSLoading.TabStop = false;
             // 
             // LoadingAnimation
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(184, 161);
-            ControlBox = false;
-            Controls.Add(CMSLoading);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "LoadingAnimation";
-            ((System.ComponentModel.ISupportInitialize)CMSLoading).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.CMSLoading);
+            this.Name = "LoadingAnimation";
+            this.Size = new System.Drawing.Size(184, 161);
+            ((System.ComponentModel.ISupportInitialize)(this.CMSLoading)).EndInit();
+            this.ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox CMSLoading;
+        private System.Windows.Forms.PictureBox CMSLoading;
     }
 }

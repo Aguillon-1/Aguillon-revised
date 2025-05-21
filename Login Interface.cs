@@ -18,13 +18,11 @@ namespace CMS_Revised
         {
             InitializeComponent();
             GoogleButton.Click += GoogleButton_Click;
-            
         }
 
         private void GoogleButton_Click(object? sender, EventArgs e)
         {
             var statusDialog = new StatusDialog();
-            LoadingAnimation? loading = null;
 
             // Show the dialog modally (this keeps the UI responsive)
             statusDialog.Shown += async (s, args) =>
@@ -32,11 +30,6 @@ namespace CMS_Revised
                 try
                 {
                     statusDialog.UpdateStatus("Login initiated...");
-
-                    // Show loading animation on UI thread
-                    loading = new LoadingAnimation();
-                    loading.SpinSpeed = 5; // You can adjust the speed here
-                    loading.Show();
 
                     // Check if user previously logged out and needs a fresh login
                     bool forceNewLogin = File.Exists(LogoutFlagPath);
@@ -145,25 +138,6 @@ namespace CMS_Revised
                     statusDialog.UpdateStatus("");
                     statusDialog.UpdateStatus("All operations completed successfully.");
 
-                    // Hide loading animation after 3 seconds
-                    if (loading != null)
-                    {
-                        await Task.Delay(3000);
-                        if (loading.IsHandleCreated)
-                        {
-                            loading.BeginInvoke(new Action(() =>
-                            {
-                                loading.StopSpin();
-                                loading.Close();
-                            }));
-                        }
-                        else
-                        {
-                            loading.StopSpin();
-                            loading.Close();
-                        }
-                    }
-
                     // Show logout prompt on the UI thread
                     if (statusDialog.IsHandleCreated)
                     {
@@ -189,22 +163,6 @@ namespace CMS_Revised
                 }
                 catch (Exception ex)
                 {
-                    if (loading != null)
-                    {
-                        if (loading.IsHandleCreated)
-                        {
-                            loading.Invoke(new Action(() =>
-                            {
-                                loading.StopSpin();
-                                loading.Close();
-                            }));
-                        }
-                        else
-                        {
-                            loading.StopSpin();
-                            loading.Close();
-                        }
-                    }
                     statusDialog.UpdateStatus("Error: " + ex.Message);
                     statusDialog.EnableLogout();
                 }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace CMS_Revised
 {
-    public partial class LoadingAnimation : Form
+    public partial class LoadingAnimation : UserControl
     {
         private CancellationTokenSource? _cts;
         private float _angle = 0f;
@@ -21,31 +21,21 @@ namespace CMS_Revised
         public LoadingAnimation()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.ShowInTaskbar = false;
-            this.TopMost = true;
-            this.BackColor = Color.White;
-            CMSLoading.Paint += CMSLoading_Paint; // Ensure this is set
-            // Optionally set the image here if not set in designer
-            // CMSLoading.Image = ...;
+            this.Visible = false; // Start hidden
+            CMSLoading.Paint += CMSLoading_Paint;
         }
 
-        protected override void OnShown(EventArgs e)
+        public void StartSpin()
         {
-            base.OnShown(e);
-            StartSpinAsync();
-        }
-
-        public async void StartSpinAsync()
-        {
+            this.Visible = true;
             _cts = new CancellationTokenSource();
-            await SpinLoop(_cts.Token);
+            _ = SpinLoop(_cts.Token);
         }
 
         public void StopSpin()
         {
             _cts?.Cancel();
+            this.Visible = false;
         }
 
         private async Task SpinLoop(CancellationToken token)
@@ -62,7 +52,7 @@ namespace CMS_Revised
             }
             catch (TaskCanceledException)
             {
-                // Suppress, this is expected on cancellation
+                // Suppress: expected on cancellation
             }
         }
 
