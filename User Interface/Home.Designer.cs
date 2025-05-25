@@ -32,10 +32,6 @@
             label7 = new Label();
             label6 = new Label();
             label4 = new Label();
-            label5 = new Label();
-            HomeStatusLabel = new Label();
-            HomeCourseLabel = new Label();
-            HomeStudentnoLabel = new Label();
             HomeNameLabel = new Label();
             pictureBox1 = new PictureBox();
             WelcomeLabel = new Label();
@@ -58,7 +54,7 @@
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(label5);
+            panel1.Controls.Add(HomeNameLabel);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(WelcomeLabel);
             panel1.Location = new Point(28, 44);
@@ -96,15 +92,15 @@
             label4.TabIndex = 4;
             label4.Text = "Student Number:";
             // 
-            // label5
+            // HomeNameLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(533, 29);
-            label5.Name = "label5";
-            label5.Size = new Size(73, 25);
-            label5.TabIndex = 3;
-            label5.Text = "Name:";
+            HomeNameLabel.AutoSize = true;
+            HomeNameLabel.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            HomeNameLabel.Location = new Point(533, 29);
+            HomeNameLabel.Name = "HomeNameLabel";
+            HomeNameLabel.Size = new Size(73, 25);
+            HomeNameLabel.TabIndex = 3;
+            HomeNameLabel.Text = "Name:";
             // 
             // pictureBox1
             // 
@@ -214,7 +210,7 @@
         private Label label2;
         private Panel panel4;
         private Label label3;
-        private Label label5;
+        private Label HomeNameLabel;
         private PictureBox pictureBox1;
         private Label WelcomeLabel;
         private Label label6;
