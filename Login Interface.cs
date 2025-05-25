@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using CMS_Revised.Connections;
 using Microsoft.Data.SqlClient;
 using System.IO;
+using CMS_Revised.User_Interface;
 
 namespace CMS_Revised
 {
@@ -23,23 +24,19 @@ namespace CMS_Revised
         private void GoogleButton_Click(object? sender, EventArgs e)
         {
             var statusDialog = new StatusDialog();
+            statusDialog.Show(); // Show modelessly
 
-            // Show the dialog modally (this keeps the UI responsive)
             statusDialog.Shown += async (s, args) =>
             {
                 try
                 {
                     statusDialog.UpdateStatus("Login initiated...");
 
-                    // Check if user previously logged out and needs a fresh login
                     bool forceNewLogin = File.Exists(LogoutFlagPath);
-
                     if (forceNewLogin)
                     {
                         statusDialog.UpdateStatus("Previous logout detected. Clearing any saved credentials...");
                         await GAuthclass.ClearGoogleCredentialsAsync();
-
-                        // Delete the flag file after clearing credentials
                         try
                         {
                             File.Delete(LogoutFlagPath);
@@ -93,14 +90,19 @@ namespace CMS_Revised
 
                     statusDialog.UpdateStatus("Checking if user already exists in the database...");
                     bool userExists = false;
+                    int userId = -1;
                     using (var conn = DatabaseConn.GetConnection())
                     {
                         await conn.OpenAsync();
-                        using (var cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = @Email", conn))
+                        using (var cmd = new SqlCommand("SELECT user_id FROM users WHERE email = @Email", conn))
                         {
                             cmd.Parameters.AddWithValue("@Email", userInfo.Email);
-                            int count = (int)await cmd.ExecuteScalarAsync();
-                            userExists = count > 0;
+                            var result = await cmd.ExecuteScalarAsync();
+                            if (result != null && result != DBNull.Value)
+                            {
+                                userExists = true;
+                                userId = Convert.ToInt32(result);
+                            }
                         }
                     }
 
@@ -116,6 +118,7 @@ namespace CMS_Revised
                             await conn.OpenAsync();
                             using (var cmd = new SqlCommand(
                                 "INSERT INTO users (username, password_hash, email, first_name, middle_name, last_name, user_type, created_at) " +
+                                "OUTPUT INSERTED.user_id " +
                                 "VALUES (@Username, @PasswordHash, @Email, @FirstName, @MiddleName, @LastName, @UserType, GETDATE())", conn))
                             {
                                 cmd.Parameters.AddWithValue("@Username", userInfo.Email);
@@ -126,40 +129,39 @@ namespace CMS_Revised
                                 cmd.Parameters.AddWithValue("@LastName", lastName);
                                 cmd.Parameters.AddWithValue("@UserType", "Student");
 
-                                int rows = await cmd.ExecuteNonQueryAsync();
-                                if (rows > 0)
+                                var result = await cmd.ExecuteScalarAsync();
+                                if (result != null && result != DBNull.Value)
+                                {
+                                    userId = Convert.ToInt32(result);
                                     statusDialog.UpdateStatus("User inserted successfully.");
+                                }
                                 else
+                                {
                                     statusDialog.UpdateStatus("Failed to insert user.");
+                                }
                             }
                         }
                     }
 
                     statusDialog.UpdateStatus("");
                     statusDialog.UpdateStatus("All operations completed successfully.");
+                    statusDialog.UpdateStatus("Hiding LoginForm...");
+                    statusDialog.UpdateStatus("Opening MainForm...");
 
-                    // Show logout prompt on the UI thread
-                    if (statusDialog.IsHandleCreated)
+                    // Open MainForm and hide LoginForm (do not close)
+                    Form? parentForm = this.ParentForm;
+                    if (parentForm is LoginForm loginForm)
                     {
-                        statusDialog.Invoke(new Action(() =>
-                        {
-                            var result = MessageBox.Show(
-                                "Do you want to logout now?",
-                                "Logout Confirmation",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question
-                            );
-                            if (result == DialogResult.Yes)
-                            {
-                                // Call the public logout method
-                                statusDialog.Logout();
-                            }
-                            else
-                            {
-                                statusDialog.UpdateStatus("You are still logged in. You can test another account.");
-                            }
-                        }));
+                        MainForm mainForm = new MainForm(userId, userInfo.Email, userInfo.Name); // Pass all info
+                        mainForm.Show();
+                        loginForm.Hide();
+                        statusDialog.UpdateStatus("MainForm opened. User is logged in.");
+                        statusDialog.UpdateStatus($"User ID: {userId}");
+                        statusDialog.UpdateStatus($"User Email: {userInfo.Email}");
+                        statusDialog.UpdateStatus($"User Name: {userInfo.Name}");
                     }
+
+                    statusDialog.EnableLogout();
                 }
                 catch (Exception ex)
                 {
@@ -167,8 +169,6 @@ namespace CMS_Revised
                     statusDialog.EnableLogout();
                 }
             };
-
-            statusDialog.ShowDialog();
         }
     }
 
@@ -242,36 +242,28 @@ namespace CMS_Revised
         // Public method to trigger logout logic
         public void Logout()
         {
-            // Run logout logic on the UI thread
             if (InvokeRequired)
             {
                 if (IsHandleCreated)
                     Invoke(new Action(Logout));
                 return;
             }
-            // Call the async logout logic
             _ = LogoutAsync();
         }
 
-        // Async logout logic
         private async Task LogoutAsync()
         {
             try
             {
-                // Clear Google credentials to force new login on next attempt
                 await GAuthclass.ClearGoogleCredentialsAsync();
 
-                // Create a flag file to indicate logout
                 try
                 {
-                    // Ensure Data directory exists
                     string dataDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
                     if (!Directory.Exists(dataDir))
                     {
                         Directory.CreateDirectory(dataDir);
                     }
-
-                    // Create the flag file
                     File.WriteAllText(LogoutFlagPath, DateTime.Now.ToString());
                     UpdateStatus("Logout flag set. Next login will require account selection.");
                 }
