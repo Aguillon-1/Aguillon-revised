@@ -154,11 +154,15 @@ namespace CMS_Revised
                     {
                         MainForm mainForm = new MainForm(userId, userInfo.Email, userInfo.Name); // Pass all info
                         mainForm.Show();
-                        loginForm.Hide();
                         statusDialog.UpdateStatus("MainForm opened. User is logged in.");
                         statusDialog.UpdateStatus($"User ID: {userId}");
                         statusDialog.UpdateStatus($"User Email: {userInfo.Email}");
                         statusDialog.UpdateStatus($"User Name: {userInfo.Name}");
+
+                        // Close the form instead of hiding it - but do this after MainForm is shown
+                        loginForm.FormClosing -= LoginForm_FormClosing; // Remove handler if it exists
+                        loginForm.FormClosing += LoginForm_FormClosing; // Add custom handler
+                        loginForm.Close();
                     }
 
                     statusDialog.EnableLogout();
@@ -170,7 +174,19 @@ namespace CMS_Revised
                 }
             };
         }
+
+        private void LoginForm_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            // Prevent the default close behavior only if MainForm is already open
+            if (Application.OpenForms.OfType<MainForm>().Any())
+            {
+                // Don't exit the application, just close this form
+                e.Cancel = false; // Allow the form to close
+            }
+        }
     }
+
+
 
     public class StatusDialog : Form
     {
@@ -281,4 +297,5 @@ namespace CMS_Revised
             Close();
         }
     }
+
 }

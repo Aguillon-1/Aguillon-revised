@@ -21,7 +21,7 @@ namespace CMS_Revised
             };
 
             // Create and show the login form
-            var loginForm = new Admin.Admin();
+            var loginForm = new LoginForm();
             loginForm.Show();
 
             // Start the message loop without a main form
