@@ -12,7 +12,20 @@ namespace CMS_Revised
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Admin.Admin());
+
+            // Set up error handling for the application
+            Application.ThreadException += (sender, args) =>
+            {
+                MessageBox.Show($"An error occurred: {args.Exception.Message}",
+                    "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
+
+            // Create and show the login form
+            var loginForm = new LoginForm();
+            loginForm.Show();
+
+            // Start the message loop without a main form
+            Application.Run();
         }
     }
 }
