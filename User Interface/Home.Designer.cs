@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label7 = new Label();
-            label6 = new Label();
-            label4 = new Label();
+            HomeStatusLabel = new Label();
+            HomeCourseLabel = new Label();
+            HomeStudentnoLabel = new Label();
             HomeNameLabel = new Label();
             pictureBox1 = new PictureBox();
             WelcomeLabel = new Label();
@@ -51,9 +51,9 @@
             // panel1
             // 
             panel1.BackColor = Color.PaleTurquoise;
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label4);
+            panel1.Controls.Add(HomeStatusLabel);
+            panel1.Controls.Add(HomeCourseLabel);
+            panel1.Controls.Add(HomeStudentnoLabel);
             panel1.Controls.Add(HomeNameLabel);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(WelcomeLabel);
@@ -62,35 +62,35 @@
             panel1.Size = new Size(1004, 209);
             panel1.TabIndex = 0;
             // 
-            // label7
+            // HomeStatusLabel
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(533, 164);
-            label7.Name = "label7";
-            label7.Size = new Size(77, 25);
-            label7.TabIndex = 6;
-            label7.Text = "Status:";
+            HomeStatusLabel.AutoSize = true;
+            HomeStatusLabel.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            HomeStatusLabel.Location = new Point(533, 164);
+            HomeStatusLabel.Name = "HomeStatusLabel";
+            HomeStatusLabel.Size = new Size(77, 25);
+            HomeStatusLabel.TabIndex = 6;
+            HomeStatusLabel.Text = "Status:";
             // 
-            // label6
+            // HomeCourseLabel
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(533, 118);
-            label6.Name = "label6";
-            label6.Size = new Size(82, 25);
-            label6.TabIndex = 5;
-            label6.Text = "Course:";
+            HomeCourseLabel.AutoSize = true;
+            HomeCourseLabel.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            HomeCourseLabel.Location = new Point(533, 118);
+            HomeCourseLabel.Name = "HomeCourseLabel";
+            HomeCourseLabel.Size = new Size(82, 25);
+            HomeCourseLabel.TabIndex = 5;
+            HomeCourseLabel.Text = "Course:";
             // 
-            // label4
+            // HomeStudentnoLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(533, 71);
-            label4.Name = "label4";
-            label4.Size = new Size(173, 25);
-            label4.TabIndex = 4;
-            label4.Text = "Student Number:";
+            HomeStudentnoLabel.AutoSize = true;
+            HomeStudentnoLabel.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            HomeStudentnoLabel.Location = new Point(533, 71);
+            HomeStudentnoLabel.Name = "HomeStudentnoLabel";
+            HomeStudentnoLabel.Size = new Size(173, 25);
+            HomeStudentnoLabel.TabIndex = 4;
+            HomeStudentnoLabel.Text = "Student Number:";
             // 
             // HomeNameLabel
             // 
@@ -213,8 +213,8 @@
         private Label HomeNameLabel;
         private PictureBox pictureBox1;
         private Label WelcomeLabel;
-        private Label label6;
-        private Label label4;
-        private Label label7;
+        private Label HomeCourseLabel;
+        private Label HomeStudentnoLabel;
+        private Label HomeStatusLabel;
     }
 }

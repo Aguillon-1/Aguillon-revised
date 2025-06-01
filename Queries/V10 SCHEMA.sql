@@ -143,7 +143,8 @@ BEGIN TRY
             school_year_id INT NULL,
             is_archived BIT DEFAULT 0,
             created_at DATETIME DEFAULT GETDATE(),
-            updated_at DATETIME NULL
+            updated_at DATETIME NULL,
+            is_signedup bit DEFAULT 0 -- Added for user signup tracking
         );
         
         PRINT 'Created users table.';
