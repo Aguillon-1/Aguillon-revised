@@ -7,58 +7,57 @@ namespace CMS_Revised.User_Interface
 {
     public partial class MainForm : Form
     {
-        private int _userId;
-        private string _userEmail;
-        private string _userName;
-        private FormClosedEventHandler formClosedHandler; // Changed type to FormClosedEventHandler
+        private FormClosedEventHandler formClosedHandler;
 
-        // Path to store logout state - same as in Login_Interface
         private static readonly string LogoutFlagPath = Path.Combine(
             AppDomain.CurrentDomain.BaseDirectory, "Data", "logout_required.flag");
 
-        public MainForm(int userId, string userEmail, string userName)
+        public MainForm()
         {
             InitializeComponent();
-            _userId = userId;
-            _userEmail = userEmail;
-            _userName = userName;
 
-            // Make sure MainForm_Load is hooked up
             this.Load += MainForm_Load;
-
-            // Hook up the MenuLogoutButton click event
             MenuLogoutButton.Click += MenuLogoutButton_Click;
-
-            // Store the handler so we can remove it later if needed
-            formClosedHandler = new FormClosedEventHandler((s, e) => Application.Exit()); // Create handler with correct type
-
-            // Ensure the app closes when MainForm is closed (normal case)
+            formClosedHandler = new FormClosedEventHandler((s, e) => Application.Exit());
             this.FormClosed += formClosedHandler;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Make sure 'home1' is the actual name of your Home user control instance
-            home1.SetUserInfo(_userId, _userEmail, _userName);
+            // Use SessionManager for user info
+            home1.SetUserInfo(
+                SessionManager.UserId,
+                SessionManager.Email,
+                $"{SessionManager.FirstName} {SessionManager.LastName}"
+            );
         }
 
         private async void MenuLogoutButton_Click(object sender, EventArgs e)
         {
-            // Ask the user to confirm logout
             DialogResult result = MessageBox.Show(
-                "Are you sure you want to logout?",
-                "Logout Confirmation",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+        "Are you sure you want to logout?",
+        "Logout Confirmation",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Only use the status dialog for logout and do not create a new LoginForm here
+                var statusDialog = StatusDialog.ShowStatusDialog();
+                statusDialog.UpdateStatus("Preparing to logout...");
+                statusDialog.Logout();
+
+                // Just close the main form, do not open LoginForm here
+                this.FormClosed -= formClosedHandler;
+                this.Close();
+            }
 
             if (result == DialogResult.Yes)
             {
                 try
                 {
-                    // Clear Google credentials (same as in StatusDialog.LogoutAsync)
                     await GAuthclass.ClearGoogleCredentialsAsync();
 
-                    // Create logout flag to force new login next time (same as in StatusDialog.LogoutAsync)
                     try
                     {
                         string dataDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
@@ -73,21 +72,23 @@ namespace CMS_Revised.User_Interface
                         MessageBox.Show($"Warning: Could not set logout flag: {ex.Message}");
                     }
 
-                    // CRITICAL: Remove the FormClosed event handler that would exit the application
-                    this.FormClosed -= formClosedHandler;
+                    // Clear session
+                    SessionManager.EndSession();
 
-                    // Create and show a new LoginForm
+                    this.FormClosed -= formClosedHandler;
                     LoginForm loginForm = new LoginForm();
                     loginForm.Show();
                     loginForm.BringToFront();
-
-                    // Close this MainForm without exiting the application
                     this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Logout failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                var statusDialog = StatusDialog.ShowStatusDialog();
+                statusDialog.UpdateStatus("Preparing to logout...");
+                statusDialog.Logout();
             }
         }
     }
