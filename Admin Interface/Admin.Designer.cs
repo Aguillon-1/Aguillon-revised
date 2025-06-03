@@ -1,4 +1,6 @@
-﻿namespace Admin// Replace with your actual namespace
+﻿using ClassroomManagementSystem;
+
+namespace Admin// Replace with your actual namespace
 {
     partial class Admin : System.Windows.Forms.Form
     {

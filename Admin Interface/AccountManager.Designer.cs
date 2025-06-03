@@ -1,51 +1,16 @@
-﻿namespace Admin // Replace with your actual namespace
+﻿namespace ClassroomManagementSystem
 {
-    partial class AccountManager : System.Windows.Forms.UserControl
+    partial class AccountManager
     {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        // Controls
-        private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.DataGridView UserDataGrid;
-        private System.Windows.Forms.TextBox dbSearchTextBox;
-        private System.Windows.Forms.PictureBox PictureBox1;
-        private System.Windows.Forms.TextBox FnameTextBox;
-        private System.Windows.Forms.Label FnameLabel;
-        private System.Windows.Forms.Label MnameLabel;
-        private System.Windows.Forms.TextBox MnameTextBox;
-        private System.Windows.Forms.Label Lname;
-        private System.Windows.Forms.TextBox LnameTextBox;
-        private System.Windows.Forms.Label RoleLabel;
-        private System.Windows.Forms.ComboBox RoleComboBox;
-        private System.Windows.Forms.CheckedListBox DbsortCheckedListBox;
-        private System.Windows.Forms.Label StudentNoTextBox;
-        private System.Windows.Forms.TextBox TextBox1;
-        private System.Windows.Forms.Label EmailLabel;
-        private System.Windows.Forms.ComboBox CourseCombobox;
-        private System.Windows.Forms.Label CourseLabel;
-        private System.Windows.Forms.ComboBox SectionCombobox;
-        private System.Windows.Forms.Label SectionLabel;
-        private System.Windows.Forms.Label PasswordLabel;
-        private System.Windows.Forms.Label YearLabel;
-        private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox PasswordTextBox;
-        private System.Windows.Forms.ComboBox YearCombobox;
-        private System.Windows.Forms.Button PassEyeButton;
-        private System.Windows.Forms.Button ClearButton;
-        private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.TextBox ContactNoTextBox;
-        private System.Windows.Forms.Label ContactNoLabel;
-        private System.Windows.Forms.ComboBox StudentStatusCombobox;
-        private System.Windows.Forms.Label StudentStatusLabel;
-        private System.Windows.Forms.ComboBox SchoolYRCombobox;
-        private System.Windows.Forms.Label SYLabel;
-        private System.Windows.Forms.ComboBox SexCombobox;
-        private System.Windows.Forms.Label SexLabel;
-        private System.Windows.Forms.ComboBox ComboBox4;
-        private System.Windows.Forms.Label AcademicStatusLabel;
-        private System.Windows.Forms.Label BdayLabel;
-        private System.Windows.Forms.DateTimePicker Bdaypicket;
-
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -57,9 +22,12 @@
 
         #region Component Designer generated code
 
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.SaveButton = new System.Windows.Forms.Button();
             this.UserDataGrid = new System.Windows.Forms.DataGridView();
             this.dbSearchTextBox = new System.Windows.Forms.TextBox();
@@ -106,7 +74,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(72, 229, 189);
+            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(229)))), ((int)(((byte)(189)))));
             this.SaveButton.Location = new System.Drawing.Point(1086, 651);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.SaveButton.Name = "SaveButton";
@@ -114,6 +82,7 @@
             this.SaveButton.TabIndex = 0;
             this.SaveButton.Text = "SAVE";
             this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // UserDataGrid
             // 
@@ -130,6 +99,7 @@
             this.UserDataGrid.RowHeadersWidth = 82;
             this.UserDataGrid.Size = new System.Drawing.Size(1069, 272);
             this.UserDataGrid.TabIndex = 1;
+            this.UserDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserDataGrid_CellClick);
             // 
             // dbSearchTextBox
             // 
@@ -142,10 +112,10 @@
             this.dbSearchTextBox.Name = "dbSearchTextBox";
             this.dbSearchTextBox.Size = new System.Drawing.Size(300, 34);
             this.dbSearchTextBox.TabIndex = 2;
+            this.dbSearchTextBox.Text = "Search Name, ID and ect...";
             // 
             // PictureBox1
             // 
-                    //this.PictureBox1.Image = global::Admin.Properties.Resources.magnifying_png; -----------------------------
             this.PictureBox1.Location = new System.Drawing.Point(22, 290);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(32, 34);
@@ -222,7 +192,10 @@
             this.RoleComboBox.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.RoleComboBox.FormattingEnabled = true;
             this.RoleComboBox.Items.AddRange(new object[] {
-                "Student", "Faculty", "Admin-MIS", "Registrar"});
+            "Student",
+            "Faculty",
+            "Admin-MIS",
+            "Registrar"});
             this.RoleComboBox.Location = new System.Drawing.Point(22, 415);
             this.RoleComboBox.Name = "RoleComboBox";
             this.RoleComboBox.Size = new System.Drawing.Size(158, 28);
@@ -230,7 +203,7 @@
             // 
             // DbsortCheckedListBox
             // 
-            this.DbsortCheckedListBox.BackColor = System.Drawing.Color.FromArgb(72, 229, 189);
+            this.DbsortCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(229)))), ((int)(((byte)(189)))));
             this.DbsortCheckedListBox.FormattingEnabled = true;
             this.DbsortCheckedListBox.Location = new System.Drawing.Point(1096, 14);
             this.DbsortCheckedListBox.Name = "DbsortCheckedListBox";
@@ -270,7 +243,10 @@
             this.CourseCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.CourseCombobox.FormattingEnabled = true;
             this.CourseCombobox.Items.AddRange(new object[] {
-                "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing"});
+            "BS Computer Science",
+            "BS Information Technology",
+            "BS Information System",
+            "BS Entertainment and Multimedia Computing"});
             this.CourseCombobox.Location = new System.Drawing.Point(388, 415);
             this.CourseCombobox.Name = "CourseCombobox";
             this.CourseCombobox.Size = new System.Drawing.Size(159, 28);
@@ -292,7 +268,9 @@
             this.SectionCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.SectionCombobox.FormattingEnabled = true;
             this.SectionCombobox.Items.AddRange(new object[] {
-                "A", "B", "C"});
+            "A",
+            "B",
+            "C"});
             this.SectionCombobox.Location = new System.Drawing.Point(574, 415);
             this.SectionCombobox.Name = "SectionCombobox";
             this.SectionCombobox.Size = new System.Drawing.Size(158, 28);
@@ -350,7 +328,11 @@
             this.YearCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.YearCombobox.FormattingEnabled = true;
             this.YearCombobox.Items.AddRange(new object[] {
-                "1", "2", "3", "4", "5"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
             this.YearCombobox.Location = new System.Drawing.Point(206, 415);
             this.YearCombobox.Name = "YearCombobox";
             this.YearCombobox.Size = new System.Drawing.Size(158, 28);
@@ -365,10 +347,11 @@
             this.PassEyeButton.TabIndex = 31;
             this.PassEyeButton.Text = "H";
             this.PassEyeButton.UseVisualStyleBackColor = true;
+            this.PassEyeButton.Click += new System.EventHandler(this.PassEyeButton_Click);
             // 
             // ClearButton
             // 
-            this.ClearButton.BackColor = System.Drawing.Color.FromArgb(34, 40, 23);
+            this.ClearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(23)))));
             this.ClearButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClearButton.Location = new System.Drawing.Point(1086, 607);
             this.ClearButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -377,10 +360,11 @@
             this.ClearButton.TabIndex = 33;
             this.ClearButton.Text = "CLEAR";
             this.ClearButton.UseVisualStyleBackColor = false;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // DeleteButton
             // 
-            this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(192, 0, 0);
+            this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DeleteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.DeleteButton.Location = new System.Drawing.Point(1086, 563);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
@@ -389,6 +373,7 @@
             this.DeleteButton.TabIndex = 34;
             this.DeleteButton.Text = "DELETE";
             this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // ContactNoTextBox
             // 
@@ -413,7 +398,8 @@
             this.StudentStatusCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.StudentStatusCombobox.FormattingEnabled = true;
             this.StudentStatusCombobox.Items.AddRange(new object[] {
-                "Regular", "Irregular"});
+            "Regular",
+            "Irregular"});
             this.StudentStatusCombobox.Location = new System.Drawing.Point(758, 358);
             this.StudentStatusCombobox.Name = "StudentStatusCombobox";
             this.StudentStatusCombobox.Size = new System.Drawing.Size(158, 28);
@@ -435,7 +421,8 @@
             this.SchoolYRCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.SchoolYRCombobox.FormattingEnabled = true;
             this.SchoolYRCombobox.Items.AddRange(new object[] {
-                "24-25", "25-26"});
+            "24-25",
+            "25-26"});
             this.SchoolYRCombobox.Location = new System.Drawing.Point(758, 415);
             this.SchoolYRCombobox.Name = "SchoolYRCombobox";
             this.SchoolYRCombobox.Size = new System.Drawing.Size(158, 28);
@@ -457,7 +444,8 @@
             this.SexCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.SexCombobox.FormattingEnabled = true;
             this.SexCombobox.Items.AddRange(new object[] {
-                "Male", "Female"});
+            "Male",
+            "Female"});
             this.SexCombobox.Location = new System.Drawing.Point(386, 481);
             this.SexCombobox.Name = "SexCombobox";
             this.SexCombobox.Size = new System.Drawing.Size(159, 28);
@@ -479,7 +467,11 @@
             this.ComboBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.ComboBox4.FormattingEnabled = true;
             this.ComboBox4.Items.AddRange(new object[] {
-                "Active", "Graduated", "Returnee", "Transferee", "Deactivated"});
+            "Active",
+            "Graduated",
+            "Returnee",
+            "Transferee",
+            "Deactivated"});
             this.ComboBox4.Location = new System.Drawing.Point(757, 478);
             this.ComboBox4.Name = "ComboBox4";
             this.ComboBox4.Size = new System.Drawing.Size(159, 28);
@@ -518,7 +510,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(255, 157, 0);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(157)))), ((int)(((byte)(0)))));
             this.Controls.Add(this.Bdaypicket);
             this.Controls.Add(this.BdayLabel);
             this.Controls.Add(this.ComboBox4);
@@ -561,12 +553,55 @@
             this.Controls.Add(this.SaveButton);
             this.Name = "AccountManager";
             this.Size = new System.Drawing.Size(1229, 704);
+            this.Load += new System.EventHandler(this.AccountManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.DataGridView UserDataGrid;
+        private System.Windows.Forms.TextBox dbSearchTextBox;
+        private System.Windows.Forms.PictureBox PictureBox1;
+        private System.Windows.Forms.TextBox FnameTextBox;
+        private System.Windows.Forms.Label FnameLabel;
+        private System.Windows.Forms.Label MnameLabel;
+        private System.Windows.Forms.TextBox MnameTextBox;
+        private System.Windows.Forms.Label Lname;
+        private System.Windows.Forms.TextBox LnameTextBox;
+        private System.Windows.Forms.Label RoleLabel;
+        private System.Windows.Forms.ComboBox RoleComboBox;
+        private System.Windows.Forms.CheckedListBox DbsortCheckedListBox;
+        private System.Windows.Forms.Label StudentNoTextBox;
+        private System.Windows.Forms.TextBox TextBox1;
+        private System.Windows.Forms.ComboBox YearCombobox;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.ComboBox CourseCombobox;
+        private System.Windows.Forms.Label CourseLabel;
+        private System.Windows.Forms.ComboBox SectionCombobox;
+        private System.Windows.Forms.Label SectionLabel;
+        private System.Windows.Forms.Label PasswordLabel;
+        private System.Windows.Forms.ComboBox ComboBox4;
+        private System.Windows.Forms.Label YearLabel;
+        private System.Windows.Forms.TextBox EmailTextBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.Button PassEyeButton;
+        private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.TextBox ContactNoTextBox;
+        private System.Windows.Forms.Label ContactNoLabel;
+        private System.Windows.Forms.ComboBox StudentStatusCombobox;
+        private System.Windows.Forms.Label StudentStatusLabel;
+        private System.Windows.Forms.ComboBox SchoolYRCombobox;
+        private System.Windows.Forms.Label SYLabel;
+        private System.Windows.Forms.ComboBox SexCombobox;
+        private System.Windows.Forms.Label SexLabel;
+        private System.Windows.Forms.Label AcademicStatusLabel;
+        private System.Windows.Forms.Label BdayLabel;
+        private System.Windows.Forms.DateTimePicker Bdaypicket;
     }
 }

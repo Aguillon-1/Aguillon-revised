@@ -1,3 +1,4 @@
+using Admin; // Add this using directive
 namespace CMS_Revised
 {
     internal static class Program
@@ -11,7 +12,7 @@ namespace CMS_Revised
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+            Application.Run(new Admin.Admin());
         }
     }
 }
