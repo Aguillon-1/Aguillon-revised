@@ -19,13 +19,13 @@ namespace Admin// Replace with your actual namespace
         private System.Windows.Forms.Button GradingButton;
         private System.Windows.Forms.Button ClassModerationButton;
         private System.Windows.Forms.Button SystemConfigButton;
-        private System.Windows.Forms.Button ClassManagerButton;
+        private System.Windows.Forms.Button AddingChangingSubjectsButton;
         private System.Windows.Forms.Button AccountManagerButton;
         private System.Windows.Forms.Button HomeButton;
         private System.Windows.Forms.Button MenuButton;
         private System.Windows.Forms.Timer slidingMenuTimer;
         private AccountManager AccountManager1;
-        //private Class_Manager Class_Manager1;
+        private AddingChangingSubjects AddingChangingSubjects1;
         private CurriculumManager CurriculumManager1;
         
 
@@ -57,13 +57,13 @@ namespace Admin// Replace with your actual namespace
             this.GradingButton = new System.Windows.Forms.Button();
             this.ClassModerationButton = new System.Windows.Forms.Button();
             this.SystemConfigButton = new System.Windows.Forms.Button();
-            this.ClassManagerButton = new System.Windows.Forms.Button();
+            this.AddingChangingSubjectsButton = new System.Windows.Forms.Button();
             this.AccountManagerButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.MenuButton = new System.Windows.Forms.Button();
             this.slidingMenuTimer = new System.Windows.Forms.Timer(this.components);
             this.AccountManager1 = new AccountManager();
-            //this.Class_Manager1 = new Class_Manager();
+            this.AddingChangingSubjects1 = new AddingChangingSubjects();
             this.CurriculumManager1 = new CurriculumManager();
             //this.GradeAdminView1 = new GradeAdminView();
             this.HeaderPanel.SuspendLayout();
@@ -114,7 +114,7 @@ namespace Admin// Replace with your actual namespace
             this.MenuPanel.Controls.Add(this.GradingButton);
             this.MenuPanel.Controls.Add(this.ClassModerationButton);
             this.MenuPanel.Controls.Add(this.SystemConfigButton);
-            this.MenuPanel.Controls.Add(this.ClassManagerButton);
+            this.MenuPanel.Controls.Add(this.AddingChangingSubjectsButton);
             this.MenuPanel.Controls.Add(this.AccountManagerButton);
             this.MenuPanel.Controls.Add(this.HomeButton);
             this.MenuPanel.Controls.Add(this.MenuButton);
@@ -220,24 +220,24 @@ namespace Admin// Replace with your actual namespace
             this.SystemConfigButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SystemConfigButton.UseVisualStyleBackColor = true;
             // 
-            // ClassManagerButton
+            // AddingChangingSubjectsButton
             // 
-            this.ClassManagerButton.AutoSize = true;
-            this.ClassManagerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClassManagerButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ClassManagerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClassManagerButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //.ClassManagerButton.Image = global::Admin.Properties.Resources.People;
-            this.ClassManagerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ClassManagerButton.Location = new System.Drawing.Point(0, 219);
-            this.ClassManagerButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ClassManagerButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.ClassManagerButton.Name = "ClassManagerButton";
-            this.ClassManagerButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.ClassManagerButton.Size = new System.Drawing.Size(262, 73);
-            this.ClassManagerButton.TabIndex = 11;
-            this.ClassManagerButton.Text = "Adding/Changing \r\nof Subjects";
-            this.ClassManagerButton.UseVisualStyleBackColor = true;
+            this.AddingChangingSubjectsButton.AutoSize = true;
+            this.AddingChangingSubjectsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddingChangingSubjectsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AddingChangingSubjectsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddingChangingSubjectsButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            //.AddingChangingSubjectsButton.Image = global::Admin.Properties.Resources.People;
+            this.AddingChangingSubjectsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddingChangingSubjectsButton.Location = new System.Drawing.Point(0, 219);
+            this.AddingChangingSubjectsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddingChangingSubjectsButton.MinimumSize = new System.Drawing.Size(11, 73);
+            this.AddingChangingSubjectsButton.Name = "AddingChangingSubjectsButton";
+            this.AddingChangingSubjectsButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.AddingChangingSubjectsButton.Size = new System.Drawing.Size(262, 73);
+            this.AddingChangingSubjectsButton.TabIndex = 11;
+            this.AddingChangingSubjectsButton.Text = "Adding/Changing \r\nof Subjects";
+            this.AddingChangingSubjectsButton.UseVisualStyleBackColor = true;
             // 
             // AccountManagerButton
             // 

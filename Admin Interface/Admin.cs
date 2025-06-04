@@ -28,7 +28,7 @@ namespace Admin
             MenuButton.Click += MenuButton_Click;
             HomeButton.Click += HomeButton_Click;
             AccountManagerButton.Click += AccountManagerButton_Click;
-            //ClassManagerButton.Click += ClassManagerButton_Click;
+            AddingChangingSubjectsButton.Click += AddingChangingSubjectsButton_Click;
             CurriculumManager.Click += CurriculumManager_Click;
             slidingMenuTimer.Tick += slidingMenuTimer_Tick;
             //GradingButton.Click += GradingButton_Click;
@@ -40,7 +40,7 @@ namespace Admin
             MenuButton.FlatAppearance.BorderSize = 0;
             HomeButton.FlatAppearance.BorderSize = 0;
             AccountManagerButton.FlatAppearance.BorderSize = 0;
-            ClassManagerButton.FlatAppearance.BorderSize = 0;
+            AddingChangingSubjectsButton.FlatAppearance.BorderSize = 0;
             SystemConfigButton.FlatAppearance.BorderSize = 0;
             ClassModerationButton.FlatAppearance.BorderSize = 0;
             GradingButton.FlatAppearance.BorderSize = 0;
@@ -55,7 +55,7 @@ namespace Admin
 
             // Also specifically hide the designer-added controls
             AccountManager1.Visible = false;
-            //Class_Manager1.Visible = false;
+            AddingChangingSubjects1.Visible = false;
             CurriculumManager1.Visible = false;
             //GradeAdminView1.Visible = false;
         }
@@ -101,11 +101,11 @@ namespace Admin
                     var method = userControl.GetType().GetMethod("RefreshStudentList", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                     method?.Invoke(userControl, null);
                 }
-                /*else if (userControl is Class_Manager)
+                else if (userControl is AddingChangingSubjects)
                 {
                     var method = userControl.GetType().GetMethod("RefreshStudentList", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                     method?.Invoke(userControl, null);
-                }*/
+                }
                 else if (userControl is CurriculumManager)
                 {
                     var method = userControl.GetType().GetMethod("LoadAllSubjects", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
@@ -144,11 +144,11 @@ namespace Admin
             ShowUserControl<AccountManager>();
         }
 
-        /*private void ClassManagerButton_Click(object sender, EventArgs e)
+        private void AddingChangingSubjectsButton_Click(object sender, EventArgs e)
         {
             Button_Click(sender, e);
-            ShowUserControl<Class_Manager>();
-        }*/
+            ShowUserControl<AddingChangingSubjects>();
+        }
 
         private void CurriculumManager_Click(object sender, EventArgs e)
         {
@@ -233,7 +233,7 @@ namespace Admin
             MenuButton.Text = string.Empty;
             HomeButton.Text = string.Empty;
             AccountManagerButton.Text = string.Empty;
-            ClassManagerButton.Text = string.Empty;
+            AddingChangingSubjectsButton.Text = string.Empty;
             SystemConfigButton.Text = string.Empty;
             ClassModerationButton.Text = string.Empty;
             GradingButton.Text = string.Empty;
@@ -246,7 +246,7 @@ namespace Admin
             MenuButton.Text = buttons[0];
             HomeButton.Text = buttons[1];
             AccountManagerButton.Text = buttons[2];
-            ClassManagerButton.Text = buttons[3];
+            AddingChangingSubjectsButton.Text = buttons[3];
             SystemConfigButton.Text = buttons[4];
             ClassModerationButton.Text = buttons[5];
             GradingButton.Text = buttons[6];
