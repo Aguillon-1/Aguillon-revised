@@ -29,7 +29,7 @@ namespace Admin
             HomeButton.Click += HomeButton_Click;
             AccountManagerButton.Click += AccountManagerButton_Click;
             //ClassManagerButton.Click += ClassManagerButton_Click;
-            //CurriculumManager.Click += CurriculumManager_Click;
+            CurriculumManager.Click += CurriculumManager_Click;
             slidingMenuTimer.Tick += slidingMenuTimer_Tick;
             //GradingButton.Click += GradingButton_Click;
         }
@@ -56,7 +56,7 @@ namespace Admin
             // Also specifically hide the designer-added controls
             AccountManager1.Visible = false;
             //Class_Manager1.Visible = false;
-            //Curriculum_Manager1.Visible = false;
+            CurriculumManager1.Visible = false;
             //GradeAdminView1.Visible = false;
         }
 
@@ -105,12 +105,12 @@ namespace Admin
                 {
                     var method = userControl.GetType().GetMethod("RefreshStudentList", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                     method?.Invoke(userControl, null);
-                }
-                else if (userControl is Curriculum_Manager)
+                }*/
+                else if (userControl is CurriculumManager)
                 {
                     var method = userControl.GetType().GetMethod("LoadAllSubjects", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                     method?.Invoke(userControl, null);
-                }*/
+                }
             }
             catch (Exception ex)
             {
@@ -148,14 +148,14 @@ namespace Admin
         {
             Button_Click(sender, e);
             ShowUserControl<Class_Manager>();
-        }
+        }*/
 
         private void CurriculumManager_Click(object sender, EventArgs e)
         {
             Button_Click(sender, e);
-            ShowUserControl<Curriculum_Manager>();
+            ShowUserControl<CurriculumManager>();
         }
-        */
+        
         private void Admin_Resize(object sender, EventArgs e)
         {
             AdjustUserControlsBounds();

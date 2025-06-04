@@ -26,7 +26,7 @@ namespace Admin// Replace with your actual namespace
         private System.Windows.Forms.Timer slidingMenuTimer;
         private AccountManager AccountManager1;
         //private Class_Manager Class_Manager1;
-        //private Curriculum_Manager Curriculum_Manager1;
+        private CurriculumManager CurriculumManager1;
         
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Admin// Replace with your actual namespace
             this.slidingMenuTimer = new System.Windows.Forms.Timer(this.components);
             this.AccountManager1 = new AccountManager();
             //this.Class_Manager1 = new Class_Manager();
-            //this.Curriculum_Manager1 = new Curriculum_Manager();
+            this.CurriculumManager1 = new CurriculumManager();
             //this.GradeAdminView1 = new GradeAdminView();
             this.HeaderPanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
