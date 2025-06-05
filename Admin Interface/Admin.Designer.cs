@@ -27,7 +27,8 @@ namespace Admin// Replace with your actual namespace
         private AccountManager AccountManager1;
         private AddingChangingSubjects AddingChangingSubjects1;
         private CurriculumManager CurriculumManager1;
-        
+        private SystemConfiguration SystemConfiguration1;   
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -46,322 +47,276 @@ namespace Admin// Replace with your actual namespace
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
-            this.HeaderPanel = new System.Windows.Forms.Panel();
-            this.NotificationButton = new System.Windows.Forms.Button();
-            this.AccountButton = new System.Windows.Forms.Button();
-            this.MenuPanel = new System.Windows.Forms.Panel();
-            this.CurriculumManager = new System.Windows.Forms.Button();
-            this.LogoutButton = new System.Windows.Forms.Button();
-            this.GradingButton = new System.Windows.Forms.Button();
-            this.ClassModerationButton = new System.Windows.Forms.Button();
-            this.SystemConfigButton = new System.Windows.Forms.Button();
-            this.AddingChangingSubjectsButton = new System.Windows.Forms.Button();
-            this.AccountManagerButton = new System.Windows.Forms.Button();
-            this.HomeButton = new System.Windows.Forms.Button();
-            this.MenuButton = new System.Windows.Forms.Button();
-            this.slidingMenuTimer = new System.Windows.Forms.Timer(this.components);
-            this.AccountManager1 = new AccountManager();
-            this.AddingChangingSubjects1 = new AddingChangingSubjects();
-            this.CurriculumManager1 = new CurriculumManager();
-            //this.GradeAdminView1 = new GradeAdminView();
-            this.HeaderPanel.SuspendLayout();
-            this.MenuPanel.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            HeaderPanel = new Panel();
+            NotificationButton = new Button();
+            AccountButton = new Button();
+            MenuPanel = new Panel();
+            CurriculumManager = new Button();
+            LogoutButton = new Button();
+            GradingButton = new Button();
+            ClassModerationButton = new Button();
+            SystemConfigButton = new Button();
+            AddingChangingSubjectsButton = new Button();
+            AccountManagerButton = new Button();
+            HomeButton = new Button();
+            MenuButton = new Button();
+            slidingMenuTimer = new System.Windows.Forms.Timer(components);
+            AccountManager1 = new AccountManager();
+            AddingChangingSubjects1 = new AddingChangingSubjects();
+            CurriculumManager1 = new CurriculumManager();
+            HeaderPanel.SuspendLayout();
+            MenuPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // HeaderPanel
             // 
-            this.HeaderPanel.Controls.Add(this.NotificationButton);
-            this.HeaderPanel.Controls.Add(this.AccountButton);
-            this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.HeaderPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(1696, 79);
-            this.HeaderPanel.TabIndex = 1;
+            HeaderPanel.Controls.Add(NotificationButton);
+            HeaderPanel.Controls.Add(AccountButton);
+            HeaderPanel.Dock = DockStyle.Top;
+            HeaderPanel.Location = new Point(0, 0);
+            HeaderPanel.Name = "HeaderPanel";
+            HeaderPanel.Size = new Size(1348, 59);
+            HeaderPanel.TabIndex = 1;
             // 
             // NotificationButton
             // 
-            this.NotificationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.NotificationButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.NotificationButton.Location = new System.Drawing.Point(1523, 0);
-            this.NotificationButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.NotificationButton.Name = "NotificationButton";
-            this.NotificationButton.Size = new System.Drawing.Size(98, 79);
-            this.NotificationButton.TabIndex = 1;
-            this.NotificationButton.Text = "Nottification";
-            this.NotificationButton.UseVisualStyleBackColor = true;
+            NotificationButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            NotificationButton.Dock = DockStyle.Right;
+            NotificationButton.Location = new Point(1196, 0);
+            NotificationButton.Name = "NotificationButton";
+            NotificationButton.Size = new Size(86, 59);
+            NotificationButton.TabIndex = 1;
+            NotificationButton.Text = "Nottification";
+            NotificationButton.UseVisualStyleBackColor = true;
             // 
             // AccountButton
             // 
-            this.AccountButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AccountButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AccountButton.Location = new System.Drawing.Point(1621, 0);
-            this.AccountButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AccountButton.Name = "AccountButton";
-            this.AccountButton.Size = new System.Drawing.Size(75, 79);
-            this.AccountButton.TabIndex = 0;
-            this.AccountButton.Text = "Account";
-            this.AccountButton.UseVisualStyleBackColor = true;
+            AccountButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            AccountButton.Dock = DockStyle.Right;
+            AccountButton.Location = new Point(1282, 0);
+            AccountButton.Name = "AccountButton";
+            AccountButton.Size = new Size(66, 59);
+            AccountButton.TabIndex = 0;
+            AccountButton.Text = "Account";
+            AccountButton.UseVisualStyleBackColor = true;
             // 
             // MenuPanel
             // 
-            this.MenuPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MenuPanel.BackColor = System.Drawing.Color.FromArgb(47, 97, 83);
-            this.MenuPanel.Controls.Add(this.CurriculumManager);
-            this.MenuPanel.Controls.Add(this.LogoutButton);
-            this.MenuPanel.Controls.Add(this.GradingButton);
-            this.MenuPanel.Controls.Add(this.ClassModerationButton);
-            this.MenuPanel.Controls.Add(this.SystemConfigButton);
-            this.MenuPanel.Controls.Add(this.AddingChangingSubjectsButton);
-            this.MenuPanel.Controls.Add(this.AccountManagerButton);
-            this.MenuPanel.Controls.Add(this.HomeButton);
-            this.MenuPanel.Controls.Add(this.MenuButton);
-            this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MenuPanel.Location = new System.Drawing.Point(0, 79);
-            this.MenuPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MenuPanel.MaximumSize = new System.Drawing.Size(262, 0);
-            this.MenuPanel.MinimumSize = new System.Drawing.Size(82, 0);
-            this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(262, 936);
-            this.MenuPanel.TabIndex = 2;
+            MenuPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            MenuPanel.BackColor = Color.FromArgb(47, 97, 83);
+            MenuPanel.Controls.Add(CurriculumManager);
+            MenuPanel.Controls.Add(LogoutButton);
+            MenuPanel.Controls.Add(GradingButton);
+            MenuPanel.Controls.Add(ClassModerationButton);
+            MenuPanel.Controls.Add(SystemConfigButton);
+            MenuPanel.Controls.Add(AddingChangingSubjectsButton);
+            MenuPanel.Controls.Add(AccountManagerButton);
+            MenuPanel.Controls.Add(HomeButton);
+            MenuPanel.Controls.Add(MenuButton);
+            MenuPanel.Dock = DockStyle.Left;
+            MenuPanel.Location = new Point(0, 59);
+            MenuPanel.MaximumSize = new Size(229, 0);
+            MenuPanel.MinimumSize = new Size(72, 0);
+            MenuPanel.Name = "MenuPanel";
+            MenuPanel.Size = new Size(229, 575);
+            MenuPanel.TabIndex = 2;
             // 
             // CurriculumManager
             // 
-            this.CurriculumManager.AutoSize = true;
-            this.CurriculumManager.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CurriculumManager.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CurriculumManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CurriculumManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.CurriculumManager.Image = global::Admin.Properties.Resources.Note;
-            this.CurriculumManager.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CurriculumManager.Location = new System.Drawing.Point(0, 511);
-            this.CurriculumManager.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CurriculumManager.MinimumSize = new System.Drawing.Size(11, 73);
-            this.CurriculumManager.Name = "CurriculumManager";
-            this.CurriculumManager.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.CurriculumManager.Size = new System.Drawing.Size(262, 73);
-            this.CurriculumManager.TabIndex = 16;
-            this.CurriculumManager.Text = "Curriculum Manager";
-            this.CurriculumManager.UseVisualStyleBackColor = true;
+            CurriculumManager.AutoSize = true;
+            CurriculumManager.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            CurriculumManager.Dock = DockStyle.Top;
+            CurriculumManager.FlatStyle = FlatStyle.Flat;
+            CurriculumManager.ForeColor = SystemColors.ButtonHighlight;
+            CurriculumManager.ImageAlign = ContentAlignment.MiddleLeft;
+            CurriculumManager.Location = new Point(0, 385);
+            CurriculumManager.MinimumSize = new Size(10, 55);
+            CurriculumManager.Name = "CurriculumManager";
+            CurriculumManager.Padding = new Padding(10, 0, 0, 0);
+            CurriculumManager.Size = new Size(229, 55);
+            CurriculumManager.TabIndex = 16;
+            CurriculumManager.Text = "Curriculum Manager";
+            CurriculumManager.UseVisualStyleBackColor = true;
             // 
             // LogoutButton
             // 
-            this.LogoutButton.BackColor = System.Drawing.Color.FromArgb(192, 0, 0);
-            this.LogoutButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LogoutButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.LogoutButton.Image = global::Admin.Properties.Resources.Log_out;
-            this.LogoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogoutButton.Location = new System.Drawing.Point(0, 865);
-            this.LogoutButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.LogoutButton.Size = new System.Drawing.Size(262, 71);
-            this.LogoutButton.TabIndex = 15;
-            this.LogoutButton.Text = "Logout";
-            this.LogoutButton.UseVisualStyleBackColor = false;
+            LogoutButton.BackColor = Color.FromArgb(192, 0, 0);
+            LogoutButton.Dock = DockStyle.Bottom;
+            LogoutButton.ForeColor = SystemColors.ButtonHighlight;
+            LogoutButton.ImageAlign = ContentAlignment.MiddleLeft;
+            LogoutButton.Location = new Point(0, 522);
+            LogoutButton.Name = "LogoutButton";
+            LogoutButton.Padding = new Padding(22, 0, 0, 0);
+            LogoutButton.Size = new Size(229, 53);
+            LogoutButton.TabIndex = 15;
+            LogoutButton.Text = "Logout";
+            LogoutButton.UseVisualStyleBackColor = false;
             // 
             // GradingButton
             // 
-            this.GradingButton.AutoSize = true;
-            this.GradingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.GradingButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GradingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GradingButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.GradingButton.Image = global::Admin.Properties.Resources.Document_Text;
-            this.GradingButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GradingButton.Location = new System.Drawing.Point(0, 438);
-            this.GradingButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GradingButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.GradingButton.Name = "GradingButton";
-            this.GradingButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.GradingButton.Size = new System.Drawing.Size(262, 73);
-            this.GradingButton.TabIndex = 14;
-            this.GradingButton.Text = "Grading Sheet";
-            this.GradingButton.UseVisualStyleBackColor = true;
+            GradingButton.AutoSize = true;
+            GradingButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            GradingButton.Dock = DockStyle.Top;
+            GradingButton.FlatStyle = FlatStyle.Flat;
+            GradingButton.ForeColor = SystemColors.ButtonHighlight;
+            GradingButton.ImageAlign = ContentAlignment.MiddleLeft;
+            GradingButton.Location = new Point(0, 330);
+            GradingButton.MinimumSize = new Size(10, 55);
+            GradingButton.Name = "GradingButton";
+            GradingButton.Padding = new Padding(10, 0, 0, 0);
+            GradingButton.Size = new Size(229, 55);
+            GradingButton.TabIndex = 14;
+            GradingButton.Text = "Grading Sheet";
+            GradingButton.UseVisualStyleBackColor = true;
             // 
             // ClassModerationButton
             // 
-            this.ClassModerationButton.AutoSize = true;
-            this.ClassModerationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClassModerationButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ClassModerationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClassModerationButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.ClassModerationButton.Image = global::Admin.Properties.Resources.Setting_4;
-            this.ClassModerationButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ClassModerationButton.Location = new System.Drawing.Point(0, 365);
-            this.ClassModerationButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ClassModerationButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.ClassModerationButton.Name = "ClassModerationButton";
-            this.ClassModerationButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.ClassModerationButton.Size = new System.Drawing.Size(262, 73);
-            this.ClassModerationButton.TabIndex = 13;
-            this.ClassModerationButton.Text = "Class Moderation";
-            this.ClassModerationButton.UseVisualStyleBackColor = true;
+            ClassModerationButton.AutoSize = true;
+            ClassModerationButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClassModerationButton.Dock = DockStyle.Top;
+            ClassModerationButton.FlatStyle = FlatStyle.Flat;
+            ClassModerationButton.ForeColor = SystemColors.ButtonHighlight;
+            ClassModerationButton.ImageAlign = ContentAlignment.MiddleLeft;
+            ClassModerationButton.Location = new Point(0, 275);
+            ClassModerationButton.MinimumSize = new Size(10, 55);
+            ClassModerationButton.Name = "ClassModerationButton";
+            ClassModerationButton.Padding = new Padding(10, 0, 0, 0);
+            ClassModerationButton.Size = new Size(229, 55);
+            ClassModerationButton.TabIndex = 13;
+            ClassModerationButton.Text = "Class Moderation";
+            ClassModerationButton.UseVisualStyleBackColor = true;
             // 
             // SystemConfigButton
             // 
-            this.SystemConfigButton.AutoSize = true;
-            this.SystemConfigButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.SystemConfigButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SystemConfigButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SystemConfigButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.SystemConfigButton.Image = global::Admin.Properties.Resources.Setting_2;
-            this.SystemConfigButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SystemConfigButton.Location = new System.Drawing.Point(0, 292);
-            this.SystemConfigButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SystemConfigButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.SystemConfigButton.Name = "SystemConfigButton";
-            this.SystemConfigButton.Padding = new System.Windows.Forms.Padding(11, 0, 29, 0);
-            this.SystemConfigButton.Size = new System.Drawing.Size(262, 73);
-            this.SystemConfigButton.TabIndex = 12;
-            this.SystemConfigButton.Text = "System Configuration";
-            this.SystemConfigButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SystemConfigButton.UseVisualStyleBackColor = true;
+            SystemConfigButton.AutoSize = true;
+            SystemConfigButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            SystemConfigButton.Dock = DockStyle.Top;
+            SystemConfigButton.FlatStyle = FlatStyle.Flat;
+            SystemConfigButton.ForeColor = SystemColors.ButtonHighlight;
+            SystemConfigButton.ImageAlign = ContentAlignment.MiddleLeft;
+            SystemConfigButton.Location = new Point(0, 220);
+            SystemConfigButton.MinimumSize = new Size(10, 55);
+            SystemConfigButton.Name = "SystemConfigButton";
+            SystemConfigButton.Padding = new Padding(10, 0, 25, 0);
+            SystemConfigButton.Size = new Size(229, 55);
+            SystemConfigButton.TabIndex = 12;
+            SystemConfigButton.Text = "System Configuration";
+            SystemConfigButton.TextAlign = ContentAlignment.MiddleRight;
+            SystemConfigButton.UseVisualStyleBackColor = true;
+            SystemConfigButton.Click += SystemConfigButton_Click;
             // 
             // AddingChangingSubjectsButton
             // 
-            this.AddingChangingSubjectsButton.AutoSize = true;
-            this.AddingChangingSubjectsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddingChangingSubjectsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AddingChangingSubjectsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddingChangingSubjectsButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //.AddingChangingSubjectsButton.Image = global::Admin.Properties.Resources.People;
-            this.AddingChangingSubjectsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddingChangingSubjectsButton.Location = new System.Drawing.Point(0, 219);
-            this.AddingChangingSubjectsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AddingChangingSubjectsButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.AddingChangingSubjectsButton.Name = "AddingChangingSubjectsButton";
-            this.AddingChangingSubjectsButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.AddingChangingSubjectsButton.Size = new System.Drawing.Size(262, 73);
-            this.AddingChangingSubjectsButton.TabIndex = 11;
-            this.AddingChangingSubjectsButton.Text = "Adding/Changing \r\nof Subjects";
-            this.AddingChangingSubjectsButton.UseVisualStyleBackColor = true;
+            AddingChangingSubjectsButton.AutoSize = true;
+            AddingChangingSubjectsButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            AddingChangingSubjectsButton.Dock = DockStyle.Top;
+            AddingChangingSubjectsButton.FlatStyle = FlatStyle.Flat;
+            AddingChangingSubjectsButton.ForeColor = SystemColors.ButtonHighlight;
+            AddingChangingSubjectsButton.ImageAlign = ContentAlignment.MiddleLeft;
+            AddingChangingSubjectsButton.Location = new Point(0, 165);
+            AddingChangingSubjectsButton.MinimumSize = new Size(10, 55);
+            AddingChangingSubjectsButton.Name = "AddingChangingSubjectsButton";
+            AddingChangingSubjectsButton.Padding = new Padding(10, 0, 0, 0);
+            AddingChangingSubjectsButton.Size = new Size(229, 55);
+            AddingChangingSubjectsButton.TabIndex = 11;
+            AddingChangingSubjectsButton.Text = "Adding/Changing \r\nof Subjects";
+            AddingChangingSubjectsButton.UseVisualStyleBackColor = true;
             // 
             // AccountManagerButton
             // 
-            this.AccountManagerButton.AutoSize = true;
-            this.AccountManagerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AccountManagerButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AccountManagerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccountManagerButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.AccountManagerButton.Image = global::Admin.Properties.Resources.User_Edit;
-            this.AccountManagerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AccountManagerButton.Location = new System.Drawing.Point(0, 146);
-            this.AccountManagerButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AccountManagerButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.AccountManagerButton.Name = "AccountManagerButton";
-            this.AccountManagerButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.AccountManagerButton.Size = new System.Drawing.Size(262, 73);
-            this.AccountManagerButton.TabIndex = 10;
-            this.AccountManagerButton.Text = "Account Manager";
-            this.AccountManagerButton.UseVisualStyleBackColor = true;
+            AccountManagerButton.AutoSize = true;
+            AccountManagerButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            AccountManagerButton.Dock = DockStyle.Top;
+            AccountManagerButton.FlatStyle = FlatStyle.Flat;
+            AccountManagerButton.ForeColor = SystemColors.ButtonHighlight;
+            AccountManagerButton.ImageAlign = ContentAlignment.MiddleLeft;
+            AccountManagerButton.Location = new Point(0, 110);
+            AccountManagerButton.MinimumSize = new Size(10, 55);
+            AccountManagerButton.Name = "AccountManagerButton";
+            AccountManagerButton.Padding = new Padding(10, 0, 0, 0);
+            AccountManagerButton.Size = new Size(229, 55);
+            AccountManagerButton.TabIndex = 10;
+            AccountManagerButton.Text = "Account Manager";
+            AccountManagerButton.UseVisualStyleBackColor = true;
             // 
             // HomeButton
             // 
-            this.HomeButton.AutoSize = true;
-            this.HomeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.HomeButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HomeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.HomeButton.Image = global::Admin.Properties.Resources.House_2;
-            this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HomeButton.Location = new System.Drawing.Point(0, 73);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.HomeButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.HomeButton.Size = new System.Drawing.Size(262, 73);
-            this.HomeButton.TabIndex = 9;
-            this.HomeButton.Text = "Home";
-            this.HomeButton.UseVisualStyleBackColor = true;
+            HomeButton.AutoSize = true;
+            HomeButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            HomeButton.Dock = DockStyle.Top;
+            HomeButton.FlatStyle = FlatStyle.Flat;
+            HomeButton.ForeColor = SystemColors.ButtonHighlight;
+            HomeButton.ImageAlign = ContentAlignment.MiddleLeft;
+            HomeButton.Location = new Point(0, 55);
+            HomeButton.MinimumSize = new Size(10, 55);
+            HomeButton.Name = "HomeButton";
+            HomeButton.Padding = new Padding(10, 0, 0, 0);
+            HomeButton.Size = new Size(229, 55);
+            HomeButton.TabIndex = 9;
+            HomeButton.Text = "Home";
+            HomeButton.UseVisualStyleBackColor = true;
             // 
             // MenuButton
             // 
-            this.MenuButton.AutoSize = true;
-            this.MenuButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MenuButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.MenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MenuButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            //this.MenuButton.Image = global::Admin.Properties.Resources.Grid_4;
-            this.MenuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MenuButton.Location = new System.Drawing.Point(0, 0);
-            this.MenuButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MenuButton.MinimumSize = new System.Drawing.Size(11, 73);
-            this.MenuButton.Name = "MenuButton";
-            this.MenuButton.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.MenuButton.Size = new System.Drawing.Size(262, 73);
-            this.MenuButton.TabIndex = 8;
-            this.MenuButton.Text = "Menu";
-            this.MenuButton.UseVisualStyleBackColor = true;
-            // 
-            // slidingMenuTimer
-            // 
+            MenuButton.AutoSize = true;
+            MenuButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            MenuButton.Dock = DockStyle.Top;
+            MenuButton.FlatStyle = FlatStyle.Flat;
+            MenuButton.ForeColor = SystemColors.ButtonHighlight;
+            MenuButton.ImageAlign = ContentAlignment.MiddleLeft;
+            MenuButton.Location = new Point(0, 0);
+            MenuButton.MinimumSize = new Size(10, 55);
+            MenuButton.Name = "MenuButton";
+            MenuButton.Padding = new Padding(10, 0, 0, 0);
+            MenuButton.Size = new Size(229, 55);
+            MenuButton.TabIndex = 8;
+            MenuButton.Text = "Menu";
+            MenuButton.UseVisualStyleBackColor = true;
             // 
             // AccountManager1
             // 
-            this.AccountManager1.BackColor = System.Drawing.Color.FromArgb(255, 157, 0);
-            this.AccountManager1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AccountManager1.Location = new System.Drawing.Point(262, 79);
-            this.AccountManager1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.AccountManager1.Name = "AccountManager1";
-            this.AccountManager1.Size = new System.Drawing.Size(1434, 936);
-            this.AccountManager1.TabIndex = 3;
+            AccountManager1.BackColor = Color.FromArgb(255, 157, 0);
+            AccountManager1.Dock = DockStyle.Fill;
+            AccountManager1.Location = new Point(229, 59);
+            AccountManager1.Margin = new Padding(3, 4, 3, 4);
+            AccountManager1.Name = "AccountManager1";
+            AccountManager1.Size = new Size(1119, 575);
+            AccountManager1.TabIndex = 3;
             // 
-            // Class_Manager1
+            // AddingChangingSubjects1
             // 
-            /*this.Class_Manager1.BackColor = System.Drawing.Color.FromArgb(255, 157, 0);
-            this.Class_Manager1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Class_Manager1.Location = new System.Drawing.Point(262, 79);
-            this.Class_Manager1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Class_Manager1.Name = "Class_Manager1";
-            this.Class_Manager1.Size = new System.Drawing.Size(1434, 936);
-            this.Class_Manager1.TabIndex = 4;*/
+            AddingChangingSubjects1.BackColor = Color.FromArgb(255, 157, 0);
+            AddingChangingSubjects1.Location = new Point(0, 0);
+            AddingChangingSubjects1.Name = "AddingChangingSubjects1";
+            AddingChangingSubjects1.Size = new Size(1229, 704);
+            AddingChangingSubjects1.TabIndex = 0;
             // 
-            // Curriculum_Manager1
+            // CurriculumManager1
             // 
-            /*this.Curriculum_Manager1.BackColor = System.Drawing.Color.FromArgb(255, 157, 0);
-            this.Curriculum_Manager1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Curriculum_Manager1.Location = new System.Drawing.Point(262, 79);
-            this.Curriculum_Manager1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Curriculum_Manager1.Name = "Curriculum_Manager1";
-            this.Curriculum_Manager1.Size = new System.Drawing.Size(1434, 936);
-            this.Curriculum_Manager1.TabIndex = 5;*/
-            // 
-            // GradeAdminView1
-            // 
-            /*this.GradeAdminView1.BackColor = System.Drawing.Color.FromArgb(249, 218, 182);
-            this.GradeAdminView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GradeAdminView1.Location = new System.Drawing.Point(262, 79);
-            this.GradeAdminView1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.GradeAdminView1.MinimumSize = new System.Drawing.Size(1405, 939);
-            this.GradeAdminView1.Name = "GradeAdminView1";
-            this.GradeAdminView1.Size = new System.Drawing.Size(1434, 939);
-            this.GradeAdminView1.TabIndex = 6;*/
+            CurriculumManager1.BackColor = Color.FromArgb(255, 157, 0);
+            CurriculumManager1.Location = new Point(0, 0);
+            CurriculumManager1.Name = "CurriculumManager1";
+            CurriculumManager1.Size = new Size(1229, 704);
+            CurriculumManager1.TabIndex = 0;
             // 
             // Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(255, 157, 0);
-            this.ClientSize = new System.Drawing.Size(1696, 1015);
-            //this.Controls.Add(this.GradeAdminView1);
-            //this.Controls.Add(this.Curriculum_Manager1);
-            //this.Controls.Add(this.Class_Manager1);
-            this.Controls.Add(this.AccountManager1);
-            this.Controls.Add(this.MenuPanel);
-            this.Controls.Add(this.HeaderPanel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1597, 1018);
-            this.Name = "Admin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CMS ADMIN";
-            this.HeaderPanel.ResumeLayout(false);
-            this.MenuPanel.ResumeLayout(false);
-            this.MenuPanel.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 157, 0);
+            ClientSize = new Size(1348, 634);
+            Controls.Add(AccountManager1);
+            Controls.Add(MenuPanel);
+            Controls.Add(HeaderPanel);
+            MinimumSize = new Size(1344, 620);
+            Name = "Admin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "CMS ADMIN";
+            HeaderPanel.ResumeLayout(false);
+            MenuPanel.ResumeLayout(false);
+            MenuPanel.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion

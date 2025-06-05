@@ -32,6 +32,7 @@ namespace Admin
             CurriculumManager.Click += CurriculumManager_Click;
             slidingMenuTimer.Tick += slidingMenuTimer_Tick;
             //GradingButton.Click += GradingButton_Click;
+            SystemConfigButton.Click += SystemConfigButton_Click;
         }
 
         private void Admin_Load(object sender, EventArgs e)
@@ -57,6 +58,7 @@ namespace Admin
             AccountManager1.Visible = false;
             AddingChangingSubjects1.Visible = false;
             CurriculumManager1.Visible = false;
+            SystemConfiguration1.Visible = false;
             //GradeAdminView1.Visible = false;
         }
 
@@ -155,7 +157,7 @@ namespace Admin
             Button_Click(sender, e);
             ShowUserControl<CurriculumManager>();
         }
-        
+
         private void Admin_Resize(object sender, EventArgs e)
         {
             AdjustUserControlsBounds();
@@ -262,12 +264,18 @@ namespace Admin
             clickedButton.BackColor = Color.FromArgb(93, 242, 167);
             activeButton = clickedButton;
         }
-        /*
-        private void GradingButton_Click(object sender, EventArgs e)
+
+        private void SystemConfigButton_Click(object sender, EventArgs e)
         {
-            HideAllUserControls();
-            GradeAdminView1.Visible = true;
+            Button_Click(sender, e);
+            ShowUserControl<SystemConfiguration>();
         }
-        */
+        /*
+private void GradingButton_Click(object sender, EventArgs e)
+{
+   HideAllUserControls();
+   GradeAdminView1.Visible = true;
+}
+*/
     }
 }
