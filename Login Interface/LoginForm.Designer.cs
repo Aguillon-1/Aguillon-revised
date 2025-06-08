@@ -257,8 +257,5 @@
         private Panel SwitcherPanel;
         private LoginSignupSwitcher loginSignupSwitcher1;
         private LoginControl LoginControl1;
-        private Login_Interface.S1_studentinfo s1_studentinfo1;
-        private Login_Interface.S2_personalinfo s2_personalinfo1;
-        private Login_Interface.S3_accountcredentials s3_accountcredentials1;
     }
 }

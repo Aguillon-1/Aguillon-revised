@@ -79,7 +79,6 @@
             MenuLogoutButton.Size = new Size(225, 57);
             MenuLogoutButton.TabIndex = 0;
             MenuLogoutButton.Text = "Logout";
-            
             // 
             // MenuNotesButton
             // 

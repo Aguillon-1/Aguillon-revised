@@ -30,7 +30,6 @@
     <Compile Update="Connections\GAuthclass.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Update="Login Interface\S3 accountcredentials.cs" />
     <Compile Update="Login Interface\S2 personalinfo.cs">
       <SubType>UserControl</SubType>
     </Compile>

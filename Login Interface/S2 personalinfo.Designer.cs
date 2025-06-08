@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            S2Backbutton = new Button();
+            S1Cancelbutton = new Button();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            Sexcombobox = new ComboBox();
+            comboBox1 = new ComboBox();
             label5 = new Label();
             label4 = new Label();
-            S2Nextbutton = new Button();
-            Birthdaypicker = new DateTimePicker();
-            Emailtextbox = new TextBox();
-            Contactnotextbox = new TextBox();
-            Addresstextbox = new TextBox();
+            S1Nextbutton = new Button();
+            dateTimePicker1 = new DateTimePicker();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
             SuspendLayout();
             // 
-            // S2Backbutton
+            // S1Cancelbutton
             // 
-            S2Backbutton.Location = new Point(71, 457);
-            S2Backbutton.Name = "S2Backbutton";
-            S2Backbutton.Size = new Size(112, 44);
-            S2Backbutton.TabIndex = 37;
-            S2Backbutton.Text = "Back";
-            S2Backbutton.UseVisualStyleBackColor = true;
+            S1Cancelbutton.Location = new Point(71, 457);
+            S1Cancelbutton.Name = "S1Cancelbutton";
+            S1Cancelbutton.Size = new Size(112, 44);
+            S1Cancelbutton.TabIndex = 37;
+            S1Cancelbutton.Text = "Cancel";
+            S1Cancelbutton.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -81,13 +81,13 @@
             label6.TabIndex = 31;
             label6.Text = "Contact number:";
             // 
-            // Sexcombobox
+            // comboBox1
             // 
-            Sexcombobox.FormattingEnabled = true;
-            Sexcombobox.Location = new Point(318, 110);
-            Sexcombobox.Name = "Sexcombobox";
-            Sexcombobox.Size = new Size(185, 23);
-            Sexcombobox.TabIndex = 30;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(318, 110);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(185, 23);
+            comboBox1.TabIndex = 30;
             // 
             // label5
             // 
@@ -109,59 +109,59 @@
             label4.TabIndex = 27;
             label4.Text = "Birthday:";
             // 
-            // S2Nextbutton
+            // S1Nextbutton
             // 
-            S2Nextbutton.Location = new Point(491, 457);
-            S2Nextbutton.Name = "S2Nextbutton";
-            S2Nextbutton.Size = new Size(112, 44);
-            S2Nextbutton.TabIndex = 23;
-            S2Nextbutton.Text = "Next";
-            S2Nextbutton.UseVisualStyleBackColor = true;
+            S1Nextbutton.Location = new Point(491, 457);
+            S1Nextbutton.Name = "S1Nextbutton";
+            S1Nextbutton.Size = new Size(112, 44);
+            S1Nextbutton.TabIndex = 23;
+            S1Nextbutton.Text = "Next";
+            S1Nextbutton.UseVisualStyleBackColor = true;
             // 
-            // Birthdaypicker
+            // dateTimePicker1
             // 
-            Birthdaypicker.Location = new Point(66, 110);
-            Birthdaypicker.Name = "Birthdaypicker";
-            Birthdaypicker.Size = new Size(220, 23);
-            Birthdaypicker.TabIndex = 38;
+            dateTimePicker1.Location = new Point(66, 110);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(220, 23);
+            dateTimePicker1.TabIndex = 38;
             // 
-            // Emailtextbox
+            // textBox1
             // 
-            Emailtextbox.Location = new Point(66, 192);
-            Emailtextbox.Name = "Emailtextbox";
-            Emailtextbox.Size = new Size(220, 23);
-            Emailtextbox.TabIndex = 39;
+            textBox1.Location = new Point(66, 192);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(220, 23);
+            textBox1.TabIndex = 39;
             // 
-            // Contactnotextbox
+            // textBox2
             // 
-            Contactnotextbox.Location = new Point(318, 192);
-            Contactnotextbox.Name = "Contactnotextbox";
-            Contactnotextbox.Size = new Size(220, 23);
-            Contactnotextbox.TabIndex = 40;
+            textBox2.Location = new Point(318, 192);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(220, 23);
+            textBox2.TabIndex = 40;
             // 
-            // Addresstextbox
+            // textBox3
             // 
-            Addresstextbox.Location = new Point(66, 271);
-            Addresstextbox.Name = "Addresstextbox";
-            Addresstextbox.Size = new Size(472, 23);
-            Addresstextbox.TabIndex = 41;
+            textBox3.Location = new Point(66, 271);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(472, 23);
+            textBox3.TabIndex = 41;
             // 
             // S2_personalinfo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(Addresstextbox);
-            Controls.Add(Contactnotextbox);
-            Controls.Add(Emailtextbox);
-            Controls.Add(Birthdaypicker);
-            Controls.Add(S2Backbutton);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(S1Cancelbutton);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(Sexcombobox);
+            Controls.Add(comboBox1);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(S2Nextbutton);
+            Controls.Add(S1Nextbutton);
             Name = "S2_personalinfo";
             Size = new Size(675, 573);
             ResumeLayout(false);
@@ -170,17 +170,17 @@
 
         #endregion
 
-        private Button S2Backbutton;
+        private Button S1Cancelbutton;
         private Label label8;
         private Label label7;
         private Label label6;
-        private ComboBox Sexcombobox;
+        private ComboBox comboBox1;
         private Label label5;
         private Label label4;
-        private Button S2Nextbutton;
-        private DateTimePicker Birthdaypicker;
-        private TextBox Emailtextbox;
-        private TextBox Contactnotextbox;
-        private TextBox Addresstextbox;
+        private Button S1Nextbutton;
+        private DateTimePicker dateTimePicker1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
     }
 }
