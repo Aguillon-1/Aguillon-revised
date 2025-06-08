@@ -1,6 +1,6 @@
 ﻿namespace CMS_Revised
 {
-    partial class Login_Interface
+    partial class LoginControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -126,7 +126,7 @@
             LoginButton.Text = "Login";
             LoginButton.UseVisualStyleBackColor = true;
             // 
-            // Login_Interface
+            // LoginControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -140,7 +140,7 @@
             Controls.Add(GoogleButton);
             Controls.Add(ShowHidePassButton);
             Controls.Add(LoginButton);
-            Name = "Login_Interface";
+            Name = "LoginControl";
             Size = new Size(675, 639);
             ResumeLayout(false);
             PerformLayout();

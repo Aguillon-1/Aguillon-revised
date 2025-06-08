@@ -9,13 +9,13 @@ using CMS_Revised.User_Interface;
 
 namespace CMS_Revised
 {
-    public partial class Login_Interface : UserControl
+    public partial class LoginControl : UserControl
     {
         // Path to store logout state
         private static readonly string LogoutFlagPath = Path.Combine(
             AppDomain.CurrentDomain.BaseDirectory, "Data", "logout_required.flag");
 
-        public Login_Interface()
+        public LoginControl()
         {
             InitializeComponent();
             GoogleButton.Click += GoogleButton_Click;

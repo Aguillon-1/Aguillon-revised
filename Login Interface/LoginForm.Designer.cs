@@ -38,7 +38,7 @@
             CMSlabel = new Label();
             pictureBox1 = new PictureBox();
             LoginSignupPanel = new Panel();
-            login_Interface1 = new Login_Interface();
+            LoginControl1 = new LoginControl();
             SwitcherPanel = new Panel();
             loginSignupSwitcher1 = new LoginSignupSwitcher();
             TopPanel.SuspendLayout();
@@ -152,7 +152,7 @@
             // 
             // LoginSignupPanel
             // 
-            LoginSignupPanel.Controls.Add(login_Interface1);
+            LoginSignupPanel.Controls.Add(LoginControl1);
             LoginSignupPanel.Controls.Add(SwitcherPanel);
             LoginSignupPanel.Dock = DockStyle.Fill;
             LoginSignupPanel.Location = new Point(0, 0);
@@ -160,14 +160,14 @@
             LoginSignupPanel.Size = new Size(675, 639);
             LoginSignupPanel.TabIndex = 0;
             // 
-            // login_Interface1
+            // LoginControl1
             // 
-            login_Interface1.BackColor = SystemColors.ButtonHighlight;
-            login_Interface1.Dock = DockStyle.Fill;
-            login_Interface1.Location = new Point(0, 66);
-            login_Interface1.Name = "login_Interface1";
-            login_Interface1.Size = new Size(675, 573);
-            login_Interface1.TabIndex = 2;
+            LoginControl1.BackColor = SystemColors.ButtonHighlight;
+            LoginControl1.Dock = DockStyle.Fill;
+            LoginControl1.Location = new Point(0, 66);
+            LoginControl1.Name = "LoginControl1";
+            LoginControl1.Size = new Size(675, 573);
+            LoginControl1.TabIndex = 2;
             // 
             // SwitcherPanel
             // 
@@ -226,6 +226,6 @@
         private Panel LoginSignupPanel;
         private Panel SwitcherPanel;
         private LoginSignupSwitcher loginSignupSwitcher1;
-        private Login_Interface login_Interface1;
+        private LoginControl LoginControl1;
     }
 }

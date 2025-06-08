@@ -79,7 +79,6 @@
             MenuLogoutButton.Size = new Size(225, 57);
             MenuLogoutButton.TabIndex = 0;
             MenuLogoutButton.Text = "Logout";
-            
             // 
             // MenuNotesButton
             // 
@@ -208,6 +207,7 @@
             Controls.Add(UserMainPanel);
             Controls.Add(MenuPanel);
             Controls.Add(TopPanel);
+            MinimumSize = new Size(1400, 800);
             Name = "MainForm";
             MenuPanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
