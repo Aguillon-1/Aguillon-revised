@@ -276,6 +276,7 @@
             this.SectionCombobox.Size = new System.Drawing.Size(158, 28);
             this.SectionCombobox.TabIndex = 25;
             this.SectionCombobox.Text = "select section";
+
             // 
             // SectionLabel
             // 

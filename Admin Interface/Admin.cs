@@ -37,29 +37,41 @@ namespace Admin
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            // Remove borders from specific buttons
-            MenuButton.FlatAppearance.BorderSize = 0;
-            HomeButton.FlatAppearance.BorderSize = 0;
-            AccountManagerButton.FlatAppearance.BorderSize = 0;
-            AddingChangingSubjectsButton.FlatAppearance.BorderSize = 0;
-            SystemConfigButton.FlatAppearance.BorderSize = 0;
-            ClassModerationButton.FlatAppearance.BorderSize = 0;
-            GradingButton.FlatAppearance.BorderSize = 0;
-            CurriculumManager.FlatAppearance.BorderSize = 0;
+            try
+            {
+                // Remove borders from specific buttons - add null checks
+                if (MenuButton != null) MenuButton.FlatAppearance.BorderSize = 0;
+                if (HomeButton != null) HomeButton.FlatAppearance.BorderSize = 0;
+                if (AccountManagerButton != null) AccountManagerButton.FlatAppearance.BorderSize = 0;
+                if (AddingChangingSubjectsButton != null) AddingChangingSubjectsButton.FlatAppearance.BorderSize = 0;
+                if (SystemConfigButton != null) SystemConfigButton.FlatAppearance.BorderSize = 0;
+                if (ClassModerationButton != null) ClassModerationButton.FlatAppearance.BorderSize = 0;
+                if (GradingButton != null) GradingButton.FlatAppearance.BorderSize = 0;
+                if (CurriculumManager != null) CurriculumManager.FlatAppearance.BorderSize = 0;
 
-            HeaderPanel.BorderStyle = BorderStyle.FixedSingle;
-            MenuPanel.BackColor = Color.FromArgb(47, 97, 83);
-            MenuPanel.BorderStyle = BorderStyle.FixedSingle;
+                // Configure panels - add null checks
+                if (HeaderPanel != null) HeaderPanel.BorderStyle = BorderStyle.FixedSingle;
+                if (MenuPanel != null)
+                {
+                    MenuPanel.BackColor = Color.FromArgb(47, 97, 83);
+                    MenuPanel.BorderStyle = BorderStyle.FixedSingle;
+                }
 
-            // Initially hide all user controls
-            HideAllUserControls();
+                // Initially hide all user controls
+                HideAllUserControls();
 
-            // Also specifically hide the designer-added controls
-            AccountManager1.Visible = false;
-            AddingChangingSubjects1.Visible = false;
-            CurriculumManager1.Visible = false;
-            SystemConfiguration1.Visible = false;
-            //GradeAdminView1.Visible = false;
+                // Also specifically hide the designer-added controls with null checks
+                if (AccountManager1 != null) AccountManager1.Visible = false;
+                if (AddingChangingSubjects1 != null) AddingChangingSubjects1.Visible = false;
+                if (CurriculumManager1 != null) CurriculumManager1.Visible = false;
+                if (SystemConfiguration1 != null) SystemConfiguration1.Visible = false;
+                //GradeAdminView1.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during form load: {ex.Message}", "Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine($"Admin_Load error: {ex}");
+            }
         }
 
         private void ShowUserControl<T>() where T : UserControl, new()
@@ -232,28 +244,28 @@ namespace Admin
 
         private void RemoveTextButtons()
         {
-            MenuButton.Text = string.Empty;
-            HomeButton.Text = string.Empty;
-            AccountManagerButton.Text = string.Empty;
-            AddingChangingSubjectsButton.Text = string.Empty;
-            SystemConfigButton.Text = string.Empty;
-            ClassModerationButton.Text = string.Empty;
-            GradingButton.Text = string.Empty;
-            CurriculumManager.Text = string.Empty;
-            LogoutButton.Text = string.Empty;
+            if (MenuButton != null) MenuButton.Text = string.Empty;
+            if (HomeButton != null) HomeButton.Text = string.Empty;
+            if (AccountManagerButton != null) AccountManagerButton.Text = string.Empty;
+            if (AddingChangingSubjectsButton != null) AddingChangingSubjectsButton.Text = string.Empty;
+            if (SystemConfigButton != null) SystemConfigButton.Text = string.Empty;
+            if (ClassModerationButton != null) ClassModerationButton.Text = string.Empty;
+            if (GradingButton != null) GradingButton.Text = string.Empty;
+            if (CurriculumManager != null) CurriculumManager.Text = string.Empty;
+            if (LogoutButton != null) LogoutButton.Text = string.Empty;
         }
 
         private void AddTextButtons()
         {
-            MenuButton.Text = buttons[0];
-            HomeButton.Text = buttons[1];
-            AccountManagerButton.Text = buttons[2];
-            AddingChangingSubjectsButton.Text = buttons[3];
-            SystemConfigButton.Text = buttons[4];
-            ClassModerationButton.Text = buttons[5];
-            GradingButton.Text = buttons[6];
-            CurriculumManager.Text = buttons[7];
-            LogoutButton.Text = buttons[8];
+            if (MenuButton != null) MenuButton.Text = buttons[0];
+            if (HomeButton != null) HomeButton.Text = buttons[1];
+            if (AccountManagerButton != null) AccountManagerButton.Text = buttons[2];
+            if (AddingChangingSubjectsButton != null) AddingChangingSubjectsButton.Text = buttons[3];
+            if (SystemConfigButton != null) SystemConfigButton.Text = buttons[4];
+            if (ClassModerationButton != null) ClassModerationButton.Text = buttons[5];
+            if (GradingButton != null) GradingButton.Text = buttons[6];
+            if (CurriculumManager != null) CurriculumManager.Text = buttons[7];
+            if (LogoutButton != null) LogoutButton.Text = buttons[8];
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -261,8 +273,11 @@ namespace Admin
             var clickedButton = sender as Button;
             if (activeButton != null)
                 activeButton.BackColor = Color.FromArgb(47, 97, 83);
-            clickedButton.BackColor = Color.FromArgb(93, 242, 167);
-            activeButton = clickedButton;
+            if (clickedButton != null)
+            {
+                clickedButton.BackColor = Color.FromArgb(93, 242, 167);
+                activeButton = clickedButton;
+            }
         }
 
         private void SystemConfigButton_Click(object sender, EventArgs e)

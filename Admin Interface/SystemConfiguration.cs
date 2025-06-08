@@ -11,7 +11,7 @@ namespace ClassroomManagementSystem
     public partial class SystemConfiguration : UserControl
     {
         // Connection string for database access
-        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\OneDrive - Pesonal\OneDrive\Videos\adminupdated\Classroom-Mangement-System-VB-master\Database1.mdf;Integrated Security=True";
+        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Earl\source\repos\CMS_Revised\Database1.mdf;Integrated Security=True";
 
         // Explicitly specify the namespace for Timer to resolve ambiguity
         private System.Windows.Forms.Timer dateTimeTimer;

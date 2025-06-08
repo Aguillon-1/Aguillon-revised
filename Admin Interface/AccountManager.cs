@@ -18,7 +18,7 @@ namespace ClassroomManagementSystem
     public partial class AccountManager : UserControl
     {
         // Database connection string - updated to use local MDF file
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\misuc\\source\\repos\\Bobsi01\\Classroom-Mangement-System-VB\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DataTable userDataTable;
         private bool isNewUser = true;
@@ -824,7 +824,15 @@ namespace ClassroomManagementSystem
                     gridRow.Cells["program_id"].Value = row["program_name"];
                 }
 
-                if (!Convert.IsDBNull(row["section_name"]))
+                // For section, we need to map section_id to proper section names
+                if (!Convert.IsDBNull(row["section_id"]))
+                {
+                    int sectionId = Convert.ToInt32(row["section_id"]);
+                    // Map section IDs to correct section names (Section A=1, Section B=2, etc.)
+                    string sectionName = $"Section {(char)('A' + sectionId - 1)}";
+                    gridRow.Cells["section_id"].Value = sectionName;
+                }
+                else if (!Convert.IsDBNull(row["section_name"]))
                 {
                     gridRow.Cells["section_id"].Value = row["section_name"];
                 }
@@ -856,6 +864,11 @@ namespace ClassroomManagementSystem
                     gridRow.Cells["birthday"].Value = Convert.ToDateTime(row["birthday"]).ToString("MM/dd/yyyy");
                 }
 
+                if (!Convert.IsDBNull(row["student_status"]))
+                {
+                    gridRow.Cells["student_status"].Value = row["student_status"];
+                }
+
                 // Set archived status as Yes/No
                 bool isArchived = Convert.IsDBNull(row["is_archived"]) ? false : Convert.ToBoolean(row["is_archived"]);
                 gridRow.Cells["is_archived"].Value = isArchived ? "Yes" : "No";
@@ -867,6 +880,7 @@ namespace ClassroomManagementSystem
                 }
             }
         }
+
 
         private void UserDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {

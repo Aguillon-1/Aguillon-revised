@@ -14,7 +14,7 @@ namespace ClassroomManagementSystem
     public partial class AddingChangingSubjects : UserControl
     {
         // Database connection string - use the same as in AccountManager
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\misuc\\source\\repos\\Bobsi01\\Classroom-Mangement-System-VB\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DataTable studentsDataTable;
         private int currentUserId = -1;
@@ -666,7 +666,7 @@ namespace ClassroomManagementSystem
             }
         }
 
-        private void AvailableSubjectsTextbox_TextChanged(object sender, EventArgs e)
+        private void AvailableSubjectsTextbox_TextChanged(object? sender, EventArgs e)
         {
             // Skip search if placeholder text is shown
             if (AvailableSubjectsTextbox.Text == "Search available subjects...")
@@ -680,6 +680,7 @@ namespace ClassroomManagementSystem
                 SearchAvailableSubjects(AvailableSubjectsTextbox.Text);
             }
         }
+
 
         private void SearchAvailableSubjects(string searchText)
         {

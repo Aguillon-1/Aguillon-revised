@@ -27,7 +27,7 @@ namespace Admin// Replace with your actual namespace
         private AccountManager AccountManager1;
         private AddingChangingSubjects AddingChangingSubjects1;
         private CurriculumManager CurriculumManager1;
-        private SystemConfiguration SystemConfiguration1;   
+        private SystemConfiguration SystemConfiguration1;
 
 
         /// <summary>
@@ -65,6 +65,7 @@ namespace Admin// Replace with your actual namespace
             AccountManager1 = new AccountManager();
             AddingChangingSubjects1 = new AddingChangingSubjects();
             CurriculumManager1 = new CurriculumManager();
+            SystemConfiguration1 = new SystemConfiguration(); // FIX: Added missing instantiation
             HeaderPanel.SuspendLayout();
             MenuPanel.SuspendLayout();
             SuspendLayout();
@@ -283,22 +284,37 @@ namespace Admin// Replace with your actual namespace
             AccountManager1.Name = "AccountManager1";
             AccountManager1.Size = new Size(1119, 575);
             AccountManager1.TabIndex = 3;
+            AccountManager1.Visible = false; // FIX: Set to hidden by default
             // 
             // AddingChangingSubjects1
             // 
             AddingChangingSubjects1.BackColor = Color.FromArgb(255, 157, 0);
-            AddingChangingSubjects1.Location = new Point(0, 0);
+            AddingChangingSubjects1.Dock = DockStyle.Fill; // FIX: Changed from absolute positioning
+            AddingChangingSubjects1.Location = new Point(229, 59); // FIX: Proper positioning
             AddingChangingSubjects1.Name = "AddingChangingSubjects1";
-            AddingChangingSubjects1.Size = new Size(1229, 704);
-            AddingChangingSubjects1.TabIndex = 0;
+            AddingChangingSubjects1.Size = new Size(1119, 575); // FIX: Proper sizing
+            AddingChangingSubjects1.TabIndex = 4; // FIX: Unique TabIndex
+            AddingChangingSubjects1.Visible = false; // FIX: Set to hidden by default
             // 
             // CurriculumManager1
             // 
             CurriculumManager1.BackColor = Color.FromArgb(255, 157, 0);
-            CurriculumManager1.Location = new Point(0, 0);
+            CurriculumManager1.Dock = DockStyle.Fill; // FIX: Changed from absolute positioning
+            CurriculumManager1.Location = new Point(229, 59); // FIX: Proper positioning
             CurriculumManager1.Name = "CurriculumManager1";
-            CurriculumManager1.Size = new Size(1229, 704);
-            CurriculumManager1.TabIndex = 0;
+            CurriculumManager1.Size = new Size(1119, 575); // FIX: Proper sizing
+            CurriculumManager1.TabIndex = 5; // FIX: Unique TabIndex
+            CurriculumManager1.Visible = false; // FIX: Set to hidden by default
+            // 
+            // SystemConfiguration1
+            // 
+            SystemConfiguration1.BackColor = Color.FromArgb(255, 157, 0); // FIX: Added missing control configuration
+            SystemConfiguration1.Dock = DockStyle.Fill;
+            SystemConfiguration1.Location = new Point(229, 59);
+            SystemConfiguration1.Name = "SystemConfiguration1";
+            SystemConfiguration1.Size = new Size(1119, 575);
+            SystemConfiguration1.TabIndex = 6;
+            SystemConfiguration1.Visible = false;
             // 
             // Admin
             // 
@@ -306,6 +322,9 @@ namespace Admin// Replace with your actual namespace
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 157, 0);
             ClientSize = new Size(1348, 634);
+            Controls.Add(SystemConfiguration1); // FIX: Added missing control to form
+            Controls.Add(CurriculumManager1); // FIX: Added missing control to form
+            Controls.Add(AddingChangingSubjects1); // FIX: Added missing control to form
             Controls.Add(AccountManager1);
             Controls.Add(MenuPanel);
             Controls.Add(HeaderPanel);
