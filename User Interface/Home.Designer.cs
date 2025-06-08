@@ -59,7 +59,7 @@
             panel1.Controls.Add(WelcomeLabel);
             panel1.Location = new Point(28, 44);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1004, 209);
+            panel1.Size = new Size(1091, 209);
             panel1.TabIndex = 0;
             // 
             // HomeStatusLabel
@@ -166,14 +166,14 @@
             panel4.Controls.Add(label3);
             panel4.Location = new Point(772, 259);
             panel4.Name = "panel4";
-            panel4.Size = new Size(260, 395);
+            panel4.Size = new Size(347, 395);
             panel4.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(66, 28);
+            label3.Location = new Point(110, 28);
             label3.Name = "label3";
             label3.Size = new Size(145, 25);
             label3.TabIndex = 0;

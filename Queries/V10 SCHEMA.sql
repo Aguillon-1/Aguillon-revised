@@ -134,6 +134,7 @@ BEGIN TRY
             first_name VARCHAR(50) NOT NULL,
             middle_name VARCHAR(50) NULL,
             last_name VARCHAR(50) NOT NULL,
+            suffix VARCHAR(3) NULL,
             user_type VARCHAR(20) NOT NULL,
             birthday DATE NULL,
             sex VARCHAR(10) NULL,
