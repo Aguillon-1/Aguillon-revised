@@ -15,7 +15,7 @@ namespace ClassroomManagementSystem
     public partial class CurriculumManager : UserControl
     {
         // Database connection string
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Administrator\\Source\\Repos\\CMS_Revised3\\data.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         // Class level variables
         private DataTable subjectsTable;

@@ -11,7 +11,7 @@ namespace ClassroomManagementSystem
     public partial class SystemConfiguration : UserControl
     {
         // Connection string for database access
-        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Earl\source\repos\CMS_Revised\Database1.mdf;Integrated Security=True";
+        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\Source\Repos\CMS_Revised3\data.mdf;Integrated Security=True";
 
         // Explicitly specify the namespace for Timer to resolve ambiguity
         private System.Windows.Forms.Timer dateTimeTimer;
@@ -372,6 +372,15 @@ namespace ClassroomManagementSystem
 
             // Set up the DataGridView columns
             SchoolYearListDatagrid.AutoGenerateColumns = false;
+
+            // Add hidden school_year_id column
+            var schoolYearIdColumn = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "school_year_id",
+                Name = "school_year_id",
+                Visible = false // Keep it hidden
+            };
+            SchoolYearListDatagrid.Columns.Add(schoolYearIdColumn);
 
             // School Year column
             var schoolYearColumn = new DataGridViewTextBoxColumn

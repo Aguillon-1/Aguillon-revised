@@ -14,7 +14,7 @@ namespace ClassroomManagementSystem
     public partial class AddingChangingSubjects : UserControl
     {
         // Database connection string - use the same as in AccountManager
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Administrator\\Source\\Repos\\CMS_Revised3\\data.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DataTable studentsDataTable;
         private int currentUserId = -1;
@@ -517,12 +517,11 @@ namespace ClassroomManagementSystem
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-
-            // When the form becomes visible again (after potentially adding students elsewhere)
             if (this.Visible)
             {
-                // Reload students to refresh the list with any new accounts
-                LoadStudents();
+                LoadStudents(); // This reloads the student list
+                if (currentUserId > 0)
+                    LoadAvailableSubjects(); // This reloads available subjects for the selected student
             }
         }
 
@@ -1354,6 +1353,11 @@ namespace ClassroomManagementSystem
                 MessageBox.Show($"Error creating subject offering: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
+        }
+
+        private void AvailableSubjectsDataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

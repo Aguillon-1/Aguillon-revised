@@ -18,7 +18,7 @@ namespace ClassroomManagementSystem
     public partial class AccountManager : UserControl
     {
         // Database connection string - updated to use local MDF file
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Administrator\\Source\\Repos\\CMS_Revised3\\data.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DataTable userDataTable;
         private bool isNewUser = true;
