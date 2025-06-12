@@ -357,8 +357,10 @@ namespace ClassroomManagementSystem
         }
 
         // Configure the School Year DataGridView with necessary columns
+        // Configure the School Year DataGridView with necessary columns
         private void ConfigureSchoolYearDataGrid()
         {
+            // First clear existing columns and data source
             SchoolYearListDatagrid.DataSource = null;
             SchoolYearListDatagrid.Columns.Clear();
 
@@ -372,6 +374,23 @@ namespace ClassroomManagementSystem
 
             // Set up the DataGridView columns
             SchoolYearListDatagrid.AutoGenerateColumns = false;
+
+            // Add hidden columns for IDs
+            var schoolYearIdColumn = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "school_year_id",
+                Name = "school_year_id",
+                Visible = false
+            };
+            SchoolYearListDatagrid.Columns.Add(schoolYearIdColumn);
+
+            var semesterIdColumn = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "semester_id",
+                Name = "semester_id",
+                Visible = false
+            };
+            SchoolYearListDatagrid.Columns.Add(semesterIdColumn);
 
             // School Year column
             var schoolYearColumn = new DataGridViewTextBoxColumn
@@ -404,7 +423,7 @@ namespace ClassroomManagementSystem
             scheduleColumn.DefaultCellStyle.Format = "MM/dd/yyyy hh:mm tt";
             SchoolYearListDatagrid.Columns.Add(scheduleColumn);
 
-            // Schedule Button column
+            // Schedule Button column 
             var scheduleButtonColumn = new DataGridViewButtonColumn
             {
                 HeaderText = "Set Schedule",
@@ -426,7 +445,7 @@ namespace ClassroomManagementSystem
             SchoolYearListDatagrid.Columns.Add(editButtonColumn);
             editButtonIndex = 4;
 
-            // Delete Button column - only for school year rows
+            // Delete Button column 
             var deleteButtonColumn = new DataGridViewButtonColumn
             {
                 HeaderText = "Delete",
@@ -444,6 +463,7 @@ namespace ClassroomManagementSystem
             // Load data
             LoadSchoolYearData();
         }
+
 
         // Load school year data into the grid
         private void LoadSchoolYearData()
@@ -627,35 +647,45 @@ namespace ClassroomManagementSystem
         }
 
         // Determine if this is the first row for a given school year
+        // Determine if this is the first row for a given school year
         private bool IsFirstRowOfSchoolYear(int rowIndex)
         {
             if (rowIndex == 0) return true;
 
             // Get the school year ID for the current row
-            int currentSchoolYearId = (int)SchoolYearListDatagrid.Rows[rowIndex].Cells["school_year_id"].Value;
+            DataRowView currentDrv = (DataRowView)SchoolYearListDatagrid.Rows[rowIndex].DataBoundItem;
+            int currentSchoolYearId = (int)currentDrv["school_year_id"];
 
             // Get the school year ID for the previous row
-            int previousSchoolYearId = (int)SchoolYearListDatagrid.Rows[rowIndex - 1].Cells["school_year_id"].Value;
+            DataRowView previousDrv = (DataRowView)SchoolYearListDatagrid.Rows[rowIndex - 1].DataBoundItem;
+            int previousSchoolYearId = (int)previousDrv["school_year_id"];
 
             // If they are different, this is the first row for this school year
             return currentSchoolYearId != previousSchoolYearId;
         }
 
+
+        // Handle button clicks in the DataGridView
         // Handle button clicks in the DataGridView
         private void SchoolYearListDatagrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
+            // Check which column was clicked based on index rather than name
             DataGridViewRow row = SchoolYearListDatagrid.Rows[e.RowIndex];
-            int schoolYearId = (int)row.Cells["school_year_id"].Value;
-            int semesterId = (int)row.Cells["semester_id"].Value;
-            string schoolYearName = row.Cells["year_name"].Value.ToString();
-            string semesterName = row.Cells["semester_name"].Value.ToString();
 
-            // Handle Schedule button click
+            // Safely get values from the DataRowView
+            DataRowView drv = (DataRowView)row.DataBoundItem;
+            int schoolYearId = (int)drv["school_year_id"];
+            int semesterId = (int)drv["semester_id"];
+            string schoolYearName = drv["year_name"].ToString();
+            string semesterName = drv["semester_name"].ToString();
+
+            // Handle Schedule button click (at index scheduleButtonIndex)
             if (e.ColumnIndex == scheduleButtonIndex)
             {
-                SetSchedule(schoolYearId, semesterId, schoolYearName, semesterName);
+                // This button should delete the school year
+                DeleteSchoolYear(schoolYearId, schoolYearName);
                 return;
             }
 
@@ -669,14 +699,16 @@ namespace ClassroomManagementSystem
                     return;
                 }
 
-                // Handle Delete button click
+                // Handle Delete button click - should now set the schedule
                 if (e.ColumnIndex == deleteButtonIndex)
                 {
-                    DeleteSchoolYear(schoolYearId, schoolYearName);
+                    SetSchedule(schoolYearId, semesterId, schoolYearName, semesterName);
                     return;
                 }
             }
         }
+
+
 
         // Set schedule for a school year and semester
         private void SetSchedule(int schoolYearId, int semesterId, string schoolYearName, string semesterName)

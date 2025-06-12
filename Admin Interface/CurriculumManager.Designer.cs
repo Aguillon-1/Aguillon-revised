@@ -70,8 +70,8 @@ namespace ClassroomManagementSystem
             Label14 = new Label();
             SaveButtonforSY = new Button();
             AssignedprofessorCombobox = new ComboBox();
-            ((ISupportInitialize)(allsubjectdatagrid)).BeginInit();
-            ((ISupportInitialize)(PictureBox1)).BeginInit();
+            ((ISupportInitialize)allsubjectdatagrid).BeginInit();
+            ((ISupportInitialize)PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // ProgramLabel
@@ -88,11 +88,7 @@ namespace ClassroomManagementSystem
             // 
             CourseCombobox.Font = new Font("Segoe UI", 11F);
             CourseCombobox.FormattingEnabled = true;
-            CourseCombobox.Items.AddRange(new object[] {
-            "BS Computer Science",
-            "BS Information Technology",
-            "BS Information System",
-            "BS Entertainment and Multimedia Computing"});
+            CourseCombobox.Items.AddRange(new object[] { "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing" });
             CourseCombobox.Location = new Point(246, 61);
             CourseCombobox.Name = "CourseCombobox";
             CourseCombobox.Size = new Size(159, 28);
@@ -130,11 +126,7 @@ namespace ClassroomManagementSystem
             // 
             SYCombobox.Font = new Font("Segoe UI", 11F);
             SYCombobox.FormattingEnabled = true;
-            SYCombobox.Items.AddRange(new object[] {
-            "BS Computer Science",
-            "BS Information Technology",
-            "BS Information System",
-            "BS Entertainment and Multimedia Computing"});
+            SYCombobox.Items.AddRange(new object[] { "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing" });
             SYCombobox.Location = new Point(45, 61);
             SYCombobox.Name = "SYCombobox";
             SYCombobox.Size = new Size(159, 28);
@@ -155,11 +147,7 @@ namespace ClassroomManagementSystem
             // 
             SemesterCombobox.Font = new Font("Segoe UI", 11F);
             SemesterCombobox.FormattingEnabled = true;
-            SemesterCombobox.Items.AddRange(new object[] {
-            "BS Computer Science",
-            "BS Information Technology",
-            "BS Information System",
-            "BS Entertainment and Multimedia Computing"});
+            SemesterCombobox.Items.AddRange(new object[] { "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing" });
             SemesterCombobox.Location = new Point(439, 61);
             SemesterCombobox.Name = "SemesterCombobox";
             SemesterCombobox.Size = new Size(159, 28);
@@ -262,11 +250,7 @@ namespace ClassroomManagementSystem
             // 
             YearLevelCombobox.Font = new Font("Segoe UI", 11F);
             YearLevelCombobox.FormattingEnabled = true;
-            YearLevelCombobox.Items.AddRange(new object[] {
-            "BS Computer Science",
-            "BS Information Technology",
-            "BS Information System",
-            "BS Entertainment and Multimedia Computing"});
+            YearLevelCombobox.Items.AddRange(new object[] { "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing" });
             YearLevelCombobox.Location = new Point(796, 64);
             YearLevelCombobox.Name = "YearLevelCombobox";
             YearLevelCombobox.Size = new Size(159, 28);
@@ -287,11 +271,7 @@ namespace ClassroomManagementSystem
             // 
             CurriculumYearCombobox.Font = new Font("Segoe UI", 11F);
             CurriculumYearCombobox.FormattingEnabled = true;
-            CurriculumYearCombobox.Items.AddRange(new object[] {
-            "BS Computer Science",
-            "BS Information Technology",
-            "BS Information System",
-            "BS Entertainment and Multimedia Computing"});
+            CurriculumYearCombobox.Items.AddRange(new object[] { "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing" });
             CurriculumYearCombobox.Location = new Point(796, 125);
             CurriculumYearCombobox.Name = "CurriculumYearCombobox";
             CurriculumYearCombobox.Size = new Size(159, 28);
@@ -312,11 +292,7 @@ namespace ClassroomManagementSystem
             // 
             SubjectStatusCombobox.Font = new Font("Segoe UI", 11F);
             SubjectStatusCombobox.FormattingEnabled = true;
-            SubjectStatusCombobox.Items.AddRange(new object[] {
-            "BS Computer Science",
-            "BS Information Technology",
-            "BS Information System",
-            "BS Entertainment and Multimedia Computing"});
+            SubjectStatusCombobox.Items.AddRange(new object[] { "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing" });
             SubjectStatusCombobox.Location = new Point(975, 64);
             SubjectStatusCombobox.Name = "SubjectStatusCombobox";
             SubjectStatusCombobox.Size = new Size(159, 28);
@@ -400,10 +376,7 @@ namespace ClassroomManagementSystem
             // 
             CurrentSemesterCombobox.Font = new Font("Segoe UI", 11F);
             CurrentSemesterCombobox.FormattingEnabled = true;
-            CurrentSemesterCombobox.Items.AddRange(new object[] {
-            "First Semester",
-            "Second Semester",
-            "Summer"});
+            CurrentSemesterCombobox.Items.AddRange(new object[] { "First Semester", "Second Semester", "Summer" });
             CurrentSemesterCombobox.Location = new Point(1018, 437);
             CurrentSemesterCombobox.Name = "CurrentSemesterCombobox";
             CurrentSemesterCombobox.Size = new Size(159, 28);
@@ -430,6 +403,7 @@ namespace ClassroomManagementSystem
             SelectCurrentSYCombobox.Size = new Size(159, 28);
             SelectCurrentSYCombobox.TabIndex = 84;
             SelectCurrentSYCombobox.Text = "Select SY";
+            SelectCurrentSYCombobox.SelectedIndexChanged += SelectCurrentSYCombobox_SelectedIndexChanged;
             // 
             // Label12
             // 
@@ -524,8 +498,8 @@ namespace ClassroomManagementSystem
             Name = "CurriculumManager";
             Size = new Size(1229, 704);
             Load += CurriculumManager_Load;
-            ((ISupportInitialize)(allsubjectdatagrid)).EndInit();
-            ((ISupportInitialize)(PictureBox1)).EndInit();
+            ((ISupportInitialize)allsubjectdatagrid).EndInit();
+            ((ISupportInitialize)PictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

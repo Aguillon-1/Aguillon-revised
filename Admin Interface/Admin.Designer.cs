@@ -16,8 +16,6 @@ namespace Admin// Replace with your actual namespace
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Button CurriculumManager;
         private System.Windows.Forms.Button LogoutButton;
-        private System.Windows.Forms.Button GradingButton;
-        private System.Windows.Forms.Button ClassModerationButton;
         private System.Windows.Forms.Button SystemConfigButton;
         private System.Windows.Forms.Button AddingChangingSubjectsButton;
         private System.Windows.Forms.Button AccountManagerButton;
@@ -54,8 +52,6 @@ namespace Admin// Replace with your actual namespace
             MenuPanel = new Panel();
             CurriculumManager = new Button();
             LogoutButton = new Button();
-            GradingButton = new Button();
-            ClassModerationButton = new Button();
             SystemConfigButton = new Button();
             AddingChangingSubjectsButton = new Button();
             AccountManagerButton = new Button();
@@ -65,7 +61,7 @@ namespace Admin// Replace with your actual namespace
             AccountManager1 = new AccountManager();
             AddingChangingSubjects1 = new AddingChangingSubjects();
             CurriculumManager1 = new CurriculumManager();
-            SystemConfiguration1 = new SystemConfiguration(); // FIX: Added missing instantiation
+            SystemConfiguration1 = new SystemConfiguration();
             HeaderPanel.SuspendLayout();
             MenuPanel.SuspendLayout();
             SuspendLayout();
@@ -108,8 +104,6 @@ namespace Admin// Replace with your actual namespace
             MenuPanel.BackColor = Color.FromArgb(47, 97, 83);
             MenuPanel.Controls.Add(CurriculumManager);
             MenuPanel.Controls.Add(LogoutButton);
-            MenuPanel.Controls.Add(GradingButton);
-            MenuPanel.Controls.Add(ClassModerationButton);
             MenuPanel.Controls.Add(SystemConfigButton);
             MenuPanel.Controls.Add(AddingChangingSubjectsButton);
             MenuPanel.Controls.Add(AccountManagerButton);
@@ -131,7 +125,7 @@ namespace Admin// Replace with your actual namespace
             CurriculumManager.FlatStyle = FlatStyle.Flat;
             CurriculumManager.ForeColor = SystemColors.ButtonHighlight;
             CurriculumManager.ImageAlign = ContentAlignment.MiddleLeft;
-            CurriculumManager.Location = new Point(0, 385);
+            CurriculumManager.Location = new Point(0, 275);
             CurriculumManager.MinimumSize = new Size(10, 55);
             CurriculumManager.Name = "CurriculumManager";
             CurriculumManager.Padding = new Padding(10, 0, 0, 0);
@@ -153,40 +147,6 @@ namespace Admin// Replace with your actual namespace
             LogoutButton.TabIndex = 15;
             LogoutButton.Text = "Logout";
             LogoutButton.UseVisualStyleBackColor = false;
-            // 
-            // GradingButton
-            // 
-            GradingButton.AutoSize = true;
-            GradingButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            GradingButton.Dock = DockStyle.Top;
-            GradingButton.FlatStyle = FlatStyle.Flat;
-            GradingButton.ForeColor = SystemColors.ButtonHighlight;
-            GradingButton.ImageAlign = ContentAlignment.MiddleLeft;
-            GradingButton.Location = new Point(0, 330);
-            GradingButton.MinimumSize = new Size(10, 55);
-            GradingButton.Name = "GradingButton";
-            GradingButton.Padding = new Padding(10, 0, 0, 0);
-            GradingButton.Size = new Size(229, 55);
-            GradingButton.TabIndex = 14;
-            GradingButton.Text = "Grading Sheet";
-            GradingButton.UseVisualStyleBackColor = true;
-            // 
-            // ClassModerationButton
-            // 
-            ClassModerationButton.AutoSize = true;
-            ClassModerationButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClassModerationButton.Dock = DockStyle.Top;
-            ClassModerationButton.FlatStyle = FlatStyle.Flat;
-            ClassModerationButton.ForeColor = SystemColors.ButtonHighlight;
-            ClassModerationButton.ImageAlign = ContentAlignment.MiddleLeft;
-            ClassModerationButton.Location = new Point(0, 275);
-            ClassModerationButton.MinimumSize = new Size(10, 55);
-            ClassModerationButton.Name = "ClassModerationButton";
-            ClassModerationButton.Padding = new Padding(10, 0, 0, 0);
-            ClassModerationButton.Size = new Size(229, 55);
-            ClassModerationButton.TabIndex = 13;
-            ClassModerationButton.Text = "Class Moderation";
-            ClassModerationButton.UseVisualStyleBackColor = true;
             // 
             // SystemConfigButton
             // 
@@ -284,31 +244,31 @@ namespace Admin// Replace with your actual namespace
             AccountManager1.Name = "AccountManager1";
             AccountManager1.Size = new Size(1119, 575);
             AccountManager1.TabIndex = 3;
-            AccountManager1.Visible = false; // FIX: Set to hidden by default
+            AccountManager1.Visible = false;
             // 
             // AddingChangingSubjects1
             // 
             AddingChangingSubjects1.BackColor = Color.FromArgb(255, 157, 0);
-            AddingChangingSubjects1.Dock = DockStyle.Fill; // FIX: Changed from absolute positioning
-            AddingChangingSubjects1.Location = new Point(229, 59); // FIX: Proper positioning
+            AddingChangingSubjects1.Dock = DockStyle.Fill;
+            AddingChangingSubjects1.Location = new Point(229, 59);
             AddingChangingSubjects1.Name = "AddingChangingSubjects1";
-            AddingChangingSubjects1.Size = new Size(1119, 575); // FIX: Proper sizing
-            AddingChangingSubjects1.TabIndex = 4; // FIX: Unique TabIndex
-            AddingChangingSubjects1.Visible = false; // FIX: Set to hidden by default
+            AddingChangingSubjects1.Size = new Size(1119, 575);
+            AddingChangingSubjects1.TabIndex = 4;
+            AddingChangingSubjects1.Visible = false;
             // 
             // CurriculumManager1
             // 
             CurriculumManager1.BackColor = Color.FromArgb(255, 157, 0);
-            CurriculumManager1.Dock = DockStyle.Fill; // FIX: Changed from absolute positioning
-            CurriculumManager1.Location = new Point(229, 59); // FIX: Proper positioning
+            CurriculumManager1.Dock = DockStyle.Fill;
+            CurriculumManager1.Location = new Point(229, 59);
             CurriculumManager1.Name = "CurriculumManager1";
-            CurriculumManager1.Size = new Size(1119, 575); // FIX: Proper sizing
-            CurriculumManager1.TabIndex = 5; // FIX: Unique TabIndex
-            CurriculumManager1.Visible = false; // FIX: Set to hidden by default
+            CurriculumManager1.Size = new Size(1119, 575);
+            CurriculumManager1.TabIndex = 5;
+            CurriculumManager1.Visible = false;
             // 
             // SystemConfiguration1
             // 
-            SystemConfiguration1.BackColor = Color.FromArgb(255, 157, 0); // FIX: Added missing control configuration
+            SystemConfiguration1.BackColor = Color.FromArgb(255, 157, 0);
             SystemConfiguration1.Dock = DockStyle.Fill;
             SystemConfiguration1.Location = new Point(229, 59);
             SystemConfiguration1.Name = "SystemConfiguration1";
@@ -322,9 +282,9 @@ namespace Admin// Replace with your actual namespace
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 157, 0);
             ClientSize = new Size(1348, 634);
-            Controls.Add(SystemConfiguration1); // FIX: Added missing control to form
-            Controls.Add(CurriculumManager1); // FIX: Added missing control to form
-            Controls.Add(AddingChangingSubjects1); // FIX: Added missing control to form
+            Controls.Add(SystemConfiguration1);
+            Controls.Add(CurriculumManager1);
+            Controls.Add(AddingChangingSubjects1);
             Controls.Add(AccountManager1);
             Controls.Add(MenuPanel);
             Controls.Add(HeaderPanel);

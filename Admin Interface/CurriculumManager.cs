@@ -109,7 +109,13 @@ namespace ClassroomManagementSystem
                         SYCombobox.DisplayMember = "year_name";
                         SYCombobox.ValueMember = "school_year_id";
 
-                        if (dt.Rows.Count > 0)
+                        // Set default to 2024-2025 if it exists
+                        var row = dt.Select("year_name = '2024-2025'").FirstOrDefault();
+                        if (row != null)
+                        {
+                            SYCombobox.SelectedValue = row["school_year_id"];
+                        }
+                        else if (dt.Rows.Count > 0)
                         {
                             SYCombobox.SelectedIndex = 0;
                         }
@@ -121,6 +127,7 @@ namespace ClassroomManagementSystem
                 MessageBox.Show($"Error loading school years: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void LoadPrograms()
         {
@@ -1508,6 +1515,11 @@ namespace ClassroomManagementSystem
                     }
                 }
             }));
+        }
+
+        private void SelectCurrentSYCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

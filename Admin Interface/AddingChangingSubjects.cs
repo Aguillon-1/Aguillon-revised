@@ -517,12 +517,11 @@ namespace ClassroomManagementSystem
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-
-            // When the form becomes visible again (after potentially adding students elsewhere)
             if (this.Visible)
             {
-                // Reload students to refresh the list with any new accounts
-                LoadStudents();
+                LoadStudents(); // This reloads the student list
+                if (currentUserId > 0)
+                    LoadAvailableSubjects(); // This reloads available subjects for the selected student
             }
         }
 
@@ -1354,6 +1353,11 @@ namespace ClassroomManagementSystem
                 MessageBox.Show($"Error creating subject offering: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
+        }
+
+        private void AvailableSubjectsDataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

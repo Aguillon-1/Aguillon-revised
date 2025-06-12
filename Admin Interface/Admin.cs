@@ -45,8 +45,6 @@ namespace Admin
                 if (AccountManagerButton != null) AccountManagerButton.FlatAppearance.BorderSize = 0;
                 if (AddingChangingSubjectsButton != null) AddingChangingSubjectsButton.FlatAppearance.BorderSize = 0;
                 if (SystemConfigButton != null) SystemConfigButton.FlatAppearance.BorderSize = 0;
-                if (ClassModerationButton != null) ClassModerationButton.FlatAppearance.BorderSize = 0;
-                if (GradingButton != null) GradingButton.FlatAppearance.BorderSize = 0;
                 if (CurriculumManager != null) CurriculumManager.FlatAppearance.BorderSize = 0;
 
                 // Configure panels - add null checks
@@ -249,8 +247,6 @@ namespace Admin
             if (AccountManagerButton != null) AccountManagerButton.Text = string.Empty;
             if (AddingChangingSubjectsButton != null) AddingChangingSubjectsButton.Text = string.Empty;
             if (SystemConfigButton != null) SystemConfigButton.Text = string.Empty;
-            if (ClassModerationButton != null) ClassModerationButton.Text = string.Empty;
-            if (GradingButton != null) GradingButton.Text = string.Empty;
             if (CurriculumManager != null) CurriculumManager.Text = string.Empty;
             if (LogoutButton != null) LogoutButton.Text = string.Empty;
         }
@@ -262,8 +258,6 @@ namespace Admin
             if (AccountManagerButton != null) AccountManagerButton.Text = buttons[2];
             if (AddingChangingSubjectsButton != null) AddingChangingSubjectsButton.Text = buttons[3];
             if (SystemConfigButton != null) SystemConfigButton.Text = buttons[4];
-            if (ClassModerationButton != null) ClassModerationButton.Text = buttons[5];
-            if (GradingButton != null) GradingButton.Text = buttons[6];
             if (CurriculumManager != null) CurriculumManager.Text = buttons[7];
             if (LogoutButton != null) LogoutButton.Text = buttons[8];
         }
@@ -292,5 +286,7 @@ private void GradingButton_Click(object sender, EventArgs e)
    GradeAdminView1.Visible = true;
 }
 */
+
+
     }
 }
