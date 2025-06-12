@@ -41,6 +41,9 @@
             LoginControl1 = new LoginControl();
             SwitcherPanel = new Panel();
             loginSignupSwitcher1 = new LoginSignupSwitcher();
+            s1_studentinfo1 = new CMS_Revised.Login_Interface.S1_studentinfo();
+            s2_personalinfo1 = new CMS_Revised.Login_Interface.S2_personalinfo();
+            s3_accountcredentials1 = new CMS_Revised.Login_Interface.S3_accountcredentials();
             TopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MainSplitContainer).BeginInit();
             MainSplitContainer.Panel1.SuspendLayout();
@@ -154,6 +157,9 @@
             // 
             LoginSignupPanel.Controls.Add(LoginControl1);
             LoginSignupPanel.Controls.Add(SwitcherPanel);
+            LoginSignupPanel.Controls.Add(s1_studentinfo1);
+            LoginSignupPanel.Controls.Add(s2_personalinfo1);
+            LoginSignupPanel.Controls.Add(s3_accountcredentials1);
             LoginSignupPanel.Dock = DockStyle.Fill;
             LoginSignupPanel.Location = new Point(0, 0);
             LoginSignupPanel.Name = "LoginSignupPanel";
@@ -186,6 +192,30 @@
             loginSignupSwitcher1.Size = new Size(675, 66);
             loginSignupSwitcher1.TabIndex = 0;
             loginSignupSwitcher1.Load += loginSignupSwitcher1_Load;
+            // 
+            // s1_studentinfo1
+            // 
+            s1_studentinfo1.Dock = DockStyle.Fill;
+            s1_studentinfo1.Location = new Point(0, 0);
+            s1_studentinfo1.Name = "s1_studentinfo1";
+            s1_studentinfo1.Size = new Size(675, 639);
+            s1_studentinfo1.TabIndex = 3;
+            // 
+            // s2_personalinfo1
+            // 
+            s2_personalinfo1.Dock = DockStyle.Fill;
+            s2_personalinfo1.Location = new Point(0, 0);
+            s2_personalinfo1.Name = "s2_personalinfo1";
+            s2_personalinfo1.Size = new Size(675, 639);
+            s2_personalinfo1.TabIndex = 4;
+            // 
+            // s3_accountcredentials1
+            // 
+            s3_accountcredentials1.Dock = DockStyle.Fill;
+            s3_accountcredentials1.Location = new Point(0, 0);
+            s3_accountcredentials1.Name = "s3_accountcredentials1";
+            s3_accountcredentials1.Size = new Size(675, 639);
+            s3_accountcredentials1.TabIndex = 5;
             // 
             // LoginForm
             // 
@@ -227,5 +257,8 @@
         private Panel SwitcherPanel;
         private LoginSignupSwitcher loginSignupSwitcher1;
         private LoginControl LoginControl1;
+        private Login_Interface.S1_studentinfo s1_studentinfo1;
+        private Login_Interface.S2_personalinfo s2_personalinfo1;
+        private Login_Interface.S3_accountcredentials s3_accountcredentials1;
     }
 }
