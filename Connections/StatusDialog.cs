@@ -43,14 +43,15 @@ namespace CMS_Revised.User_Interface
 
             pinBtn = new Button()
             {
-                Text = "Unpin",
+                Text = "📌", // Use emoji for pin
                 Dock = DockStyle.Bottom
             };
+            TopMost = true; // Pinned by default
             pinBtn.Click += (s, e) =>
             {
                 isPinned = !isPinned;
-                this.TopMost = isPinned;
-                pinBtn.Text = isPinned ? "Unpin" : "Pin to Top";
+                TopMost = isPinned;
+                pinBtn.Text = isPinned ? "📌" : "📍";
             };
 
             logoutBtn = new Button()
@@ -68,7 +69,6 @@ namespace CMS_Revised.User_Interface
             Controls.Add(pinBtn);
             Controls.Add(logoutBtn);
 
-            // When closed, clear the static instance
             this.FormClosed += (s, e) => { if (currentInstance == this) currentInstance = null; };
         }
 
