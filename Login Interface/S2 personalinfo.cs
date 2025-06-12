@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CMS_Revised.Connections;
@@ -121,7 +118,7 @@ namespace CMS_Revised.Login_Interface
             {
                 if (string.IsNullOrWhiteSpace(pair.Key.Text) || pair.Key.Text == pair.Value)
                     return false;
-        }
+            }
             return true;
         }
 

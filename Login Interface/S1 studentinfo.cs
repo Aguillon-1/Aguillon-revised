@@ -3,11 +3,8 @@ using CMS_Revised.User_Interface;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -287,8 +284,6 @@ namespace CMS_Revised.Login_Interface
             }
 
             // 2. Load student profile from student_profiles table
-            int? programId = null, yearLevelId = null, sectionId = null;
-            string? status = null;
             using (var cmd = new SqlCommand(@"
         SELECT student_id, program_id, year_level_id, section_id, student_status
         FROM student_profiles WHERE user_id = @UserId", conn))
@@ -299,31 +294,20 @@ namespace CMS_Revised.Login_Interface
                 {
                     Studentnotextbox.Text = reader["student_id"]?.ToString() ?? "";
                     Studentnotextbox.ForeColor = string.IsNullOrWhiteSpace(Studentnotextbox.Text) ? Color.Gray : Color.Black;
-                    programId = reader["program_id"] as int? ?? 0;
-                    yearLevelId = reader["year_level_id"] as int? ?? 0;
-                    sectionId = reader["section_id"] as int? ?? 0;
-                    status = reader["student_status"]?.ToString() ?? "Regular";
+                    if (Programcombobox.Items.Count > 1)
+                        SetComboBoxSelectedById(Programcombobox, reader["program_id"] as int? ?? 0);
+                    if (Yearlevelcombobox.Items.Count > 1)
+                        SetComboBoxSelectedById(Yearlevelcombobox, reader["year_level_id"] as int? ?? 0);
+                    if (Sectioncombobox.Items.Count > 1)
+                        SetComboBoxSelectedById(Sectioncombobox, reader["section_id"] as int? ?? 0);
+
+                    string status = reader["student_status"]?.ToString() ?? "Regular";
+                    if (Studentstatuscombobox.Items.Count > 1)
+                    {
+                        int statusIdx = Studentstatuscombobox.Items.IndexOf(status);
+                        Studentstatuscombobox.SelectedIndex = statusIdx > 0 ? statusIdx : 1; // Default to "Regular"
+                    }
                 }
-        }
-
-            // Set program and year level first
-            if (Programcombobox.Items.Count > 1 && programId > 0)
-                SetComboBoxSelectedById(Programcombobox, programId.Value);
-            if (Yearlevelcombobox.Items.Count > 1 && yearLevelId > 0)
-                SetComboBoxSelectedById(Yearlevelcombobox, yearLevelId.Value);
-
-            // Now repopulate sections for the selected program/year level
-            await PopulateSectionsAsync();
-
-            // Now set the section
-            if (Sectioncombobox.Items.Count > 1 && sectionId > 0)
-                SetComboBoxSelectedById(Sectioncombobox, sectionId.Value);
-
-            // Set student status
-            if (Studentstatuscombobox.Items.Count > 1 && status != null)
-            {
-                int statusIdx = Studentstatuscombobox.Items.IndexOf(status);
-                Studentstatuscombobox.SelectedIndex = statusIdx > 0 ? statusIdx : 1; // Default to "Regular"
             }
         }
 
@@ -342,7 +326,7 @@ namespace CMS_Revised.Login_Interface
             if (string.IsNullOrWhiteSpace(Studentstatuscombobox.Text))
                 return false;
             return true;
-    }
+        }
 
         private string GetTextOrEmpty(TextBox textBox)
         {
@@ -404,17 +388,17 @@ ELSE
 
             // StatusDialog update
             StatusDialog.ShowStatusDialog().UpdateStatus(
-                "Pre-saved to the database:\r\n" +
-                $"- First Name: {info.FirstName}\r\n" +
-                $"- Middle Name: {info.MiddleName}\r\n" +
-                $"- Last Name: {info.LastName}\r\n" +
-                $"- Suffix: {suffixToSave}\r\n" +
-                $"- Student Number: {info.StudentNumber}\r\n" +
-                $"- Program ID: {info.ProgramId}\r\n" +
-                $"- Year Level ID: {info.YearLevelId}\r\n" +
-                $"- Section ID: {info.SectionId}\r\n" +
+                "Pre-saved to the database:\n" +
+                $"- First Name: {info.FirstName}\n" +
+                $"- Middle Name: {info.MiddleName}\n" +
+                $"- Last Name: {info.LastName}\n" +
+                $"- Suffix: {suffixToSave}\n" +
+                $"- Student Number: {info.StudentNumber}\n" +
+                $"- Program ID: {info.ProgramId}\n" +
+                $"- Year Level ID: {info.YearLevelId}\n" +
+                $"- Section ID: {info.SectionId}\n" +
                 $"- Student Status: {info.StudentStatus}"
-);
+            );
         }
 
         // Helper class for ComboBox items
