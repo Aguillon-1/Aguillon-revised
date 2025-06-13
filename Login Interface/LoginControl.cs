@@ -19,6 +19,10 @@ namespace CMS_Revised
         {
             InitializeComponent();
             GoogleButton.Click += GoogleButton_Click;
+            LoginButton.Click += LoginButton_Click;
+            ShowHidePassButton.Click += ShowHidePassButton_Click;
+            PasswordTextbox.UseSystemPasswordChar = true;
+            ShowHidePassButton.Text = "👁";
         }
 
         private void GoogleButton_Click(object? sender, EventArgs e)
@@ -218,6 +222,96 @@ namespace CMS_Revised
                 statusDialog.EnableLogout();
             }
         }
-    }
 
+        private async void LoginButton_Click(object sender, EventArgs e)
+        {
+            string userOrEmail = EmailTextbox.Text.Trim();
+            string password = PasswordTextbox.Text;
+
+            if (string.IsNullOrWhiteSpace(userOrEmail) || string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter your email/username and password.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var conn = DatabaseConn.GetConnection())
+            {
+                await conn.OpenAsync();
+                using var cmd = new SqlCommand(
+                    "SELECT user_id, username, email, user_type, first_name, middle_name, last_name, password_hash, is_signedup FROM users WHERE email = @UserOrEmail OR username = @UserOrEmail", conn);
+                cmd.Parameters.AddWithValue("@UserOrEmail", userOrEmail);
+                using var reader = await cmd.ExecuteReaderAsync();
+                if (await reader.ReadAsync())
+                {
+                    string storedHash = reader["password_hash"]?.ToString() ?? "";
+                    if (PasswordHelper.VerifyPassword(password, storedHash))
+                    {
+                        // Check if user is fully signed up
+                        int isSignedUp = reader["is_signedup"] != DBNull.Value ? Convert.ToInt32(reader["is_signedup"]) : 0;
+                        if (isSignedUp != 1)
+                        {
+                            MessageBox.Show("Your account signup is not complete. Please finish the signup process.", "Signup Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        // Start session
+                        int userId = reader.GetInt32(reader.GetOrdinal("user_id"));
+                        string username = reader["username"]?.ToString() ?? "";
+                        string email = reader["email"]?.ToString() ?? "";
+                        string userType = reader["user_type"]?.ToString() ?? "";
+                        string firstName = reader["first_name"]?.ToString() ?? "";
+                        string middleName = reader["middle_name"]?.ToString() ?? "";
+                        string lastName = reader["last_name"]?.ToString() ?? "";
+
+                        CMS_Revised.User_Interface.SessionManager.StartSession(
+                            userId,
+                            email,
+                            userType,
+                            firstName,
+                            middleName,
+                            lastName
+                        );
+
+                        // Optionally update last_login
+                        reader.Close();
+                        using (var updateCmd = new SqlCommand("UPDATE users SET last_login = GETDATE() WHERE user_id = @UserId", conn))
+                        {
+                            updateCmd.Parameters.AddWithValue("@UserId", userId);
+                            await updateCmd.ExecuteNonQueryAsync();
+                        }
+
+                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Open MainForm and close LoginForm
+                        Form? parentForm = this.ParentForm;
+                        if (parentForm is LoginForm loginForm)
+                        {
+                            MainForm mainForm = new MainForm();
+                            mainForm.Show();
+                            loginForm.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Account not found.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+        private bool isPasswordHidden = true;
+
+        private void ShowHidePassButton_Click(object sender, EventArgs e)
+        {
+            isPasswordHidden = !isPasswordHidden;
+            PasswordTextbox.UseSystemPasswordChar = isPasswordHidden;
+            ShowHidePassButton.Text = isPasswordHidden ? "👁" : "🙈";
+        }
+    }
 }

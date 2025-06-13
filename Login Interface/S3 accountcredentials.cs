@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Security.Cryptography;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CMS_Revised.Connections;
+using CMS_Revised.User_Interface;
 using Microsoft.Data.SqlClient;
 
 namespace CMS_Revised.Login_Interface
@@ -29,11 +30,14 @@ namespace CMS_Revised.Login_Interface
             S3Finalizebutton.Click += S3Finalizebutton_Click;
             S2Backbutton.Click += (s, e) => BackClicked?.Invoke(this, EventArgs.Empty);
             Passwordtextbox.TextChanged += Passwordtextbox_TextChanged;
+            ShowHidePassButton.Click += ShowHidePassButton_Click;
+            Emailtextbox.ReadOnly = false; // Allow manual entry for email
         }
 
         private void InitializePlaceholders()
         {
             SetPlaceholder(Usernametextbox, "juan.delacruz");
+            SetPlaceholder(Emailtextbox, "your.email@gmail.com");
         }
 
         private void SetPlaceholder(TextBox textBox, string placeholder)
@@ -61,16 +65,29 @@ namespace CMS_Revised.Login_Interface
 
         private void S3_accountcredentials_Load(object? sender, EventArgs e)
         {
-            // Set email textbox (greyed out, uneditable, unselectable)
-            Emailtextbox.Text = UserEmail;
-            Emailtextbox.ReadOnly = true;
-            Emailtextbox.TabStop = false;
-            Emailtextbox.BackColor = Color.LightGray;
-            Emailtextbox.ForeColor = Color.DimGray;
-            Emailtextbox.Cursor = Cursors.Default;
+            // If UserEmail is set (e.g., from Google), prefill and lock the email field
+            if (!string.IsNullOrWhiteSpace(UserEmail))
+            {
+                Emailtextbox.Text = UserEmail;
+                Emailtextbox.ReadOnly = true;
+                Emailtextbox.TabStop = false;
+                Emailtextbox.BackColor = Color.LightGray;
+                Emailtextbox.ForeColor = Color.DimGray;
+                Emailtextbox.Cursor = Cursors.Default;
+            }
+            else
+            {
+                Emailtextbox.ReadOnly = false;
+                Emailtextbox.TabStop = true;
+                Emailtextbox.BackColor = Color.White;
+                Emailtextbox.ForeColor = Color.Black;
+                Emailtextbox.Cursor = Cursors.IBeam;
+            }
 
             PasswordNoticelabel.Text = "Password must be at least 6 characters.";
             PasswordNoticelabel.ForeColor = Color.Gray;
+            Passwordtextbox.UseSystemPasswordChar = true;
+            ConfirmPasswordtextbox.UseSystemPasswordChar = true;
         }
 
         private void Passwordtextbox_TextChanged(object? sender, EventArgs e)
@@ -116,10 +133,10 @@ namespace CMS_Revised.Login_Interface
             int score = 0;
             if (password.Length >= 8) score++;
             if (password.Length >= 12) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[A-Z]")) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[a-z]")) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[0-9]")) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[^a-zA-Z0-9]")) score++;
+            if (Regex.IsMatch(password, "[A-Z]")) score++;
+            if (Regex.IsMatch(password, "[a-z]")) score++;
+            if (Regex.IsMatch(password, "[0-9]")) score++;
+            if (Regex.IsMatch(password, "[^a-zA-Z0-9]")) score++;
 
             // Check for common passwords (simple list)
             string[] common = { "password", "123456", "qwerty", "letmein", "admin", "welcome" };
@@ -144,7 +161,23 @@ namespace CMS_Revised.Login_Interface
         {
             if (!ValidateFields())
             {
-                MessageBox.Show("This field is not filled up yet, please fill out to continue...", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill out all fields to continue.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string email = GetTextOrEmpty(Emailtextbox);
+
+            // Email validation
+            if (!Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@gmail\.com$"))
+            {
+                MessageBox.Show("Please enter a valid @gmail.com email address.", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Email uniqueness check
+            if (!await IsEmailUniqueAsync(email))
+            {
+                MessageBox.Show("This email is already registered.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -155,14 +188,14 @@ namespace CMS_Revised.Login_Interface
             }
 
             // Show confirmation dialog
-            var summary = $"Username: {Usernametextbox.Text}\nEmail: {Emailtextbox.Text}\n\nFinalize signup with these credentials?";
+            var summary = $"Username: {Usernametextbox.Text}\nEmail: {email}\n\nFinalize signup with these credentials?";
             var result = MessageBox.Show(summary, "Confirm Signup", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes) return;
 
             var info = new AccountCredentialsInfo
             {
                 Username = GetTextOrEmpty(Usernametextbox),
-                Email = Emailtextbox.Text,
+                Email = email,
                 Password = Passwordtextbox.Text // Will be hashed before saving
             };
 
@@ -174,6 +207,8 @@ namespace CMS_Revised.Login_Interface
         private bool ValidateFields()
         {
             if (string.IsNullOrWhiteSpace(Usernametextbox.Text) || Usernametextbox.Text == _placeholders[Usernametextbox])
+                return false;
+            if (string.IsNullOrWhiteSpace(Emailtextbox.Text) || Emailtextbox.Text == _placeholders[Emailtextbox])
                 return false;
             if (string.IsNullOrWhiteSpace(Passwordtextbox.Text))
                 return false;
@@ -187,20 +222,32 @@ namespace CMS_Revised.Login_Interface
             return (_placeholders.TryGetValue(textBox, out var placeholder) && textBox.Text == placeholder) ? "" : textBox.Text.Trim();
         }
 
+        private async Task<bool> IsEmailUniqueAsync(string email)
+        {
+            using var conn = DatabaseConn.GetConnection();
+            await conn.OpenAsync();
+            using var cmd = new SqlCommand("SELECT COUNT(*) FROM users WHERE email = @Email AND user_id <> @UserId", conn);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@UserId", CurrentUserId);
+            int count = (int)await cmd.ExecuteScalarAsync();
+            return count == 0;
+        }
+
         private async Task SaveAccountCredentialsAsync(AccountCredentialsInfo info)
         {
             if (CurrentUserId <= 0) return;
 
+            // Hash password using PasswordHelper (PBKDF2)
+            string passwordHash = PasswordHelper.HashPassword(info.Password);
+
             using var conn = DatabaseConn.GetConnection();
             await conn.OpenAsync();
-
-            // Hash password (SHA256 for demo, use a better hash in production)
-            string passwordHash = HashPassword(info.Password);
 
             using (var cmd = new SqlCommand(@"
 UPDATE users SET
     username = @Username,
-    password_hash = @PasswordHash,
+    email = @Email,
+    password = @PasswordHash,
     is_signedup = 1,
     updated_at = GETDATE()
 WHERE user_id = @UserId
@@ -208,16 +255,17 @@ WHERE user_id = @UserId
             {
                 cmd.Parameters.AddWithValue("@UserId", CurrentUserId);
                 cmd.Parameters.AddWithValue("@Username", info.Username);
+                cmd.Parameters.AddWithValue("@Email", info.Email);
                 cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
                 await cmd.ExecuteNonQueryAsync();
             }
         }
 
-        private string HashPassword(string password)
+        private void ShowHidePassButton_Click(object? sender, EventArgs e)
         {
-            using var sha = SHA256.Create();
-            var bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
+            bool isHidden = Passwordtextbox.UseSystemPasswordChar;
+            Passwordtextbox.UseSystemPasswordChar = !isHidden;
+            ConfirmPasswordtextbox.UseSystemPasswordChar = !isHidden;
         }
 
         private enum PasswordStrength

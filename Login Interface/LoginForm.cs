@@ -43,6 +43,28 @@ namespace CMS_Revised
 
                 await s1_studentinfo1.LoadSavedStudentInfoAsync();
             };
+
+
+            // Subscribe to switcher events
+            loginSignupSwitcher1.LoginSelected += (s, e) =>
+            {
+                LoginControl1.Visible = true;
+                s1_studentinfo1.Visible = false;
+                s2_personalinfo1.Visible = false;
+                s3_accountcredentials1.Visible = false;
+                LoginControl1.BringToFront();
+                loginSignupSwitcher1.SetActiveMode(true);
+            };
+
+            loginSignupSwitcher1.SignupSelected += (s, e) =>
+            {
+                LoginControl1.Visible = false;
+                s1_studentinfo1.Visible = true;
+                s2_personalinfo1.Visible = false;
+                s3_accountcredentials1.Visible = false;
+                s1_studentinfo1.BringToFront();
+                loginSignupSwitcher1.SetActiveMode(false);
+            };
         }
 
         private string ExtractFirstName(string fullName)

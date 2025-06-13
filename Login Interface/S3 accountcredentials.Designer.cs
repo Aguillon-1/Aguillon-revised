@@ -39,6 +39,7 @@
             ConfirmPasswordtextbox = new TextBox();
             label2 = new Label();
             PasswordNoticelabel = new Label();
+            ShowHidePassButton = new Button();
             SuspendLayout();
             // 
             // S2Backbutton
@@ -136,10 +137,21 @@
             PasswordNoticelabel.TabIndex = 45;
             PasswordNoticelabel.Text = "label3";
             // 
+            // ShowHidePassButton
+            // 
+            ShowHidePassButton.Location = new Point(314, 197);
+            ShowHidePassButton.Name = "ShowHidePassButton";
+            ShowHidePassButton.Size = new Size(48, 23);
+            ShowHidePassButton.TabIndex = 46;
+            ShowHidePassButton.Text = "button1";
+            ShowHidePassButton.UseVisualStyleBackColor = true;
+            // 
             // S3_accountcredentials
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
+            Controls.Add(ShowHidePassButton);
             Controls.Add(PasswordNoticelabel);
             Controls.Add(ConfirmPasswordtextbox);
             Controls.Add(label2);
@@ -170,5 +182,6 @@
         private TextBox ConfirmPasswordtextbox;
         private Label label2;
         private Label PasswordNoticelabel;
+        private Button ShowHidePassButton;
     }
 }

@@ -230,6 +230,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
             Controls.Add(Suffixnamecombobox);
             Controls.Add(label9);
             Controls.Add(S1Cancelbutton);
