@@ -28,6 +28,7 @@ namespace ClassroomManagementSystem
             InitializeComponent();
         }
 
+
         private void CurriculumManager_Load(object sender, EventArgs e)
         {
             // Initialize UI components
@@ -38,14 +39,35 @@ namespace ClassroomManagementSystem
             // Load system configuration settings
             LoadSystemConfigurationSettings();
 
-            // Load data
+            // Load data BEFORE adding event handlers to avoid filtering
             LoadAllSubjects();
 
             // Configure search box
             SubjectSearchTextBox.Text = "Search subject code or name...";
 
-            // Add event handlers
+            // Add event handlers AFTER initial data load
             AddEventHandlers();
+
+            // Clear the ComboBox selections to show all data initially
+            ResetFilterComboBoxes();
+        }
+
+        private void ResetFilterComboBoxes()
+        {
+            // Temporarily remove event handlers to prevent triggering during reset
+            CourseCombobox.SelectedIndexChanged -= FilterComboBox_SelectedIndexChanged;
+            SYCombobox.SelectedIndexChanged -= FilterComboBox_SelectedIndexChanged;
+            SemesterCombobox.SelectedIndexChanged -= FilterComboBox_SelectedIndexChanged;
+
+            // Reset the filter ComboBoxes to show "All" or no selection
+            CourseCombobox.SelectedIndex = -1;
+            SYCombobox.SelectedIndex = -1;
+            SemesterCombobox.SelectedIndex = -1;
+
+            // Re-add event handlers
+            CourseCombobox.SelectedIndexChanged += FilterComboBox_SelectedIndexChanged;
+            SYCombobox.SelectedIndexChanged += FilterComboBox_SelectedIndexChanged;
+            SemesterCombobox.SelectedIndexChanged += FilterComboBox_SelectedIndexChanged;
         }
 
         private void InitializeComboBoxes()
@@ -1007,76 +1029,76 @@ namespace ClassroomManagementSystem
                 {
                     connection.Open();
 
-                    // Updated query to concatenate year_level_id and program_code as course
+                    // Updated query to ensure we join correctly with program_code
                     string query = @"
-                    SELECT 
-                        c.curriculum_id, 
-                        s.subject_id,
-                        s.subject_code, 
-                        s.subject_name, 
-                        CONCAT(yl.year_level_id, '-', p.program_code) AS course, -- Concatenate year_level_id and program_code
-                        s.lecture_units, 
-                        s.lab_units,
-                        c.curriculum_year,
-                        c.subject_status,
-                        CASE 
-                            WHEN u.middle_name IS NULL OR u.middle_name = '' THEN 
-                                u.first_name + ' ' + u.last_name
-                            ELSE 
-                                u.first_name + ' ' + LEFT(u.middle_name, 1) + '. ' + u.last_name
-                        END AS professor,
-                        ISNULL(fp.department, '') AS professor_department,
-                        yl.year_level_id,
-                        c.program_id,
-                        c.school_year_id,
-                        c.semester_id,
-                        c.faculty_id
-                    FROM curriculum c
-                    JOIN subjects s ON c.subject_id = s.subject_id
-                    JOIN programs p ON c.program_id = p.program_id
-                    JOIN school_years sy ON c.school_year_id = sy.school_year_id
-                    JOIN semesters sem ON c.semester_id = sem.semester_id
-                    JOIN year_levels yl ON c.year_level_id = yl.year_level_id
-                    LEFT JOIN users u ON c.faculty_id = u.user_id
-                    LEFT JOIN (
-                        SELECT user_id, department 
-                        FROM faculty_profiles
-                    ) fp ON u.user_id = fp.user_id
-                    WHERE c.is_active = 1";
+            SELECT 
+                c.curriculum_id, 
+                s.subject_id,
+                s.subject_code, 
+                s.subject_name, 
+                CONCAT(yl.year_name, '-', p.program_code) AS course, -- Updated to use year_name instead of year_level_id
+                s.lecture_units, 
+                s.lab_units,
+                c.curriculum_year,
+                c.subject_status,
+                CASE 
+                    WHEN u.middle_name IS NULL OR u.middle_name = '' THEN 
+                        u.first_name + ' ' + u.last_name
+                    ELSE 
+                        u.first_name + ' ' + LEFT(u.middle_name, 1) + '. ' + u.last_name
+                END AS professor,
+                ISNULL(fp.department, '') AS professor_department,
+                yl.year_level_id,
+                c.program_id,
+                c.school_year_id,
+                c.semester_id,
+                c.faculty_id
+            FROM curriculum c
+            JOIN subjects s ON c.subject_id = s.subject_id
+            JOIN programs p ON c.program_id = p.program_id
+            JOIN school_years sy ON c.school_year_id = sy.school_year_id
+            JOIN semesters sem ON c.semester_id = sem.semester_id
+            JOIN year_levels yl ON c.year_level_id = yl.year_level_id
+            LEFT JOIN users u ON c.faculty_id = u.user_id
+            LEFT JOIN (
+                SELECT user_id, department 
+                FROM faculty_profiles
+            ) fp ON u.user_id = fp.user_id
+            WHERE c.is_active = 1";
 
                     // Add filtering based on selected ComboBox values
-                    if (CourseCombobox.SelectedValue != null)
+                    if (CourseCombobox.SelectedIndex >= 0 && CourseCombobox.SelectedValue != null)
                     {
                         query += " AND c.program_id = @programId";
                     }
 
-                    if (SYCombobox.SelectedValue != null)
+                    if (SYCombobox.SelectedIndex >= 0 && SYCombobox.SelectedValue != null)
                     {
                         query += " AND c.school_year_id = @schoolYearId";
                     }
 
-                    if (SemesterCombobox.SelectedValue != null)
+                    if (SemesterCombobox.SelectedIndex >= 0 && SemesterCombobox.SelectedValue != null)
                     {
                         query += " AND c.semester_id = @semesterId";
                     }
 
                     // Complete the query with ordering
-                    query += " ORDER BY s.subject_code";
+                    query += " ORDER BY p.program_code, yl.year_level_id, s.subject_code";
 
                     using (var cmd = new SqlCommand(query, connection))
                     {
                         // Add parameters if needed
-                        if (CourseCombobox.SelectedValue != null)
+                        if (CourseCombobox.SelectedIndex >= 0 && CourseCombobox.SelectedValue != null)
                         {
                             cmd.Parameters.AddWithValue("@programId", CourseCombobox.SelectedValue);
                         }
 
-                        if (SYCombobox.SelectedValue != null)
+                        if (SYCombobox.SelectedIndex >= 0 && SYCombobox.SelectedValue != null)
                         {
                             cmd.Parameters.AddWithValue("@schoolYearId", SYCombobox.SelectedValue);
                         }
 
-                        if (SemesterCombobox.SelectedValue != null)
+                        if (SemesterCombobox.SelectedIndex >= 0 && SemesterCombobox.SelectedValue != null)
                         {
                             cmd.Parameters.AddWithValue("@semesterId", SemesterCombobox.SelectedValue);
                         }
@@ -1097,6 +1119,7 @@ namespace ClassroomManagementSystem
                 MessageBox.Show($"Error loading subjects: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void SubjectSearchTextBox_TextChanged(object sender, EventArgs e)
         {
