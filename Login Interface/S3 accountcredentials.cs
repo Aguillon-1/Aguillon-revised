@@ -237,21 +237,21 @@ namespace CMS_Revised.Login_Interface
         {
             if (CurrentUserId <= 0) return;
 
-            // Hash password using PasswordHelper (PBKDF2)
+            // Use PasswordHelper for PBKDF2 hashing
             string passwordHash = PasswordHelper.HashPassword(info.Password);
 
             using var conn = DatabaseConn.GetConnection();
             await conn.OpenAsync();
 
             using (var cmd = new SqlCommand(@"
-UPDATE users SET
-    username = @Username,
-    email = @Email,
-    password = @PasswordHash,
-    is_signedup = 1,
-    updated_at = GETDATE()
-WHERE user_id = @UserId
-", conn))
+                UPDATE users SET
+                    username = @Username,
+                    email = @Email,
+                    password_hash = @PasswordHash,
+                    is_signedup = 1,
+                    updated_at = GETDATE()
+                WHERE user_id = @UserId
+            ", conn))
             {
                 cmd.Parameters.AddWithValue("@UserId", CurrentUserId);
                 cmd.Parameters.AddWithValue("@Username", info.Username);
