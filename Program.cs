@@ -61,7 +61,7 @@ namespace CMS_Revised
                 }
                 else
                 {
-                    formToShow = new LoginForm();
+                    formToShow = new Admin.Admin();
                 }
 
                 // Show the form and bring it to the top
