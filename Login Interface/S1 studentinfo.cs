@@ -208,6 +208,34 @@ namespace CMS_Revised.Login_Interface
                 return;
             }
 
+            // --- Student Number Format Validation ---
+            string studentNumber = GetTextOrEmpty(Studentnotextbox);
+            if (!System.Text.RegularExpressions.Regex.IsMatch(studentNumber, @"^\d{8}-[NCS]$"))
+            {
+                MessageBox.Show("Student Number must be in the format XXXXXXXX-N/C/S (e.g., 20230902-N).", "Invalid Student Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Studentnotextbox.Focus();
+                return;
+            }
+
+            // --- Duplicate Student Number Check ---
+            using (var conn = DatabaseConn.GetConnection())
+            {
+                await conn.OpenAsync();
+                using (var cmd = new Microsoft.Data.SqlClient.SqlCommand(
+                    "SELECT user_id FROM student_profiles WHERE student_id = @StudentNumber AND user_id <> @UserId", conn))
+                {
+                    cmd.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    cmd.Parameters.AddWithValue("@UserId", CurrentUserId);
+                    var result = await cmd.ExecuteScalarAsync();
+                    if (result != null)
+                    {
+                        MessageBox.Show("Student number is already used by another user, please contact administrator for assistance.", "Duplicate Student Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Studentnotextbox.Focus();
+                        return;
+                    }
+                }
+            }
+
             // Prepare data
             var info = new StudentSignupInfo
             {
@@ -215,7 +243,7 @@ namespace CMS_Revised.Login_Interface
                 MiddleName = GetTextOrEmpty(Mnametextbox),
                 LastName = GetTextOrEmpty(Lnametextbox),
                 Suffix = Suffixnamecombobox.Text,
-                StudentNumber = GetTextOrEmpty(Studentnotextbox),
+                StudentNumber = studentNumber,
                 ProgramId = (Programcombobox.SelectedItem as ComboBoxItem)?.Id ?? 0,
                 YearLevelId = (Yearlevelcombobox.SelectedItem as ComboBoxItem)?.Id ?? 0,
                 SectionId = (Sectioncombobox.SelectedItem as ComboBoxItem)?.Id ?? 0,

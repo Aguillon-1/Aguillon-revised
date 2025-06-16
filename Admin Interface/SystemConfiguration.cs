@@ -1,17 +1,19 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CMS_Revised.Connections;
+using Microsoft.Data.SqlClient;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using CMS_Revised.Connections;
 
 namespace ClassroomManagementSystem
 {
     public partial class SystemConfiguration : UserControl
     {
         // Connection string for database access
-        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Earl\source\repos\CMS_Revised\Database1.mdf;Integrated Security=True";
+         
 
         // Explicitly specify the namespace for Timer to resolve ambiguity
         private System.Windows.Forms.Timer dateTimeTimer;
@@ -137,7 +139,7 @@ namespace ClassroomManagementSystem
         // Add a new school year to the database
         private bool AddSchoolYearToDatabase(string schoolYearText)
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = DatabaseConn.GetConnection())
             {
                 connection.Open();
 
@@ -169,7 +171,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -224,7 +226,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -298,7 +300,7 @@ namespace ClassroomManagementSystem
             {
                 try
                 {
-                    using (var connection = new SqlConnection(connectionString))
+                    using (var connection = DatabaseConn.GetConnection())
                     {
                         connection.Open();
                         using (var transaction = connection.BeginTransaction())
@@ -475,7 +477,7 @@ namespace ClassroomManagementSystem
                     schoolYearTable.Clear();
                 }
 
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -792,7 +794,7 @@ namespace ClassroomManagementSystem
                     // Save the selected date to the database
                     try
                     {
-                        using (var connection = new SqlConnection(connectionString))
+                        using (var connection = DatabaseConn.GetConnection())
                         {
                             connection.Open();
 
@@ -936,7 +938,7 @@ namespace ClassroomManagementSystem
                     // Update in the database
                     try
                     {
-                        using (var connection = new SqlConnection(connectionString))
+                        using (var connection = DatabaseConn.GetConnection())
                         {
                             connection.Open();
 
@@ -1000,7 +1002,7 @@ namespace ClassroomManagementSystem
             {
                 try
                 {
-                    using (var connection = new SqlConnection(connectionString))
+                    using (var connection = DatabaseConn.GetConnection())
                     {
                         connection.Open();
                         using (var transaction = connection.BeginTransaction())

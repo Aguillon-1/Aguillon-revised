@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using CMS_Revised.Connections;
 
 namespace ClassroomManagementSystem
 {
     public partial class AddingChangingSubjects : UserControl
     {
         // Database connection string - use the same as in AccountManager
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        
 
         private DataTable studentsDataTable;
         private int currentUserId = -1;
@@ -396,7 +397,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -795,7 +796,7 @@ namespace ClassroomManagementSystem
 
             // Add this code to the SelectStudentRow method after setting currentUserId
             // Check if default subject enrollment is enabled
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = DatabaseConn.GetConnection())
             {
                 connection.Open();
 
@@ -840,7 +841,7 @@ namespace ClassroomManagementSystem
 
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -946,7 +947,7 @@ namespace ClassroomManagementSystem
 
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1205,7 +1206,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1240,7 +1241,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 

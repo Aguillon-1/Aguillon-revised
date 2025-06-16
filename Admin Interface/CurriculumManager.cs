@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using CMS_Revised.Connections;
 
 
 namespace ClassroomManagementSystem
 {
     public partial class CurriculumManager : UserControl
     {
-        // Database connection string
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
+        
         // Class level variables
         private DataTable subjectsTable;
         private int currentCurriculumId = -1;
@@ -116,7 +115,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     string query = "SELECT school_year_id, year_name FROM school_years ORDER BY is_current DESC, start_date DESC";
@@ -155,7 +154,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     string query = "SELECT program_id, program_name, program_code FROM programs WHERE is_active = 1 ORDER BY program_name";
@@ -187,7 +186,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     string query = "SELECT semester_id, semester_name FROM semesters ORDER BY semester_id";
@@ -219,7 +218,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     string query = "SELECT year_level_id, year_name FROM year_levels WHERE is_active = 1 ORDER BY year_level_id";
@@ -251,7 +250,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -301,7 +300,7 @@ namespace ClassroomManagementSystem
                 // Always add CSD as the first option
                 departmentsTable.Rows.Add("CSD");
 
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -360,7 +359,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     string query = @"
@@ -617,7 +616,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -787,7 +786,7 @@ namespace ClassroomManagementSystem
 
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     using (var transaction = connection.BeginTransaction())
@@ -870,7 +869,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1025,7 +1024,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1254,7 +1253,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1313,7 +1312,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     using (var transaction = connection.BeginTransaction())
@@ -1372,7 +1371,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     using (var transaction = connection.BeginTransaction())

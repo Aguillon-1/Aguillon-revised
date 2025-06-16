@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using CMS_Revised.Connections;
 
 
 namespace ClassroomManagementSystem
@@ -18,7 +19,7 @@ namespace ClassroomManagementSystem
     public partial class AccountManager : UserControl
     {
         // Database connection string - updated to use local MDF file
-        private readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Earl\\source\\repos\\CMS_Revised\\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+        
 
         private DataTable userDataTable;
         private bool isNewUser = true;
@@ -80,7 +81,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
                     return true;
@@ -469,7 +470,7 @@ namespace ClassroomManagementSystem
             {
                 string selectedSY = SchoolYRCombobox.SelectedItem.ToString();
 
-                using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     try
                     {
@@ -546,7 +547,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString)) // Explicitly using Microsoft.Data.SqlClient.SqlConnection
+                using (var connection = DatabaseConn.GetConnection()) // Explicitly using Microsoft.Data.SqlClient.SqlConnection
                 {
                     connection.Open();
                     string query = @"
@@ -633,7 +634,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -677,7 +678,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1098,7 +1099,7 @@ namespace ClassroomManagementSystem
 
         private void ArchiveUser(int userId)
         {
-            using (var connection = new Microsoft.Data.SqlClient.SqlConnection(connectionString))
+            using (var connection = DatabaseConn.GetConnection())
             {
                 connection.Open();
                 using (var transaction = connection.BeginTransaction())
@@ -1336,7 +1337,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1371,7 +1372,7 @@ namespace ClassroomManagementSystem
         {
             try
             {
-                using (var connection = new SqlConnection(connectionString))
+                using (var connection = DatabaseConn.GetConnection())
                 {
                     connection.Open();
 
@@ -1431,7 +1432,7 @@ namespace ClassroomManagementSystem
 
         private void CreateNewUser()
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = DatabaseConn.GetConnection())
             {
                 connection.Open();
                 using (var transaction = connection.BeginTransaction())
@@ -1481,7 +1482,7 @@ namespace ClassroomManagementSystem
 
         private void UpdateExistingUser()
         {
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = DatabaseConn.GetConnection())
             {
                 connection.Open();
                 using (var transaction = connection.BeginTransaction())

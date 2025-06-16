@@ -3,6 +3,10 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using CMS_Revised.Connections;
+using System.Data.SqlClient;
+using System.Linq;
+using Microsoft.Data.SqlClient;
 
 namespace CMS_Revised
 {
@@ -46,6 +50,58 @@ namespace CMS_Revised
                 }
 
                 ApplicationConfiguration.Initialize();
+
+                var statusDialog = CMS_Revised.User_Interface.StatusDialog.ShowStatusDialog();
+                statusDialog.UpdateStatus("Checking database connection...");
+
+                bool dbOk = true;
+                var latencies = new double[5];
+
+                for (int i = 0; i < 5; i++)
+                {
+                    var sw = Stopwatch.StartNew();
+                    try
+                    {
+                        using (var conn = DatabaseConn.GetConnection())
+                        {
+                            conn.Open();
+                            using (var cmd = new Microsoft.Data.SqlClient.SqlCommand("SELECT 1", conn))
+                            {
+                                cmd.ExecuteScalar();
+                            }
+                        }
+                        sw.Stop();
+                        latencies[i] = sw.Elapsed.TotalMilliseconds;
+                        statusDialog.UpdateStatus($"Ping {i + 1}: Success ({latencies[i]:0.##} ms)");
+                    }
+                    catch (Exception ex)
+                    {
+                        sw.Stop();
+                        latencies[i] = -1;
+                        statusDialog.UpdateStatus($"Ping {i + 1}: Failed ({ex.Message})");
+                        dbOk = false;
+                    }
+                    Application.DoEvents(); // Allow UI update
+                    Thread.Sleep(100); // Small delay between pings
+                }
+
+                if (latencies.All(x => x < 0))
+                {
+                    statusDialog.UpdateStatus("Database is unreachable.");
+                    MessageBox.Show("Database is unreachable. Some features may not work.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    var validLatencies = latencies.Where(x => x >= 0).ToArray();
+                    double avg = validLatencies.Average();
+                    double min = validLatencies.Min();
+                    double max = validLatencies.Max();
+                    statusDialog.UpdateStatus($"Summary: {validLatencies.Length} successful, {latencies.Count(x => x < 0)} failed.");
+                    statusDialog.UpdateStatus($"Latency (ms): avg={avg:0.##}, min={min:0.##}, max={max:0.##}");
+                }
+
+                statusDialog.UpdateStatus("Database connection check complete.");
+                
 
                 Application.ThreadException += (sender, args) =>
                 {
