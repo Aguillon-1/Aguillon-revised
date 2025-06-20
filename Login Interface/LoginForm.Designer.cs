@@ -174,6 +174,7 @@
             LoginControl1.Name = "LoginControl1";
             LoginControl1.Size = new Size(675, 573);
             LoginControl1.TabIndex = 2;
+            LoginControl1.Load += LoginControl1_Load;
             // 
             // SwitcherPanel
             // 
@@ -195,6 +196,8 @@
             // 
             // s1_studentinfo1
             // 
+            s1_studentinfo1.BackColor = SystemColors.ButtonHighlight;
+            s1_studentinfo1.CurrentUserId = 0;
             s1_studentinfo1.Dock = DockStyle.Fill;
             s1_studentinfo1.Location = new Point(0, 0);
             s1_studentinfo1.Name = "s1_studentinfo1";
@@ -203,19 +206,25 @@
             // 
             // s2_personalinfo1
             // 
+            s2_personalinfo1.BackColor = SystemColors.ButtonHighlight;
+            s2_personalinfo1.CurrentUserId = 0;
             s2_personalinfo1.Dock = DockStyle.Fill;
             s2_personalinfo1.Location = new Point(0, 0);
             s2_personalinfo1.Name = "s2_personalinfo1";
             s2_personalinfo1.Size = new Size(675, 639);
             s2_personalinfo1.TabIndex = 4;
+            s2_personalinfo1.UserEmail = "";
             // 
             // s3_accountcredentials1
             // 
+            s3_accountcredentials1.BackColor = SystemColors.ButtonHighlight;
+            s3_accountcredentials1.CurrentUserId = 0;
             s3_accountcredentials1.Dock = DockStyle.Fill;
             s3_accountcredentials1.Location = new Point(0, 0);
             s3_accountcredentials1.Name = "s3_accountcredentials1";
             s3_accountcredentials1.Size = new Size(675, 639);
             s3_accountcredentials1.TabIndex = 5;
+            s3_accountcredentials1.UserEmail = "";
             // 
             // LoginForm
             // 

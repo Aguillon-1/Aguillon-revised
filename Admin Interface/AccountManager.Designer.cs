@@ -28,537 +28,510 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.UserDataGrid = new System.Windows.Forms.DataGridView();
-            this.dbSearchTextBox = new System.Windows.Forms.TextBox();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
-            this.FnameTextBox = new System.Windows.Forms.TextBox();
-            this.FnameLabel = new System.Windows.Forms.Label();
-            this.MnameLabel = new System.Windows.Forms.Label();
-            this.MnameTextBox = new System.Windows.Forms.TextBox();
-            this.Lname = new System.Windows.Forms.Label();
-            this.LnameTextBox = new System.Windows.Forms.TextBox();
-            this.RoleLabel = new System.Windows.Forms.Label();
-            this.RoleComboBox = new System.Windows.Forms.ComboBox();
-            this.DbsortCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.StudentNoTextBox = new System.Windows.Forms.Label();
-            this.TextBox1 = new System.Windows.Forms.TextBox();
-            this.EmailLabel = new System.Windows.Forms.Label();
-            this.CourseCombobox = new System.Windows.Forms.ComboBox();
-            this.CourseLabel = new System.Windows.Forms.Label();
-            this.SectionCombobox = new System.Windows.Forms.ComboBox();
-            this.SectionLabel = new System.Windows.Forms.Label();
-            this.PasswordLabel = new System.Windows.Forms.Label();
-            this.YearLabel = new System.Windows.Forms.Label();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.PasswordTextBox = new System.Windows.Forms.TextBox();
-            this.YearCombobox = new System.Windows.Forms.ComboBox();
-            this.PassEyeButton = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.ContactNoTextBox = new System.Windows.Forms.TextBox();
-            this.ContactNoLabel = new System.Windows.Forms.Label();
-            this.StudentStatusCombobox = new System.Windows.Forms.ComboBox();
-            this.StudentStatusLabel = new System.Windows.Forms.Label();
-            this.SchoolYRCombobox = new System.Windows.Forms.ComboBox();
-            this.SYLabel = new System.Windows.Forms.Label();
-            this.SexCombobox = new System.Windows.Forms.ComboBox();
-            this.SexLabel = new System.Windows.Forms.Label();
-            this.ComboBox4 = new System.Windows.Forms.ComboBox();
-            this.AcademicStatusLabel = new System.Windows.Forms.Label();
-            this.BdayLabel = new System.Windows.Forms.Label();
-            this.Bdaypicket = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
-            this.SuspendLayout();
+            SaveButton = new Button();
+            UserDataGrid = new DataGridView();
+            dbSearchTextBox = new TextBox();
+            PictureBox1 = new PictureBox();
+            FnameTextBox = new TextBox();
+            FnameLabel = new Label();
+            MnameLabel = new Label();
+            MnameTextBox = new TextBox();
+            Lname = new Label();
+            LnameTextBox = new TextBox();
+            RoleLabel = new Label();
+            RoleComboBox = new ComboBox();
+            DbsortCheckedListBox = new CheckedListBox();
+            StudentNoTextBox = new Label();
+            TextBox1 = new TextBox();
+            EmailLabel = new Label();
+            CourseCombobox = new ComboBox();
+            CourseLabel = new Label();
+            SectionCombobox = new ComboBox();
+            SectionLabel = new Label();
+            PasswordLabel = new Label();
+            YearLabel = new Label();
+            EmailTextBox = new TextBox();
+            PasswordTextBox = new TextBox();
+            YearCombobox = new ComboBox();
+            PassEyeButton = new Button();
+            ClearButton = new Button();
+            DeleteButton = new Button();
+            ContactNoTextBox = new TextBox();
+            ContactNoLabel = new Label();
+            StudentStatusCombobox = new ComboBox();
+            StudentStatusLabel = new Label();
+            SchoolYRCombobox = new ComboBox();
+            SYLabel = new Label();
+            SexCombobox = new ComboBox();
+            SexLabel = new Label();
+            ComboBox4 = new ComboBox();
+            AcademicStatusLabel = new Label();
+            BdayLabel = new Label();
+            Bdaypicket = new DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)UserDataGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(229)))), ((int)(((byte)(189)))));
-            this.SaveButton.Location = new System.Drawing.Point(1086, 651);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(130, 42);
-            this.SaveButton.TabIndex = 0;
-            this.SaveButton.Text = "SAVE";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            SaveButton.BackColor = Color.FromArgb(72, 229, 189);
+            SaveButton.Location = new Point(1086, 651);
+            SaveButton.Margin = new Padding(2, 1, 2, 1);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(130, 42);
+            SaveButton.TabIndex = 0;
+            SaveButton.Text = "SAVE";
+            SaveButton.UseVisualStyleBackColor = false;
+            SaveButton.Click += SaveButton_Click;
             // 
             // UserDataGrid
             // 
-            this.UserDataGrid.AllowUserToAddRows = false;
-            this.UserDataGrid.AllowUserToDeleteRows = false;
-            this.UserDataGrid.AllowUserToResizeColumns = false;
-            this.UserDataGrid.AllowUserToResizeRows = false;
-            this.UserDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.UserDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UserDataGrid.Location = new System.Drawing.Point(22, 14);
-            this.UserDataGrid.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.UserDataGrid.Name = "UserDataGrid";
-            this.UserDataGrid.ReadOnly = true;
-            this.UserDataGrid.RowHeadersWidth = 82;
-            this.UserDataGrid.Size = new System.Drawing.Size(1069, 272);
-            this.UserDataGrid.TabIndex = 1;
-            this.UserDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserDataGrid_CellClick);
+            UserDataGrid.AllowUserToAddRows = false;
+            UserDataGrid.AllowUserToDeleteRows = false;
+            UserDataGrid.AllowUserToResizeColumns = false;
+            UserDataGrid.AllowUserToResizeRows = false;
+            UserDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            UserDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            UserDataGrid.Location = new Point(22, 14);
+            UserDataGrid.Margin = new Padding(2, 1, 2, 1);
+            UserDataGrid.Name = "UserDataGrid";
+            UserDataGrid.ReadOnly = true;
+            UserDataGrid.RowHeadersWidth = 82;
+            UserDataGrid.Size = new Size(1069, 272);
+            UserDataGrid.TabIndex = 1;
+            UserDataGrid.CellClick += UserDataGrid_CellClick;
             // 
             // dbSearchTextBox
             // 
-            this.dbSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dbSearchTextBox.Location = new System.Drawing.Point(60, 290);
-            this.dbSearchTextBox.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.dbSearchTextBox.MaximumSize = new System.Drawing.Size(300, 34);
-            this.dbSearchTextBox.MinimumSize = new System.Drawing.Size(273, 34);
-            this.dbSearchTextBox.Multiline = true;
-            this.dbSearchTextBox.Name = "dbSearchTextBox";
-            this.dbSearchTextBox.Size = new System.Drawing.Size(300, 34);
-            this.dbSearchTextBox.TabIndex = 2;
-            this.dbSearchTextBox.Text = "Search Name, ID and ect...";
+            dbSearchTextBox.Font = new Font("Segoe UI", 10F);
+            dbSearchTextBox.Location = new Point(60, 290);
+            dbSearchTextBox.Margin = new Padding(2, 1, 2, 1);
+            dbSearchTextBox.MaximumSize = new Size(300, 34);
+            dbSearchTextBox.MinimumSize = new Size(273, 34);
+            dbSearchTextBox.Multiline = true;
+            dbSearchTextBox.Name = "dbSearchTextBox";
+            dbSearchTextBox.Size = new Size(300, 34);
+            dbSearchTextBox.TabIndex = 2;
+            dbSearchTextBox.Text = "Search Name, ID and ect...";
             // 
             // PictureBox1
             // 
-            this.PictureBox1.Location = new System.Drawing.Point(22, 290);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(32, 34);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox1.TabIndex = 3;
-            this.PictureBox1.TabStop = false;
+            PictureBox1.Location = new Point(22, 290);
+            PictureBox1.Name = "PictureBox1";
+            PictureBox1.Size = new Size(32, 34);
+            PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureBox1.TabIndex = 3;
+            PictureBox1.TabStop = false;
             // 
             // FnameTextBox
             // 
-            this.FnameTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.FnameTextBox.Location = new System.Drawing.Point(22, 358);
-            this.FnameTextBox.Name = "FnameTextBox";
-            this.FnameTextBox.Size = new System.Drawing.Size(158, 27);
-            this.FnameTextBox.TabIndex = 4;
+            FnameTextBox.Font = new Font("Segoe UI", 11F);
+            FnameTextBox.Location = new Point(22, 358);
+            FnameTextBox.Name = "FnameTextBox";
+            FnameTextBox.Size = new Size(158, 27);
+            FnameTextBox.TabIndex = 4;
             // 
             // FnameLabel
             // 
-            this.FnameLabel.AutoSize = true;
-            this.FnameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FnameLabel.Location = new System.Drawing.Point(21, 340);
-            this.FnameLabel.Name = "FnameLabel";
-            this.FnameLabel.Size = new System.Drawing.Size(67, 15);
-            this.FnameLabel.TabIndex = 6;
-            this.FnameLabel.Text = "First Name";
+            FnameLabel.AutoSize = true;
+            FnameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FnameLabel.Location = new Point(21, 340);
+            FnameLabel.Name = "FnameLabel";
+            FnameLabel.Size = new Size(67, 15);
+            FnameLabel.TabIndex = 6;
+            FnameLabel.Text = "First Name";
             // 
             // MnameLabel
             // 
-            this.MnameLabel.AutoSize = true;
-            this.MnameLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.MnameLabel.Location = new System.Drawing.Point(206, 340);
-            this.MnameLabel.Name = "MnameLabel";
-            this.MnameLabel.Size = new System.Drawing.Size(81, 15);
-            this.MnameLabel.TabIndex = 8;
-            this.MnameLabel.Text = "Middle Name";
+            MnameLabel.AutoSize = true;
+            MnameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            MnameLabel.Location = new Point(206, 340);
+            MnameLabel.Name = "MnameLabel";
+            MnameLabel.Size = new Size(81, 15);
+            MnameLabel.TabIndex = 8;
+            MnameLabel.Text = "Middle Name";
             // 
             // MnameTextBox
             // 
-            this.MnameTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.MnameTextBox.Location = new System.Drawing.Point(206, 358);
-            this.MnameTextBox.Name = "MnameTextBox";
-            this.MnameTextBox.Size = new System.Drawing.Size(158, 27);
-            this.MnameTextBox.TabIndex = 7;
+            MnameTextBox.Font = new Font("Segoe UI", 11F);
+            MnameTextBox.Location = new Point(206, 358);
+            MnameTextBox.Name = "MnameTextBox";
+            MnameTextBox.Size = new Size(158, 27);
+            MnameTextBox.TabIndex = 7;
             // 
             // Lname
             // 
-            this.Lname.AutoSize = true;
-            this.Lname.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.Lname.Location = new System.Drawing.Point(389, 340);
-            this.Lname.Name = "Lname";
-            this.Lname.Size = new System.Drawing.Size(65, 15);
-            this.Lname.TabIndex = 10;
-            this.Lname.Text = "Last Name";
+            Lname.AutoSize = true;
+            Lname.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            Lname.Location = new Point(389, 340);
+            Lname.Name = "Lname";
+            Lname.Size = new Size(65, 15);
+            Lname.TabIndex = 10;
+            Lname.Text = "Last Name";
             // 
             // LnameTextBox
             // 
-            this.LnameTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.LnameTextBox.Location = new System.Drawing.Point(389, 358);
-            this.LnameTextBox.Name = "LnameTextBox";
-            this.LnameTextBox.Size = new System.Drawing.Size(158, 27);
-            this.LnameTextBox.TabIndex = 9;
+            LnameTextBox.Font = new Font("Segoe UI", 11F);
+            LnameTextBox.Location = new Point(389, 358);
+            LnameTextBox.Name = "LnameTextBox";
+            LnameTextBox.Size = new Size(158, 27);
+            LnameTextBox.TabIndex = 9;
             // 
             // RoleLabel
             // 
-            this.RoleLabel.AutoSize = true;
-            this.RoleLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.RoleLabel.Location = new System.Drawing.Point(21, 397);
-            this.RoleLabel.Name = "RoleLabel";
-            this.RoleLabel.Size = new System.Drawing.Size(35, 15);
-            this.RoleLabel.TabIndex = 11;
-            this.RoleLabel.Text = "Role:";
+            RoleLabel.AutoSize = true;
+            RoleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            RoleLabel.Location = new Point(21, 397);
+            RoleLabel.Name = "RoleLabel";
+            RoleLabel.Size = new Size(35, 15);
+            RoleLabel.TabIndex = 11;
+            RoleLabel.Text = "Role:";
             // 
             // RoleComboBox
             // 
-            this.RoleComboBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.RoleComboBox.FormattingEnabled = true;
-            this.RoleComboBox.Items.AddRange(new object[] {
-            "Student",
-            "Faculty",
-            "Admin-MIS",
-            "Registrar"});
-            this.RoleComboBox.Location = new System.Drawing.Point(22, 415);
-            this.RoleComboBox.Name = "RoleComboBox";
-            this.RoleComboBox.Size = new System.Drawing.Size(158, 28);
-            this.RoleComboBox.TabIndex = 15;
+            RoleComboBox.Font = new Font("Segoe UI", 11F);
+            RoleComboBox.FormattingEnabled = true;
+            RoleComboBox.Items.AddRange(new object[] { "Student", "Faculty", "Admin-MIS", "Registrar" });
+            RoleComboBox.Location = new Point(22, 415);
+            RoleComboBox.Name = "RoleComboBox";
+            RoleComboBox.Size = new Size(158, 28);
+            RoleComboBox.TabIndex = 15;
             // 
             // DbsortCheckedListBox
             // 
-            this.DbsortCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(229)))), ((int)(((byte)(189)))));
-            this.DbsortCheckedListBox.FormattingEnabled = true;
-            this.DbsortCheckedListBox.Location = new System.Drawing.Point(1096, 14);
-            this.DbsortCheckedListBox.Name = "DbsortCheckedListBox";
-            this.DbsortCheckedListBox.Size = new System.Drawing.Size(120, 274);
-            this.DbsortCheckedListBox.TabIndex = 17;
+            DbsortCheckedListBox.BackColor = Color.FromArgb(72, 229, 189);
+            DbsortCheckedListBox.FormattingEnabled = true;
+            DbsortCheckedListBox.Location = new Point(1096, 14);
+            DbsortCheckedListBox.Name = "DbsortCheckedListBox";
+            DbsortCheckedListBox.Size = new Size(120, 274);
+            DbsortCheckedListBox.TabIndex = 17;
             // 
             // StudentNoTextBox
             // 
-            this.StudentNoTextBox.AutoSize = true;
-            this.StudentNoTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.StudentNoTextBox.Location = new System.Drawing.Point(574, 340);
-            this.StudentNoTextBox.Name = "StudentNoTextBox";
-            this.StudentNoTextBox.Size = new System.Drawing.Size(74, 15);
-            this.StudentNoTextBox.TabIndex = 19;
-            this.StudentNoTextBox.Text = "Student No.";
+            StudentNoTextBox.AutoSize = true;
+            StudentNoTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            StudentNoTextBox.Location = new Point(574, 340);
+            StudentNoTextBox.Name = "StudentNoTextBox";
+            StudentNoTextBox.Size = new Size(74, 15);
+            StudentNoTextBox.TabIndex = 19;
+            StudentNoTextBox.Text = "Student No.";
             // 
             // TextBox1
             // 
-            this.TextBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.TextBox1.Location = new System.Drawing.Point(574, 358);
-            this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(158, 27);
-            this.TextBox1.TabIndex = 18;
+            TextBox1.Font = new Font("Segoe UI", 11F);
+            TextBox1.Location = new Point(574, 358);
+            TextBox1.Name = "TextBox1";
+            TextBox1.Size = new Size(158, 27);
+            TextBox1.TabIndex = 18;
             // 
             // EmailLabel
             // 
-            this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.EmailLabel.Location = new System.Drawing.Point(21, 464);
-            this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(39, 15);
-            this.EmailLabel.TabIndex = 20;
-            this.EmailLabel.Text = "Email:";
+            EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            EmailLabel.Location = new Point(21, 464);
+            EmailLabel.Name = "EmailLabel";
+            EmailLabel.Size = new Size(39, 15);
+            EmailLabel.TabIndex = 20;
+            EmailLabel.Text = "Email:";
             // 
             // CourseCombobox
             // 
-            this.CourseCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.CourseCombobox.FormattingEnabled = true;
-            this.CourseCombobox.Items.AddRange(new object[] {
-            "BS Computer Science",
-            "BS Information Technology",
-            "BS Information System",
-            "BS Entertainment and Multimedia Computing"});
-            this.CourseCombobox.Location = new System.Drawing.Point(388, 415);
-            this.CourseCombobox.Name = "CourseCombobox";
-            this.CourseCombobox.Size = new System.Drawing.Size(159, 28);
-            this.CourseCombobox.TabIndex = 23;
-            this.CourseCombobox.Text = "Select course";
+            CourseCombobox.Font = new Font("Segoe UI", 11F);
+            CourseCombobox.FormattingEnabled = true;
+            CourseCombobox.Items.AddRange(new object[] { "BS Computer Science", "BS Information Technology", "BS Information System", "BS Entertainment and Multimedia Computing" });
+            CourseCombobox.Location = new Point(388, 415);
+            CourseCombobox.Name = "CourseCombobox";
+            CourseCombobox.Size = new Size(159, 28);
+            CourseCombobox.TabIndex = 23;
+            CourseCombobox.Text = "Select course";
             // 
             // CourseLabel
             // 
-            this.CourseLabel.AutoSize = true;
-            this.CourseLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.CourseLabel.Location = new System.Drawing.Point(387, 397);
-            this.CourseLabel.Name = "CourseLabel";
-            this.CourseLabel.Size = new System.Drawing.Size(45, 15);
-            this.CourseLabel.TabIndex = 22;
-            this.CourseLabel.Text = "Course";
+            CourseLabel.AutoSize = true;
+            CourseLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            CourseLabel.Location = new Point(387, 397);
+            CourseLabel.Name = "CourseLabel";
+            CourseLabel.Size = new Size(45, 15);
+            CourseLabel.TabIndex = 22;
+            CourseLabel.Text = "Course";
             // 
             // SectionCombobox
             // 
-            this.SectionCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.SectionCombobox.FormattingEnabled = true;
-            this.SectionCombobox.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C"});
-            this.SectionCombobox.Location = new System.Drawing.Point(574, 415);
-            this.SectionCombobox.Name = "SectionCombobox";
-            this.SectionCombobox.Size = new System.Drawing.Size(158, 28);
-            this.SectionCombobox.TabIndex = 25;
-            this.SectionCombobox.Text = "select section";
-
+            SectionCombobox.Font = new Font("Segoe UI", 11F);
+            SectionCombobox.FormattingEnabled = true;
+            SectionCombobox.Items.AddRange(new object[] { "A", "B", "C" });
+            SectionCombobox.Location = new Point(574, 415);
+            SectionCombobox.Name = "SectionCombobox";
+            SectionCombobox.Size = new Size(158, 28);
+            SectionCombobox.TabIndex = 25;
+            SectionCombobox.Text = "select section";
             // 
             // SectionLabel
             // 
-            this.SectionLabel.AutoSize = true;
-            this.SectionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.SectionLabel.Location = new System.Drawing.Point(573, 397);
-            this.SectionLabel.Name = "SectionLabel";
-            this.SectionLabel.Size = new System.Drawing.Size(49, 15);
-            this.SectionLabel.TabIndex = 24;
-            this.SectionLabel.Text = "Section";
+            SectionLabel.AutoSize = true;
+            SectionLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            SectionLabel.Location = new Point(573, 397);
+            SectionLabel.Name = "SectionLabel";
+            SectionLabel.Size = new Size(49, 15);
+            SectionLabel.TabIndex = 24;
+            SectionLabel.Text = "Section";
             // 
             // PasswordLabel
             // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.PasswordLabel.Location = new System.Drawing.Point(22, 520);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(59, 15);
-            this.PasswordLabel.TabIndex = 12;
-            this.PasswordLabel.Text = "Password";
+            PasswordLabel.AutoSize = true;
+            PasswordLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            PasswordLabel.Location = new Point(22, 520);
+            PasswordLabel.Name = "PasswordLabel";
+            PasswordLabel.Size = new Size(59, 15);
+            PasswordLabel.TabIndex = 12;
+            PasswordLabel.Text = "Password";
             // 
             // YearLabel
             // 
-            this.YearLabel.AutoSize = true;
-            this.YearLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.YearLabel.Location = new System.Drawing.Point(206, 397);
-            this.YearLabel.Name = "YearLabel";
-            this.YearLabel.Size = new System.Drawing.Size(31, 15);
-            this.YearLabel.TabIndex = 26;
-            this.YearLabel.Text = "Year";
+            YearLabel.AutoSize = true;
+            YearLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            YearLabel.Location = new Point(206, 397);
+            YearLabel.Name = "YearLabel";
+            YearLabel.Size = new Size(31, 15);
+            YearLabel.TabIndex = 26;
+            YearLabel.Text = "Year";
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.EmailTextBox.Location = new System.Drawing.Point(22, 482);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(158, 27);
-            this.EmailTextBox.TabIndex = 28;
+            EmailTextBox.Font = new Font("Segoe UI", 11F);
+            EmailTextBox.Location = new Point(22, 482);
+            EmailTextBox.Name = "EmailTextBox";
+            EmailTextBox.Size = new Size(158, 27);
+            EmailTextBox.TabIndex = 28;
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.PasswordTextBox.Location = new System.Drawing.Point(22, 538);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(177, 27);
-            this.PasswordTextBox.TabIndex = 29;
+            PasswordTextBox.Font = new Font("Segoe UI", 11F);
+            PasswordTextBox.Location = new Point(22, 538);
+            PasswordTextBox.Name = "PasswordTextBox";
+            PasswordTextBox.Size = new Size(177, 27);
+            PasswordTextBox.TabIndex = 29;
+            PasswordTextBox.TextChanged += PasswordTextBox_TextChanged;
             // 
             // YearCombobox
             // 
-            this.YearCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.YearCombobox.FormattingEnabled = true;
-            this.YearCombobox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.YearCombobox.Location = new System.Drawing.Point(206, 415);
-            this.YearCombobox.Name = "YearCombobox";
-            this.YearCombobox.Size = new System.Drawing.Size(158, 28);
-            this.YearCombobox.TabIndex = 30;
-            this.YearCombobox.Text = "Select year";
+            YearCombobox.Font = new Font("Segoe UI", 11F);
+            YearCombobox.FormattingEnabled = true;
+            YearCombobox.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
+            YearCombobox.Location = new Point(206, 415);
+            YearCombobox.Name = "YearCombobox";
+            YearCombobox.Size = new Size(158, 28);
+            YearCombobox.TabIndex = 30;
+            YearCombobox.Text = "Select year";
             // 
             // PassEyeButton
             // 
-            this.PassEyeButton.Location = new System.Drawing.Point(205, 537);
-            this.PassEyeButton.Name = "PassEyeButton";
-            this.PassEyeButton.Size = new System.Drawing.Size(34, 28);
-            this.PassEyeButton.TabIndex = 31;
-            this.PassEyeButton.Text = "H";
-            this.PassEyeButton.UseVisualStyleBackColor = true;
-            this.PassEyeButton.Click += new System.EventHandler(this.PassEyeButton_Click);
+            PassEyeButton.Location = new Point(205, 537);
+            PassEyeButton.Name = "PassEyeButton";
+            PassEyeButton.Size = new Size(34, 28);
+            PassEyeButton.TabIndex = 31;
+            PassEyeButton.Text = "H";
+            PassEyeButton.UseVisualStyleBackColor = true;
+            PassEyeButton.Click += PassEyeButton_Click;
             // 
             // ClearButton
             // 
-            this.ClearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(23)))));
-            this.ClearButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClearButton.Location = new System.Drawing.Point(1086, 607);
-            this.ClearButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(130, 42);
-            this.ClearButton.TabIndex = 33;
-            this.ClearButton.Text = "CLEAR";
-            this.ClearButton.UseVisualStyleBackColor = false;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            ClearButton.BackColor = Color.FromArgb(34, 40, 23);
+            ClearButton.ForeColor = SystemColors.ButtonHighlight;
+            ClearButton.Location = new Point(1086, 607);
+            ClearButton.Margin = new Padding(2, 1, 2, 1);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(130, 42);
+            ClearButton.TabIndex = 33;
+            ClearButton.Text = "CLEAR";
+            ClearButton.UseVisualStyleBackColor = false;
+            ClearButton.Click += ClearButton_Click;
             // 
             // DeleteButton
             // 
-            this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.DeleteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.DeleteButton.Location = new System.Drawing.Point(1086, 563);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(130, 42);
-            this.DeleteButton.TabIndex = 34;
-            this.DeleteButton.Text = "DELETE";
-            this.DeleteButton.UseVisualStyleBackColor = false;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            DeleteButton.BackColor = Color.FromArgb(192, 0, 0);
+            DeleteButton.ForeColor = SystemColors.ButtonFace;
+            DeleteButton.Location = new Point(1086, 563);
+            DeleteButton.Margin = new Padding(2, 1, 2, 1);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(130, 42);
+            DeleteButton.TabIndex = 34;
+            DeleteButton.Text = "DELETE";
+            DeleteButton.UseVisualStyleBackColor = false;
+            DeleteButton.Click += DeleteButton_Click;
             // 
             // ContactNoTextBox
             // 
-            this.ContactNoTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.ContactNoTextBox.Location = new System.Drawing.Point(200, 482);
-            this.ContactNoTextBox.Name = "ContactNoTextBox";
-            this.ContactNoTextBox.Size = new System.Drawing.Size(158, 27);
-            this.ContactNoTextBox.TabIndex = 44;
+            ContactNoTextBox.Font = new Font("Segoe UI", 11F);
+            ContactNoTextBox.Location = new Point(200, 482);
+            ContactNoTextBox.Name = "ContactNoTextBox";
+            ContactNoTextBox.Size = new Size(158, 27);
+            ContactNoTextBox.TabIndex = 44;
             // 
             // ContactNoLabel
             // 
-            this.ContactNoLabel.AutoSize = true;
-            this.ContactNoLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.ContactNoLabel.Location = new System.Drawing.Point(199, 464);
-            this.ContactNoLabel.Name = "ContactNoLabel";
-            this.ContactNoLabel.Size = new System.Drawing.Size(69, 15);
-            this.ContactNoLabel.TabIndex = 43;
-            this.ContactNoLabel.Text = "Contact No";
+            ContactNoLabel.AutoSize = true;
+            ContactNoLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            ContactNoLabel.Location = new Point(199, 464);
+            ContactNoLabel.Name = "ContactNoLabel";
+            ContactNoLabel.Size = new Size(69, 15);
+            ContactNoLabel.TabIndex = 43;
+            ContactNoLabel.Text = "Contact No";
             // 
             // StudentStatusCombobox
             // 
-            this.StudentStatusCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.StudentStatusCombobox.FormattingEnabled = true;
-            this.StudentStatusCombobox.Items.AddRange(new object[] {
-            "Regular",
-            "Irregular"});
-            this.StudentStatusCombobox.Location = new System.Drawing.Point(758, 358);
-            this.StudentStatusCombobox.Name = "StudentStatusCombobox";
-            this.StudentStatusCombobox.Size = new System.Drawing.Size(158, 28);
-            this.StudentStatusCombobox.TabIndex = 46;
-            this.StudentStatusCombobox.Text = "Regular";
+            StudentStatusCombobox.Font = new Font("Segoe UI", 11F);
+            StudentStatusCombobox.FormattingEnabled = true;
+            StudentStatusCombobox.Items.AddRange(new object[] { "Regular", "Irregular" });
+            StudentStatusCombobox.Location = new Point(758, 358);
+            StudentStatusCombobox.Name = "StudentStatusCombobox";
+            StudentStatusCombobox.Size = new Size(158, 28);
+            StudentStatusCombobox.TabIndex = 46;
+            StudentStatusCombobox.Text = "Regular";
             // 
             // StudentStatusLabel
             // 
-            this.StudentStatusLabel.AutoSize = true;
-            this.StudentStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.StudentStatusLabel.Location = new System.Drawing.Point(757, 340);
-            this.StudentStatusLabel.Name = "StudentStatusLabel";
-            this.StudentStatusLabel.Size = new System.Drawing.Size(90, 15);
-            this.StudentStatusLabel.TabIndex = 45;
-            this.StudentStatusLabel.Text = "Student Status";
+            StudentStatusLabel.AutoSize = true;
+            StudentStatusLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            StudentStatusLabel.Location = new Point(757, 340);
+            StudentStatusLabel.Name = "StudentStatusLabel";
+            StudentStatusLabel.Size = new Size(90, 15);
+            StudentStatusLabel.TabIndex = 45;
+            StudentStatusLabel.Text = "Student Status";
             // 
             // SchoolYRCombobox
             // 
-            this.SchoolYRCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.SchoolYRCombobox.FormattingEnabled = true;
-            this.SchoolYRCombobox.Items.AddRange(new object[] {
-            "24-25",
-            "25-26"});
-            this.SchoolYRCombobox.Location = new System.Drawing.Point(758, 415);
-            this.SchoolYRCombobox.Name = "SchoolYRCombobox";
-            this.SchoolYRCombobox.Size = new System.Drawing.Size(158, 28);
-            this.SchoolYRCombobox.TabIndex = 48;
-            this.SchoolYRCombobox.Text = "Select SY";
+            SchoolYRCombobox.Font = new Font("Segoe UI", 11F);
+            SchoolYRCombobox.FormattingEnabled = true;
+            SchoolYRCombobox.Items.AddRange(new object[] { "24-25", "25-26" });
+            SchoolYRCombobox.Location = new Point(758, 415);
+            SchoolYRCombobox.Name = "SchoolYRCombobox";
+            SchoolYRCombobox.Size = new Size(158, 28);
+            SchoolYRCombobox.TabIndex = 48;
+            SchoolYRCombobox.Text = "Select SY";
             // 
             // SYLabel
             // 
-            this.SYLabel.AutoSize = true;
-            this.SYLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.SYLabel.Location = new System.Drawing.Point(757, 397);
-            this.SYLabel.Name = "SYLabel";
-            this.SYLabel.Size = new System.Drawing.Size(71, 15);
-            this.SYLabel.TabIndex = 47;
-            this.SYLabel.Text = "School Year";
+            SYLabel.AutoSize = true;
+            SYLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            SYLabel.Location = new Point(757, 397);
+            SYLabel.Name = "SYLabel";
+            SYLabel.Size = new Size(71, 15);
+            SYLabel.TabIndex = 47;
+            SYLabel.Text = "School Year";
             // 
             // SexCombobox
             // 
-            this.SexCombobox.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.SexCombobox.FormattingEnabled = true;
-            this.SexCombobox.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.SexCombobox.Location = new System.Drawing.Point(386, 481);
-            this.SexCombobox.Name = "SexCombobox";
-            this.SexCombobox.Size = new System.Drawing.Size(159, 28);
-            this.SexCombobox.TabIndex = 50;
-            this.SexCombobox.Text = "Select sex";
+            SexCombobox.Font = new Font("Segoe UI", 11F);
+            SexCombobox.FormattingEnabled = true;
+            SexCombobox.Items.AddRange(new object[] { "Male", "Female" });
+            SexCombobox.Location = new Point(386, 481);
+            SexCombobox.Name = "SexCombobox";
+            SexCombobox.Size = new Size(159, 28);
+            SexCombobox.TabIndex = 50;
+            SexCombobox.Text = "Select sex";
             // 
             // SexLabel
             // 
-            this.SexLabel.AutoSize = true;
-            this.SexLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.SexLabel.Location = new System.Drawing.Point(386, 463);
-            this.SexLabel.Name = "SexLabel";
-            this.SexLabel.Size = new System.Drawing.Size(28, 15);
-            this.SexLabel.TabIndex = 49;
-            this.SexLabel.Text = "Sex";
+            SexLabel.AutoSize = true;
+            SexLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            SexLabel.Location = new Point(386, 463);
+            SexLabel.Name = "SexLabel";
+            SexLabel.Size = new Size(28, 15);
+            SexLabel.TabIndex = 49;
+            SexLabel.Text = "Sex";
             // 
             // ComboBox4
             // 
-            this.ComboBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.ComboBox4.FormattingEnabled = true;
-            this.ComboBox4.Items.AddRange(new object[] {
-            "Active",
-            "Graduated",
-            "Returnee",
-            "Transferee",
-            "Deactivated"});
-            this.ComboBox4.Location = new System.Drawing.Point(757, 478);
-            this.ComboBox4.Name = "ComboBox4";
-            this.ComboBox4.Size = new System.Drawing.Size(159, 28);
-            this.ComboBox4.TabIndex = 52;
-            this.ComboBox4.Text = "Select Academic status";
+            ComboBox4.Font = new Font("Segoe UI", 11F);
+            ComboBox4.FormattingEnabled = true;
+            ComboBox4.Items.AddRange(new object[] { "Active", "Graduated", "Returnee", "Transferee", "Deactivated" });
+            ComboBox4.Location = new Point(757, 478);
+            ComboBox4.Name = "ComboBox4";
+            ComboBox4.Size = new Size(159, 28);
+            ComboBox4.TabIndex = 52;
+            ComboBox4.Text = "Select Academic status";
             // 
             // AcademicStatusLabel
             // 
-            this.AcademicStatusLabel.AutoSize = true;
-            this.AcademicStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.AcademicStatusLabel.Location = new System.Drawing.Point(757, 460);
-            this.AcademicStatusLabel.Name = "AcademicStatusLabel";
-            this.AcademicStatusLabel.Size = new System.Drawing.Size(99, 15);
-            this.AcademicStatusLabel.TabIndex = 51;
-            this.AcademicStatusLabel.Text = "Academic Status";
+            AcademicStatusLabel.AutoSize = true;
+            AcademicStatusLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            AcademicStatusLabel.Location = new Point(757, 460);
+            AcademicStatusLabel.Name = "AcademicStatusLabel";
+            AcademicStatusLabel.Size = new Size(99, 15);
+            AcademicStatusLabel.TabIndex = 51;
+            AcademicStatusLabel.Text = "Academic Status";
             // 
             // BdayLabel
             // 
-            this.BdayLabel.AutoSize = true;
-            this.BdayLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.BdayLabel.Location = new System.Drawing.Point(573, 465);
-            this.BdayLabel.Name = "BdayLabel";
-            this.BdayLabel.Size = new System.Drawing.Size(54, 15);
-            this.BdayLabel.TabIndex = 53;
-            this.BdayLabel.Text = "Birthday";
+            BdayLabel.AutoSize = true;
+            BdayLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BdayLabel.Location = new Point(573, 465);
+            BdayLabel.Name = "BdayLabel";
+            BdayLabel.Size = new Size(54, 15);
+            BdayLabel.TabIndex = 53;
+            BdayLabel.Text = "Birthday";
             // 
             // Bdaypicket
             // 
-            this.Bdaypicket.CalendarFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bdaypicket.Location = new System.Drawing.Point(573, 483);
-            this.Bdaypicket.Name = "Bdaypicket";
-            this.Bdaypicket.Size = new System.Drawing.Size(159, 23);
-            this.Bdaypicket.TabIndex = 54;
+            Bdaypicket.CalendarFont = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Bdaypicket.Location = new Point(573, 483);
+            Bdaypicket.Name = "Bdaypicket";
+            Bdaypicket.Size = new Size(159, 23);
+            Bdaypicket.TabIndex = 54;
             // 
             // AccountManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(157)))), ((int)(((byte)(0)))));
-            this.Controls.Add(this.Bdaypicket);
-            this.Controls.Add(this.BdayLabel);
-            this.Controls.Add(this.ComboBox4);
-            this.Controls.Add(this.AcademicStatusLabel);
-            this.Controls.Add(this.SexCombobox);
-            this.Controls.Add(this.SexLabel);
-            this.Controls.Add(this.SchoolYRCombobox);
-            this.Controls.Add(this.SYLabel);
-            this.Controls.Add(this.StudentStatusCombobox);
-            this.Controls.Add(this.StudentStatusLabel);
-            this.Controls.Add(this.ContactNoTextBox);
-            this.Controls.Add(this.ContactNoLabel);
-            this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.ClearButton);
-            this.Controls.Add(this.PassEyeButton);
-            this.Controls.Add(this.YearCombobox);
-            this.Controls.Add(this.PasswordTextBox);
-            this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.YearLabel);
-            this.Controls.Add(this.SectionCombobox);
-            this.Controls.Add(this.SectionLabel);
-            this.Controls.Add(this.CourseCombobox);
-            this.Controls.Add(this.CourseLabel);
-            this.Controls.Add(this.EmailLabel);
-            this.Controls.Add(this.StudentNoTextBox);
-            this.Controls.Add(this.TextBox1);
-            this.Controls.Add(this.DbsortCheckedListBox);
-            this.Controls.Add(this.RoleComboBox);
-            this.Controls.Add(this.PasswordLabel);
-            this.Controls.Add(this.RoleLabel);
-            this.Controls.Add(this.Lname);
-            this.Controls.Add(this.LnameTextBox);
-            this.Controls.Add(this.MnameLabel);
-            this.Controls.Add(this.MnameTextBox);
-            this.Controls.Add(this.FnameLabel);
-            this.Controls.Add(this.FnameTextBox);
-            this.Controls.Add(this.PictureBox1);
-            this.Controls.Add(this.dbSearchTextBox);
-            this.Controls.Add(this.UserDataGrid);
-            this.Controls.Add(this.SaveButton);
-            this.Name = "AccountManager";
-            this.Size = new System.Drawing.Size(1229, 704);
-            this.Load += new System.EventHandler(this.AccountManager_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 157, 0);
+            Controls.Add(Bdaypicket);
+            Controls.Add(BdayLabel);
+            Controls.Add(ComboBox4);
+            Controls.Add(AcademicStatusLabel);
+            Controls.Add(SexCombobox);
+            Controls.Add(SexLabel);
+            Controls.Add(SchoolYRCombobox);
+            Controls.Add(SYLabel);
+            Controls.Add(StudentStatusCombobox);
+            Controls.Add(StudentStatusLabel);
+            Controls.Add(ContactNoTextBox);
+            Controls.Add(ContactNoLabel);
+            Controls.Add(DeleteButton);
+            Controls.Add(ClearButton);
+            Controls.Add(PassEyeButton);
+            Controls.Add(YearCombobox);
+            Controls.Add(PasswordTextBox);
+            Controls.Add(EmailTextBox);
+            Controls.Add(YearLabel);
+            Controls.Add(SectionCombobox);
+            Controls.Add(SectionLabel);
+            Controls.Add(CourseCombobox);
+            Controls.Add(CourseLabel);
+            Controls.Add(EmailLabel);
+            Controls.Add(StudentNoTextBox);
+            Controls.Add(TextBox1);
+            Controls.Add(DbsortCheckedListBox);
+            Controls.Add(RoleComboBox);
+            Controls.Add(PasswordLabel);
+            Controls.Add(RoleLabel);
+            Controls.Add(Lname);
+            Controls.Add(LnameTextBox);
+            Controls.Add(MnameLabel);
+            Controls.Add(MnameTextBox);
+            Controls.Add(FnameLabel);
+            Controls.Add(FnameTextBox);
+            Controls.Add(PictureBox1);
+            Controls.Add(dbSearchTextBox);
+            Controls.Add(UserDataGrid);
+            Controls.Add(SaveButton);
+            Name = "AccountManager";
+            Size = new Size(1229, 704);
+            Load += AccountManager_Load;
+            ((System.ComponentModel.ISupportInitialize)UserDataGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

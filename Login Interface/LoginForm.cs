@@ -231,5 +231,10 @@ namespace CMS_Revised
             // Show login control by default
             LoginControl1.Visible = true;
         }
+
+        private void LoginControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

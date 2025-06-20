@@ -109,23 +109,13 @@ namespace CMS_Revised
                         "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 };
 
-                // Determine which form to show (LoginForm or MainForm)
-                Form formToShow;
-                if (CMS_Revised.User_Interface.SessionManager.IsLoggedIn)
-                {
-                    formToShow = new MainForm();
-                }
-                else
-                {
-                    formToShow = new LoginForm();
-                }
-
-                // Show the form and bring it to the top
-                formToShow.TopMost = true;
-                formToShow.Show();
-                formToShow.BringToFront();
-                formToShow.Activate();
-                formToShow.TopMost = false;
+                // Always run MainForm
+                var mainForm = new MainForm();
+                mainForm.TopMost = true;
+                mainForm.Show();
+                mainForm.BringToFront();
+                mainForm.Activate();
+                mainForm.TopMost = false;
 
                 Application.Run();
             }

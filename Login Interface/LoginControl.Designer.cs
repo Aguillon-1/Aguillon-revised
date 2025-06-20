@@ -87,6 +87,7 @@
             PasswordTextbox.Name = "PasswordTextbox";
             PasswordTextbox.Size = new Size(227, 35);
             PasswordTextbox.TabIndex = 11;
+            PasswordTextbox.TextChanged += PasswordTextbox_TextChanged;
             // 
             // EmailTextbox
             // 

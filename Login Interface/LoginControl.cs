@@ -28,7 +28,7 @@ namespace CMS_Revised
         private void GoogleButton_Click(object? sender, EventArgs e)
         {
             var statusDialog = StatusDialog.ShowStatusDialog();
-            _ = RunLoginProcessAsync(statusDialog); 
+            _ = RunLoginProcessAsync(statusDialog);
         }
 
         private void LoginForm_FormClosing(object? sender, FormClosingEventArgs e)
@@ -211,7 +211,7 @@ namespace CMS_Revised
                             await loginForm.StartSignupProcess(userId, userInfo.Email, userInfo.Name);
                         }));
                         statusDialog.UpdateStatus("[DEBUG] Signup process started. Closing status dialog.");
-                        
+
                         return;
                     }
                 }
@@ -312,6 +312,11 @@ namespace CMS_Revised
             isPasswordHidden = !isPasswordHidden;
             PasswordTextbox.UseSystemPasswordChar = isPasswordHidden;
             ShowHidePassButton.Text = isPasswordHidden ? "👁" : "🙈";
+        }
+
+        private void PasswordTextbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

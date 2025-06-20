@@ -43,6 +43,7 @@
             MenuButton = new Button();
             UserMainPanel = new Panel();
             home1 = new Home();
+            Accountprofilebtn = new Button();
             MenuPanel.SuspendLayout();
             panel1.SuspendLayout();
             UserMainPanel.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // MenuPanel
             // 
+            MenuPanel.Controls.Add(Accountprofilebtn);
             MenuPanel.Controls.Add(MenuLogoutButton);
             MenuPanel.Controls.Add(MenuNotesButton);
             MenuPanel.Controls.Add(MenuCalendarButton);
@@ -199,6 +201,16 @@
             home1.Size = new Size(1159, 694);
             home1.TabIndex = 0;
             // 
+            // Accountprofilebtn
+            // 
+            Accountprofilebtn.Location = new Point(3, 386);
+            Accountprofilebtn.Name = "Accountprofilebtn";
+            Accountprofilebtn.Size = new Size(222, 50);
+            Accountprofilebtn.TabIndex = 7;
+            Accountprofilebtn.Text = "Useraccountbutton";
+            Accountprofilebtn.UseVisualStyleBackColor = true;
+            Accountprofilebtn.Click += Accountprofilebtn_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -233,5 +245,6 @@
         private Button MenuLogoutButton;
         private Panel UserMainPanel;
         private Home home1;
+        private Button Accountprofilebtn;
     }
 }

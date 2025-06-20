@@ -12,14 +12,14 @@ using Microsoft.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using CMS_Revised.Connections;
-
+using CMS_Revised.User_Interface; // Add this at the top if not present
 
 namespace ClassroomManagementSystem
 {
     public partial class AccountManager : UserControl
     {
         // Database connection string - updated to use local MDF file
-        
+
 
         private DataTable userDataTable;
         private bool isNewUser = true;
@@ -1451,7 +1451,7 @@ namespace ClassroomManagementSystem
                         using (var cmd = new SqlCommand(userQuery, connection, transaction))
                         {
                             cmd.Parameters.AddWithValue("@email", EmailTextBox.Text.Trim());
-                            cmd.Parameters.AddWithValue("@password_hash", HashPassword(PasswordTextBox.Text));
+                            cmd.Parameters.AddWithValue("@password_hash", PasswordHelper.HashPassword(PasswordTextBox.Text));
                             cmd.Parameters.AddWithValue("@first_name", FnameTextBox.Text.Trim());
                             cmd.Parameters.AddWithValue("@middle_name", string.IsNullOrWhiteSpace(MnameTextBox.Text) ? (object)DBNull.Value : MnameTextBox.Text.Trim());
                             cmd.Parameters.AddWithValue("@last_name", LnameTextBox.Text.Trim());
@@ -1518,7 +1518,7 @@ namespace ClassroomManagementSystem
 
                             if (PasswordTextBox.Text != "********")
                             {
-                                cmd.Parameters.AddWithValue("@password_hash", HashPassword(PasswordTextBox.Text));
+                                cmd.Parameters.AddWithValue("@password_hash", PasswordHelper.HashPassword(PasswordTextBox.Text));
                             }
 
                             cmd.ExecuteNonQuery();
@@ -1654,6 +1654,9 @@ namespace ClassroomManagementSystem
             PassEyeButton.Text = PasswordTextBox.UseSystemPasswordChar ? "S" : "H";
         }
 
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

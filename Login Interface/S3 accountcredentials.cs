@@ -257,7 +257,9 @@ namespace CMS_Revised.Login_Interface
                 cmd.Parameters.AddWithValue("@Username", info.Username);
                 cmd.Parameters.AddWithValue("@Email", info.Email);
                 cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
-                await cmd.ExecuteNonQueryAsync();
+                cmd.Parameters.AddWithValue("@IsSignedUp", 1);
+                int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                Console.WriteLine($"Rows affected during signup: {rowsAffected}");
             }
         }
 

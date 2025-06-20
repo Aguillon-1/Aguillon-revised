@@ -91,5 +91,33 @@ namespace CMS_Revised.User_Interface
                 statusDialog.Logout();
             }
         }
+
+        private void Accountprofilebtn_Click(object sender, EventArgs e)
+        {
+            // Check if the control already exists
+            var existing = this.Controls.OfType<UserAccountControl>().FirstOrDefault();
+            UserAccountControl accountControl;
+
+            if (existing == null)
+            {
+                accountControl = new UserAccountControl();
+                accountControl.Dock = DockStyle.Fill; // Fill the form or adjust as needed
+                this.Controls.Add(accountControl);
+            }
+            else
+            {
+                accountControl = existing;
+            }
+
+            // Optionally hide other controls (like home1) if needed
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl != accountControl)
+                    ctrl.Visible = false;
+            }
+
+            accountControl.Visible = true;
+            accountControl.BringToFront();
+        }
     }
 }
