@@ -35,6 +35,7 @@ namespace ClassroomManagementSystem
         public AccountManager()
         {
             InitializeComponent();
+            SetEditMode(false); // Make all fields read-only/disabled by default
         }
 
         private void AccountManager_Load(object sender, EventArgs e)
@@ -1629,7 +1630,29 @@ namespace ClassroomManagementSystem
             }
         }
 
+        private void SetEditMode(bool enabled)
+        {
+            FnameTextBox.ReadOnly = !enabled;
+            MnameTextBox.ReadOnly = !enabled;
+            LnameTextBox.ReadOnly = !enabled;
+            EmailTextBox.ReadOnly = !enabled;
+            PasswordTextBox.ReadOnly = !enabled;
+            ContactNoTextBox.ReadOnly = !enabled;
+            TextBox1.ReadOnly = !enabled; // Student ID
 
+            Bdaypicket.Enabled = enabled;
+            RoleComboBox.Enabled = enabled;
+            CourseCombobox.Enabled = enabled;
+            YearCombobox.Enabled = enabled;
+            SectionCombobox.Enabled = enabled;
+            SchoolYRCombobox.Enabled = enabled;
+            SexCombobox.Enabled = enabled;
+            StudentStatusCombobox.Enabled = enabled;
+            ComboBox4.Enabled = enabled;
+
+            SaveButton.Enabled = enabled;
+            SaveButton.Visible = enabled;
+        }
 
         // Add placeholder methods for events that need implementation
         private void EmailTextBox_Leave(object sender, EventArgs e)
@@ -1655,6 +1678,37 @@ namespace ClassroomManagementSystem
         }
 
         private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Editbtn_Click(object sender, EventArgs e)
+        {
+            SetEditMode(true);
+            Editbtn.Enabled = false; // Optionally disable the edit button while editing
+        }
+
+        private void FnameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LnameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

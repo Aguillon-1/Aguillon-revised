@@ -29,6 +29,9 @@ namespace CMS_Revised.User_Interface
             // Optionally dock them to fill the parent
             profileAccountSettings.Dock = DockStyle.Fill;
             accountSettings.Dock = DockStyle.Fill;
+
+            // Show ProfileAccountSettings by default
+            ShowControl(profileAccountSettings);
         }
 
         private void ShowControl(UserControl control)
@@ -89,6 +92,11 @@ namespace CMS_Revised.User_Interface
         }
 
         private void contentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -42,14 +42,15 @@
             buttonPanel.Dock = DockStyle.Top;
             buttonPanel.Location = new Point(0, 0);
             buttonPanel.Name = "buttonPanel";
-            buttonPanel.Size = new Size(1366, 44);
+            buttonPanel.Size = new Size(994, 44);
             buttonPanel.TabIndex = 1;
+            buttonPanel.Paint += buttonPanel_Paint;
             // 
             // personalinfobtn
             // 
-            personalinfobtn.Location = new Point(254, 3);
+            personalinfobtn.Location = new Point(140, 6);
             personalinfobtn.Name = "personalinfobtn";
-            personalinfobtn.Size = new Size(167, 23);
+            personalinfobtn.Size = new Size(345, 35);
             personalinfobtn.TabIndex = 14;
             personalinfobtn.Text = "personalinfobtn";
             personalinfobtn.UseVisualStyleBackColor = true;
@@ -57,9 +58,9 @@
             // 
             // accountsettingsbtn
             // 
-            accountsettingsbtn.Location = new Point(722, 3);
+            accountsettingsbtn.Location = new Point(482, 6);
             accountsettingsbtn.Name = "accountsettingsbtn";
-            accountsettingsbtn.Size = new Size(205, 23);
+            accountsettingsbtn.Size = new Size(383, 35);
             accountsettingsbtn.TabIndex = 15;
             accountsettingsbtn.Text = "accountsettingsbtn";
             accountsettingsbtn.UseVisualStyleBackColor = true;
@@ -70,7 +71,7 @@
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(0, 44);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(1366, 724);
+            contentPanel.Size = new Size(994, 496);
             contentPanel.TabIndex = 0;
             contentPanel.Paint += contentPanel_Paint;
             // 
@@ -81,7 +82,7 @@
             Controls.Add(contentPanel);
             Controls.Add(buttonPanel);
             Name = "UserAccountControl";
-            Size = new Size(1366, 768);
+            Size = new Size(994, 540);
             buttonPanel.ResumeLayout(false);
             ResumeLayout(false);
         }

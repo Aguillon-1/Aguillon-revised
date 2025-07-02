@@ -68,6 +68,7 @@
             AcademicStatusLabel = new Label();
             BdayLabel = new Label();
             Bdaypicket = new DateTimePicker();
+            Editbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)UserDataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PictureBox1).BeginInit();
             SuspendLayout();
@@ -130,6 +131,7 @@
             FnameTextBox.Name = "FnameTextBox";
             FnameTextBox.Size = new Size(158, 27);
             FnameTextBox.TabIndex = 4;
+            FnameTextBox.TextChanged += FnameTextBox_TextChanged;
             // 
             // FnameLabel
             // 
@@ -158,6 +160,7 @@
             MnameTextBox.Name = "MnameTextBox";
             MnameTextBox.Size = new Size(158, 27);
             MnameTextBox.TabIndex = 7;
+            MnameTextBox.TextChanged += MnameTextBox_TextChanged;
             // 
             // Lname
             // 
@@ -176,6 +179,7 @@
             LnameTextBox.Name = "LnameTextBox";
             LnameTextBox.Size = new Size(158, 27);
             LnameTextBox.TabIndex = 9;
+            LnameTextBox.TextChanged += LnameTextBox_TextChanged;
             // 
             // RoleLabel
             // 
@@ -223,6 +227,7 @@
             TextBox1.Name = "TextBox1";
             TextBox1.Size = new Size(158, 27);
             TextBox1.TabIndex = 18;
+            TextBox1.TextChanged += TextBox1_TextChanged;
             // 
             // EmailLabel
             // 
@@ -480,11 +485,22 @@
             Bdaypicket.Size = new Size(159, 23);
             Bdaypicket.TabIndex = 54;
             // 
+            // Editbtn
+            // 
+            Editbtn.Location = new Point(1086, 520);
+            Editbtn.Name = "Editbtn";
+            Editbtn.Size = new Size(130, 39);
+            Editbtn.TabIndex = 55;
+            Editbtn.Text = "EDIT";
+            Editbtn.UseVisualStyleBackColor = true;
+            Editbtn.Click += Editbtn_Click;
+            // 
             // AccountManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 157, 0);
+            Controls.Add(Editbtn);
             Controls.Add(Bdaypicket);
             Controls.Add(BdayLabel);
             Controls.Add(ComboBox4);
@@ -577,5 +593,6 @@
         private System.Windows.Forms.Label AcademicStatusLabel;
         private System.Windows.Forms.Label BdayLabel;
         private System.Windows.Forms.DateTimePicker Bdaypicket;
+        private Button Editbtn;
     }
 }
