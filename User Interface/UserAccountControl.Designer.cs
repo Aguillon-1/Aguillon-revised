@@ -42,7 +42,7 @@
             buttonPanel.Dock = DockStyle.Top;
             buttonPanel.Location = new Point(0, 0);
             buttonPanel.Name = "buttonPanel";
-            buttonPanel.Size = new Size(994, 44);
+            buttonPanel.Size = new Size(1029, 44);
             buttonPanel.TabIndex = 1;
             buttonPanel.Paint += buttonPanel_Paint;
             // 
@@ -71,7 +71,7 @@
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(0, 44);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(994, 496);
+            contentPanel.Size = new Size(1029, 478);
             contentPanel.TabIndex = 0;
             contentPanel.Paint += contentPanel_Paint;
             // 
@@ -82,7 +82,7 @@
             Controls.Add(contentPanel);
             Controls.Add(buttonPanel);
             Name = "UserAccountControl";
-            Size = new Size(994, 540);
+            Size = new Size(1029, 522);
             buttonPanel.ResumeLayout(false);
             ResumeLayout(false);
         }

@@ -56,7 +56,7 @@
             // 
             NameLabel.AutoSize = true;
             NameLabel.BorderStyle = BorderStyle.FixedSingle;
-            NameLabel.Location = new Point(265, 40);
+            NameLabel.Location = new Point(254, 40);
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new Size(69, 17);
             NameLabel.TabIndex = 0;
@@ -66,7 +66,7 @@
             // 
             RoleLabel.AutoSize = true;
             RoleLabel.BorderStyle = BorderStyle.FixedSingle;
-            RoleLabel.Location = new Point(265, 99);
+            RoleLabel.Location = new Point(254, 99);
             RoleLabel.Name = "RoleLabel";
             RoleLabel.Size = new Size(60, 17);
             RoleLabel.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             StudentNoLabel.AutoSize = true;
             StudentNoLabel.BorderStyle = BorderStyle.FixedSingle;
-            StudentNoLabel.Location = new Point(265, 82);
+            StudentNoLabel.Location = new Point(254, 82);
             StudentNoLabel.Name = "StudentNoLabel";
             StudentNoLabel.Size = new Size(94, 17);
             StudentNoLabel.TabIndex = 2;
@@ -86,7 +86,7 @@
             // 
             FirstNameLabel.AutoSize = true;
             FirstNameLabel.BorderStyle = BorderStyle.FixedSingle;
-            FirstNameLabel.Location = new Point(202, 172);
+            FirstNameLabel.Location = new Point(191, 172);
             FirstNameLabel.Name = "FirstNameLabel";
             FirstNameLabel.Size = new Size(91, 17);
             FirstNameLabel.TabIndex = 3;
@@ -96,7 +96,7 @@
             // 
             MiddleNameLabel.AutoSize = true;
             MiddleNameLabel.BorderStyle = BorderStyle.FixedSingle;
-            MiddleNameLabel.Location = new Point(366, 172);
+            MiddleNameLabel.Location = new Point(355, 172);
             MiddleNameLabel.Name = "MiddleNameLabel";
             MiddleNameLabel.Size = new Size(106, 17);
             MiddleNameLabel.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             AddressLabel.AutoSize = true;
             AddressLabel.BorderStyle = BorderStyle.FixedSingle;
-            AddressLabel.Location = new Point(204, 344);
+            AddressLabel.Location = new Point(193, 344);
             AddressLabel.Name = "AddressLabel";
             AddressLabel.Size = new Size(79, 17);
             AddressLabel.TabIndex = 6;
@@ -116,7 +116,7 @@
             // 
             BirthdayLabel.AutoSize = true;
             BirthdayLabel.BorderStyle = BorderStyle.FixedSingle;
-            BirthdayLabel.Location = new Point(202, 247);
+            BirthdayLabel.Location = new Point(191, 247);
             BirthdayLabel.Name = "BirthdayLabel";
             BirthdayLabel.Size = new Size(81, 17);
             BirthdayLabel.TabIndex = 7;
@@ -126,7 +126,7 @@
             // 
             ContactNoLabel.AutoSize = true;
             ContactNoLabel.BorderStyle = BorderStyle.FixedSingle;
-            ContactNoLabel.Location = new Point(366, 247);
+            ContactNoLabel.Location = new Point(355, 247);
             ContactNoLabel.Name = "ContactNoLabel";
             ContactNoLabel.Size = new Size(95, 17);
             ContactNoLabel.TabIndex = 8;
@@ -136,7 +136,7 @@
             // 
             LastNameLabel.AutoSize = true;
             LastNameLabel.BorderStyle = BorderStyle.FixedSingle;
-            LastNameLabel.Location = new Point(535, 172);
+            LastNameLabel.Location = new Point(524, 172);
             LastNameLabel.Name = "LastNameLabel";
             LastNameLabel.Size = new Size(90, 17);
             LastNameLabel.TabIndex = 9;
@@ -145,7 +145,7 @@
             // ProfilePicturepanel
             // 
             ProfilePicturepanel.BackColor = SystemColors.ActiveBorder;
-            ProfilePicturepanel.Location = new Point(152, 40);
+            ProfilePicturepanel.Location = new Point(141, 40);
             ProfilePicturepanel.Name = "ProfilePicturepanel";
             ProfilePicturepanel.Size = new Size(108, 94);
             ProfilePicturepanel.TabIndex = 10;
@@ -153,7 +153,7 @@
             // 
             // editbutton
             // 
-            editbutton.Location = new Point(669, 436);
+            editbutton.Location = new Point(658, 436);
             editbutton.Name = "editbutton";
             editbutton.Size = new Size(75, 45);
             editbutton.TabIndex = 11;
@@ -168,7 +168,7 @@
             // 
             // Discardbtn
             // 
-            Discardbtn.Location = new Point(759, 436);
+            Discardbtn.Location = new Point(748, 436);
             Discardbtn.Name = "Discardbtn";
             Discardbtn.Size = new Size(75, 45);
             Discardbtn.TabIndex = 12;
@@ -178,7 +178,7 @@
             // 
             // Savebtn
             // 
-            Savebtn.Location = new Point(850, 436);
+            Savebtn.Location = new Point(839, 436);
             Savebtn.Name = "Savebtn";
             Savebtn.Size = new Size(75, 45);
             Savebtn.TabIndex = 13;
@@ -188,7 +188,7 @@
             // 
             // FirstNameTextBox
             // 
-            FirstNameTextBox.Location = new Point(202, 192);
+            FirstNameTextBox.Location = new Point(191, 192);
             FirstNameTextBox.Name = "FirstNameTextBox";
             FirstNameTextBox.ReadOnly = true;
             FirstNameTextBox.Size = new Size(100, 23);
@@ -197,7 +197,7 @@
             // 
             // MiddleNameTextBox
             // 
-            MiddleNameTextBox.Location = new Point(366, 192);
+            MiddleNameTextBox.Location = new Point(355, 192);
             MiddleNameTextBox.Name = "MiddleNameTextBox";
             MiddleNameTextBox.ReadOnly = true;
             MiddleNameTextBox.Size = new Size(100, 23);
@@ -206,7 +206,7 @@
             // 
             // LastNameTextBox
             // 
-            LastNameTextBox.Location = new Point(535, 192);
+            LastNameTextBox.Location = new Point(524, 192);
             LastNameTextBox.Name = "LastNameTextBox";
             LastNameTextBox.ReadOnly = true;
             LastNameTextBox.Size = new Size(100, 23);
@@ -215,7 +215,7 @@
             // 
             // BirthdayTextBox
             // 
-            BirthdayTextBox.Location = new Point(202, 267);
+            BirthdayTextBox.Location = new Point(191, 267);
             BirthdayTextBox.Name = "BirthdayTextBox";
             BirthdayTextBox.ReadOnly = true;
             BirthdayTextBox.Size = new Size(100, 23);
@@ -224,7 +224,7 @@
             // 
             // ContactNoTextBox
             // 
-            ContactNoTextBox.Location = new Point(366, 267);
+            ContactNoTextBox.Location = new Point(355, 267);
             ContactNoTextBox.Name = "ContactNoTextBox";
             ContactNoTextBox.ReadOnly = true;
             ContactNoTextBox.Size = new Size(100, 23);
@@ -233,7 +233,7 @@
             // 
             // AddressTextBox
             // 
-            AddressTextBox.Location = new Point(202, 364);
+            AddressTextBox.Location = new Point(191, 364);
             AddressTextBox.Name = "AddressTextBox";
             AddressTextBox.ReadOnly = true;
             AddressTextBox.Size = new Size(100, 23);
@@ -242,7 +242,7 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(265, 56);
+            NameTextBox.Location = new Point(254, 56);
             NameTextBox.Name = "NameTextBox";
             NameTextBox.ReadOnly = true;
             NameTextBox.Size = new Size(100, 23);
@@ -252,7 +252,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveBorder;
-            panel1.Location = new Point(152, 140);
+            panel1.Location = new Point(141, 140);
             panel1.Name = "panel1";
             panel1.Size = new Size(813, 360);
             panel1.TabIndex = 21;
@@ -283,7 +283,7 @@
             Controls.Add(NameLabel);
             Controls.Add(panel1);
             Name = "ProfileAccountSettings";
-            Size = new Size(1024, 576);
+            Size = new Size(1176, 552);
             Load += ProfileAccountSettings_Load;
             ResumeLayout(false);
             PerformLayout();
